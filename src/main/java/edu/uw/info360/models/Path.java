@@ -17,6 +17,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="Paths")
 public class Path {
@@ -26,7 +28,9 @@ public class Path {
 	@Size(min = 2, max = 140)
 	private String title;
 	@Column(updatable = false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
     @ManyToMany(fetch = FetchType.LAZY)
