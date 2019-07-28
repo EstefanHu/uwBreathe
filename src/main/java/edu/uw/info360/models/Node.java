@@ -41,6 +41,14 @@ public class Node {
     )
     private List<Path> paths;
 	
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "Nodes_Resources", 
+        joinColumns = @JoinColumn(name = "node_id"), 
+        inverseJoinColumns = @JoinColumn(name = "resource_id")
+    )
+    private List<Resource> resources;
+    
 	public Node() {}
 	
 	public Node(String title) {
