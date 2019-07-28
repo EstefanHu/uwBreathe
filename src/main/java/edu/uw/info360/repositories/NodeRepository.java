@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.uw.info360.models.User;
+import edu.uw.info360.models.Node;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
-	List<User> findAll();
+public interface NodeRepository extends CrudRepository<Node, Long> {
+	List<Node> findAll();
 }

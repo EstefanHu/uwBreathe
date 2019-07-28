@@ -13,44 +13,33 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="Users")
-public class User {
+@Table(name="Nodes")
+public class Node {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(min = 2, max = 15)
-	private String firstName;
-	@Size(min = 2, max = 15)
-	private String lastName;
+	@Size(min = 2, max = 30)
+	private String title;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
 	
-	public User() {}
+	public Node() {}
 	
-	public User(String fName, String lName) {
-		this.firstName = fName;
-		this.lastName = lName;
+	public Node(String title) {
+		this.title = title;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
-
-	public String getFirstName() {
-		return firstName;
+	
+	public String getTitle() {
+		return title;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	public Date getCreatedAt() {
