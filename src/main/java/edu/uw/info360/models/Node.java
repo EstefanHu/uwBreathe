@@ -18,7 +18,7 @@ public class Node {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(min = 2, max = 30)
+	@Size(min = 2, max = 140)
 	private String title;
 	@Column(updatable = false)
 	private Date createdAt;
