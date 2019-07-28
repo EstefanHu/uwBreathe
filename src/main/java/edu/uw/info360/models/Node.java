@@ -76,6 +76,14 @@ public class Node {
 		return updatedAt;
 	}
 	
+	public List<Path> getPaths() {
+		return paths;
+	}
+	
+	public List<Resource> getResources() {
+		return resources;
+	}
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -84,5 +92,15 @@ public class Node {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
+	}
+	
+	public void addResource(Resource resource) {
+		resources.add(resource);
+		resource.getNodes().add(this);
+	}
+	
+	public void removeResource(Resource resource) {
+		resources.remove(resource);
+		resource.getNodes().remove(this);
 	}
 }

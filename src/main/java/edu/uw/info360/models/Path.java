@@ -67,9 +67,13 @@ public class Path {
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
+	
 	public Date getUpdatedAt() {
 		return updatedAt;
+	}
+	
+	public List<Node> getNodes() {
+		return nodes;
 	}
 	
 	@PrePersist
@@ -80,5 +84,15 @@ public class Path {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
+	}
+	
+	public void addNode(Node node) {
+		nodes.add(node);
+		node.getPaths().add(this);
+	}
+	
+	public void removeNode(Node node) {
+		nodes.remove(node);
+		node.getPaths().remove(this);
 	}
 }

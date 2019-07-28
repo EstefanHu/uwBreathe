@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.uw.info360.models.Node;
+import edu.uw.info360.models.Node;;
 
 @Repository
 public interface NodeRepository extends CrudRepository<Node, Long> {

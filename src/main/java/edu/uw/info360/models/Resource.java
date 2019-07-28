@@ -71,6 +71,10 @@ public class Resource {
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+	
+	public List<Node> getNodes() {
+		return nodes;
+	}
 
 	@PrePersist
 	protected void onCreate() {
