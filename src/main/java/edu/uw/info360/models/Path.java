@@ -1,5 +1,6 @@
 package edu.uw.info360.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class Path {
         joinColumns = @JoinColumn(name = "path_id"), 
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
-    private List<Node> nodes;
+    private List<Node> nodes = new ArrayList<>();
 	
 	public Path() {}
 	
@@ -80,5 +81,4 @@ public class Path {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	
 }

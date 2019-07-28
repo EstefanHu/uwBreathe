@@ -1,5 +1,6 @@
 package edu.uw.info360.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class Node {
         joinColumns = @JoinColumn(name = "node_id"), 
         inverseJoinColumns = @JoinColumn(name = "path_id")
     )
-    private List<Path> paths;
+    private List<Path> paths = new ArrayList<>();
 	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -47,7 +48,7 @@ public class Node {
         joinColumns = @JoinColumn(name = "node_id"), 
         inverseJoinColumns = @JoinColumn(name = "resource_id")
     )
-    private List<Resource> resources;
+    private List<Resource> resources = new ArrayList<>();
     
 	public Node() {}
 	
