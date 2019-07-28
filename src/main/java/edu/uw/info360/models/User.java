@@ -18,9 +18,9 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(min = 2, max = 15)
+	@Size(min = 2, max = 140)
 	private String firstName;
-	@Size(min = 2, max = 15)
+	@Size(min = 2, max = 140)
 	private String lastName;
 	@Column(updatable = false)
 	private Date createdAt;
