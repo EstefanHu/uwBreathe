@@ -40,10 +40,6 @@ public class PathsNodes {
 		return pathsNodesId;
 	}
 
-	public void setId(Long id) {
-		this.pathsNodesId = id;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}

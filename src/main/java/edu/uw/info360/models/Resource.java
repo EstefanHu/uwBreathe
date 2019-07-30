@@ -52,10 +52,6 @@ public class Resource {
 		return resourceId;
 	}
 
-	public void setId(Long id) {
-		this.resourceId = id;
-	}
-
 	public String getTitle() {
 		return title;
 	}

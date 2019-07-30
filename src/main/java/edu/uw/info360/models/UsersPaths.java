@@ -40,10 +40,6 @@ public class UsersPaths {
 		return usersPathsId;
 	}
 
-	public void setId(Long id) {
-		this.usersPathsId = id;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}

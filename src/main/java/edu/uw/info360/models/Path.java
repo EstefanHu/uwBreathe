@@ -60,10 +60,6 @@ public class Path {
 		return pathId;
 	}
 
-	public void setId(Long id) {
-		this.pathId = id;
-	}
-
 	public String getTitle() {
 		return title;
 	}

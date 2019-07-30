@@ -39,11 +39,7 @@ public class NodesResources {
 	public Long getId() {
 		return nodesResourcesId;
 	}
-
-	public void setId(Long id) {
-		this.nodesResourcesId = id;
-	}
-
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
