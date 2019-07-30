@@ -40,7 +40,15 @@ public class Path {
         joinColumns = @JoinColumn(name = "path_id"), 
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
-    private List<Node> nodes = new ArrayList<>();
+	private List<Node> nodes = new ArrayList<>();
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "User_Paths",
+		joinColumns = @JoinColumn(name = "path_id"),
+		inverseJoinColumns = @JoinColumn(name = "user_id")
+	)
+	private List<User> users = new ArrayList<>();
 	
 	public Path() {}
 	
@@ -76,6 +84,10 @@ public class Path {
 		return nodes;
 	}
 	
+	public List<User> getUsers() {
+		return users;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
