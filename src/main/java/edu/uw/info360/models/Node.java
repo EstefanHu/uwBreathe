@@ -25,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Node {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long nodeId;
 	@Size(min = 2, max = 140)
 	private String title;
 	@Column(updatable = false)
@@ -57,7 +57,7 @@ public class Node {
 	}
 	
 	public Long getId() {
-		return id;
+		return nodeId;
 	}
 	
 	public String getTitle() {

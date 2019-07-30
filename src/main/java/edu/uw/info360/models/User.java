@@ -25,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long userId;
 	@Size(min = 2, max = 140)
 	private String firstName;
 	@Size(min = 2, max = 140)
@@ -52,7 +52,7 @@ public class User {
 	}
 
 	public Long getId() {
-		return id;
+		return userId;
 	}
 
 	public String getFirstName() {

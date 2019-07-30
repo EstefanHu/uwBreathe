@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class NodesResources {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long nodesResourcesId;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -37,11 +37,11 @@ public class NodesResources {
     public NodesResources() {}
 
 	public Long getId() {
-		return id;
+		return nodesResourcesId;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.nodesResourcesId = id;
 	}
 
 	public Date getCreatedAt() {

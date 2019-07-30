@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class PathsNodes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long pathsNodesId;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -37,11 +37,11 @@ public class PathsNodes {
     public PathsNodes() {}
 
 	public Long getId() {
-		return id;
+		return pathsNodesId;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.pathsNodesId = id;
 	}
 
 	public Date getCreatedAt() {

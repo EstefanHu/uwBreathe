@@ -25,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Path {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long pathId;
 	@Size(min = 2, max = 140)
 	private String title;
 	@Column(updatable = false)
@@ -57,11 +57,11 @@ public class Path {
 	}
 
 	public Long getId() {
-		return id;
+		return pathId;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.pathId = id;
 	}
 
 	public String getTitle() {
