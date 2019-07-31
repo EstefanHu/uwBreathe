@@ -31,12 +31,12 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/createpath")
-	public String createPath() {
+	public String createPath(@ModelAttribute("path") Path path) {
 		return "Admin/createPath.jsp";
 	}
 	
 	@RequestMapping(value="/ingestnewpath", method=RequestMethod.POST)
-	public String ingestNewPath(@ModelAttribute @Valid Path newPath, 
+	public String ingestNewPath(@ModelAttribute("path") @Valid Path newPath, 
 										Errors errors, Model model, BindingResult result) {
 		pathValidator.validate(newPath, result);
 		if(result.hasErrors()) {
