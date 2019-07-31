@@ -15,6 +15,10 @@ public class NodeService {
 		this.nodeRepo = nodeRepo;
 	}
 	
+	public Node createNode(Node node) {
+		return nodeRepo.save(node);
+	}
+	
 	public List<Node> allNodes() {
 		return nodeRepo.findAll();
 	}
