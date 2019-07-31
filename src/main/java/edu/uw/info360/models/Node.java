@@ -28,6 +28,8 @@ public class Node {
 	private Long nodeId;
 	@Size(min = 2, max = 140)
 	private String title;
+	private float latitude;
+	private float longitude;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -52,8 +54,10 @@ public class Node {
     
 	public Node() {}
 	
-	public Node(String title) {
+	public Node(String title, float latitude, float longitude) {
 		this.title = title;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 	
 	public Long getId() {
@@ -66,6 +70,22 @@ public class Node {
 	
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public float getLatitude() {
+		return this.latitude;
+	}
+	
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+	
+	public float getLongitude() {
+		return this.longitude;
+	}
+	
+	public float setLongitude() {
+		return this.longitude;
 	}
 	
 	public Date getCreatedAt() {
