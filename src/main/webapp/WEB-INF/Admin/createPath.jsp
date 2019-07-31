@@ -27,6 +27,7 @@
 			<form:label path="timeDuration">How Long is this?</form:label>
 			<form:input path="timeDuration"/>
 		</p>
+		<input type="submit" value="Submit"/>
 	</form:form>
 </body>
 </html>
