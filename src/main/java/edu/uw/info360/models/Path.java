@@ -29,6 +29,10 @@ public class Path {
 	private Long pathId;
 	@Size(min = 2, max = 140)
 	private String title;
+	@Size(min = 2, max = 140)
+	private String description;
+	@Size(min = 2, max = 140)
+	private String theme;
 	private int numOfNodes;
 	@Min(0)
 	private int timeDuration;
@@ -56,9 +60,11 @@ public class Path {
 	
 	public Path() {}
 	
-	public Path(String title, int timeDuration) {
+	public Path(String title, String theme, String description, int timeDuration) {
 		this.title = title;
 		this.timeDuration = timeDuration;
+		this.theme = theme;
+		this.description = description;
 		this.numOfNodes = 0;
 	}
 
@@ -74,6 +80,22 @@ public class Path {
 		this.title = title;
 	}
 
+	public String getTheme() {
+		return theme;
+	}
+	
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public int getNumOfNodes() {
 		return numOfNodes;
 	}
