@@ -11,5 +11,5 @@ import edu.uw.info360.models.Path;
 public interface PathRepository extends CrudRepository<Path, Long> {
 	List<Path> findAll();
 	
-	Path findByTitle();
+	Path findByTitle(String title);
 }

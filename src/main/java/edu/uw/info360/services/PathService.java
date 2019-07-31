@@ -18,4 +18,8 @@ public class PathService {
 	public List<Path> allPaths() {
 		return pathRepo.findAll();
 	}
+	
+	public Path findByTitle(String title) {
+		return pathRepo.findByTitle(title);
+	}
 }
