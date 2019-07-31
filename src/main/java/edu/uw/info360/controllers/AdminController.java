@@ -37,7 +37,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/ingestnewpath", method=RequestMethod.POST)
 	public String ingestNewPath(@ModelAttribute("path") @Valid Path newPath, 
-										Errors errors, Model model, BindingResult result) {
+											BindingResult result, Model model) {
 		pathValidator.validate(newPath, result);
 		if(result.hasErrors()) {
 			return "Admin/failure";
