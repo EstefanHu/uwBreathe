@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Path;
+import edu.uw.info360.models.Node;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.PathService;
 import edu.uw.info360.validators.PathValidator;
@@ -53,6 +54,13 @@ public class AdminController {
 	@RequestMapping("/createNode")
 	public String createNode() {
 		return "Admin/createNode.jsp";
+	}
+	
+	@RequestMapping(value="/ingestNewNode", method=RequestMethod.POST)
+	public String ingestNewPath(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
+//		TODO: Create Node Validation
+		nodeService.createNode(newNode);
+		return "redirect:/admin/";
 	}
 	
 //	
