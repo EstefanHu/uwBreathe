@@ -7,6 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	@RequestMapping("/")
 	public String home() {
-		return "index.jsp";
+		return "Home/index.jsp";
 	}
+	
+	@RequestMapping("/profile")
+	public String profile() {
+		return "Home/profile.jsp";
+	}
+	
+//	
+//	TODO: Update profile information
+//	
+	
 }
