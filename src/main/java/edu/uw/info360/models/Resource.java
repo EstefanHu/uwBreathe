@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,6 +29,14 @@ public class Resource {
 	private Long resourceId;
 	@Size(min = 2, max = 140)
 	private String title;
+	@Size(min = 8, max = 140)
+	private String description;
+	@Size(min = 8, max = 140)
+	private String url;
+	@Email(message = "Invalid Email")
+	private String email;
+	@Size(min = 7, max = 11)
+	private String phoneNumber;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -59,7 +68,39 @@ public class Resource {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
 
+	public void setDescription(String desc) {
+		this.description = desc;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
