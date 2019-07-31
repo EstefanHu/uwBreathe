@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,6 +32,12 @@ public class User {
 	private String firstName;
 	@Size(min = 2, max = 140)
 	private String lastName;
+	@Email(message = "Invalid Email")
+	private String email;
+    @Size(min=5, message="Password must be greater than 5 characters")
+    private String password;
+    @Transient
+    private String passwordConfirmation;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -46,9 +54,11 @@ public class User {
 	
 	public User() {}
 	
-	public User(String fName, String lName) {
+	public User(String fName, String lName, String email, String password) {
 		this.firstName = fName;
 		this.lastName = lName;
+		this.email = email;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -69,6 +79,14 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public Date getCreatedAt() {
