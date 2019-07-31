@@ -10,4 +10,6 @@ import edu.uw.info360.models.Path;
 @Repository
 public interface PathRepository extends CrudRepository<Path, Long> {
 	List<Path> findAll();
+	
+	Path findByTitle();
 }
