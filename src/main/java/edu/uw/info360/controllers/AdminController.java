@@ -3,9 +3,7 @@ package edu.uw.info360.controllers;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +27,10 @@ public class AdminController {
 		this.pathValidator = pathValidator;
 		this.nodeService = nodeService;
 	}
+	@RequestMapping("")
+	public String control() {
+		return "Admin/control.jsp";
+	}
 	
 	@RequestMapping("/createpath")
 	public String createPath(@ModelAttribute("path") Path path) {
@@ -36,14 +38,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/ingestnewpath", method=RequestMethod.POST)
-	public String ingestNewPath(@ModelAttribute("path") @Valid Path newPath, 
-											BindingResult result, Model model) {
+	public String ingestNewPath(@Valid @ModelAttribute("path") Path newPath, BindingResult result) {
 		pathValidator.validate(newPath, result);
 		if(result.hasErrors()) {
-			return "Admin/failure";
+			return "Admin/createPath.jsp";
 		}
 		pathService.createPath(newPath);
-		return "Admin/success.jsp";
+		return "redirect:/admin/";
 	}
 //	
 //	TODO: Create route to ingest new Path

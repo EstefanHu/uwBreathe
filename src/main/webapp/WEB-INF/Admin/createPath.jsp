@@ -10,7 +10,7 @@
 <body>
 	<h1>Hello Create Path View!</h1>
 	<p><form:errors path="path.*"/></p>
-	<form:form method="POST" action="/ingestnewpath" modelAttribute="path">
+	<form:form method="POST" action="ingestnewpath" modelAttribute="path">
 		<p>
 			<form:label path="title">Title:</form:label>
 			<form:input path="title"/>

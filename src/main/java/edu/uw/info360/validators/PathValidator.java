@@ -16,11 +16,7 @@ public class PathValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		Path path = (Path) target;
-		
-		if(!path.getId().equals(7)) {
-			errors.rejectValue("title", "This Path is too lucky");
-		}
+		// TODO Auto-generated method stub
 		
 	}
 
