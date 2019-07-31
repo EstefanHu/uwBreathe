@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,6 +29,9 @@ public class Path {
 	private Long pathId;
 	@Size(min = 2, max = 140)
 	private String title;
+	private int numOfNodes;
+	@Min(0)
+	private int timeDuration;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -52,8 +56,10 @@ public class Path {
 	
 	public Path() {}
 	
-	public Path(String title) {
+	public Path(String title, int timeDuration) {
 		this.title = title;
+		this.timeDuration = timeDuration;
+		this.numOfNodes = 0;
 	}
 
 	public Long getId() {
@@ -68,6 +74,22 @@ public class Path {
 		this.title = title;
 	}
 
+	public int getNumOfNodes() {
+		return numOfNodes;
+	}
+	
+	public void setNumOfNodes(int numOfNodes) {
+		this.numOfNodes = numOfNodes;
+	}
+	
+	public int getTimeDuration() {
+		return timeDuration;
+	}
+	
+	public void setTimeDuration(int timeDuration) {
+		this.timeDuration = timeDuration;
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -97,10 +119,12 @@ public class Path {
 	public void addNode(Node node) {
 		nodes.add(node);
 		node.getPaths().add(this);
+		this.numOfNodes++;
 	}
 	
 	public void removeNode(Node node) {
 		nodes.remove(node);
 		node.getPaths().remove(this);
+		this.numOfNodes--;
 	}
 }
