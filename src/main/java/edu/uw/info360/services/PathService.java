@@ -16,8 +16,8 @@ public class PathService {
 		this.pathRepo = pathRepo;
 	}
 	
-	public Path createPath(Path p) {
-		return pathRepo.save(p);
+	public Path createPath(Path path) {
+		return pathRepo.save(path);
 	}
 	
 	public List<Path> findAllPaths() {
@@ -29,9 +29,9 @@ public class PathService {
 	}
 	
 	public Path findPathById(Long id) {
-		Optional<Path> p = pathRepo.findById(id);
-		if(p.isPresent()) {
-			return p.get();
+		Optional<Path> path = pathRepo.findById(id);
+		if(path.isPresent()) {
+			return path.get();
 		} else {
 			return null;
 		}
