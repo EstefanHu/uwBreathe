@@ -1,5 +1,8 @@
 package edu.uw.info360.controllers;
 
-public class Api {
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+public class Api {
+	
 }
