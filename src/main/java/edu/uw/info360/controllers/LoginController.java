@@ -15,7 +15,7 @@ public class LoginController {
 //	TODO: Create route to login user
 //
 	
-	@RequestMapping("/loginassistant")
+	@RequestMapping("/loginAssistant")
 	public String loginAssistant() {
 		return "Login/loginAssistant.jsp";
 	}

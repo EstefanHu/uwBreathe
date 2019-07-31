@@ -32,12 +32,12 @@ public class AdminController {
 		return "Admin/control.jsp";
 	}
 	
-	@RequestMapping("/createpath")
+	@RequestMapping("/createPath")
 	public String createPath(@ModelAttribute("path") Path path) {
 		return "Admin/createPath.jsp";
 	}
 	
-	@RequestMapping(value="/ingestnewpath", method=RequestMethod.POST)
+	@RequestMapping(value="/ingestNewPath", method=RequestMethod.POST)
 	public String ingestNewPath(@Valid @ModelAttribute("path") Path newPath, BindingResult result) {
 		pathValidator.validate(newPath, result);
 		if(result.hasErrors()) {
@@ -50,7 +50,7 @@ public class AdminController {
 //	TODO: Create route to ingest new Path
 //	
 	
-	@RequestMapping("/createnode")
+	@RequestMapping("/createNode")
 	public String createNode() {
 		return "Admin/createNode.jsp";
 	}
