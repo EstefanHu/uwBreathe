@@ -19,7 +19,7 @@ public class NodeService {
 		return nodeRepo.save(node);
 	}
 	
-	public List<Node> allNodes() {
+	public List<Node> findAllNodes() {
 		return nodeRepo.findAll();
 	}
 }
