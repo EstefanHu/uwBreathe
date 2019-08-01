@@ -58,10 +58,16 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/editPath/{id}")
-	public String editPath(Model model, @PathVariable("id") Long id) {
+	public String editPath(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePath") Path updatePath) {
 		Path path = pathService.findPathById(id);
 		model.addAttribute("path", path);
 		return "Admin/editPath.jsp";
+	}
+	
+	@RequestMapping(value="/updatePath/{id}", method=RequestMethod.PUT)
+	public String updatePath(@PathVariable("id") Long id, @ModelAttribute("updatePath") Path path) {
+		pathService.updatePath(id, path);
+		return "redirect:/admin/";
 	}
 //	
 //	TODO: Create route to ingest new Path
@@ -91,8 +97,4 @@ public class AdminController {
 		nodeService.updateNode(id, node);
 		return "redirect:/admin/";
 	}
-//	
-//	TODO: Create route to ingest new Node
-//	
-	
 }

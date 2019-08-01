@@ -36,4 +36,13 @@ public class PathService {
 			return null;
 		}
 	}
+	
+	public void updatePath(Long id, Path path) {
+		Path toUpdatePath = pathRepo.findById(id).get();
+		toUpdatePath.setTitle(path.getTitle());
+		toUpdatePath.setDescription(path.getDescription());
+		toUpdatePath.setTheme(path.getTheme());
+		toUpdatePath.setTimeDuration(path.getTimeDuration());
+		pathRepo.save(toUpdatePath);
+	}
 }
