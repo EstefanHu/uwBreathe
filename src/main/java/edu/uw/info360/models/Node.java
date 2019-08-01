@@ -84,7 +84,7 @@ public class Node {
 		return this.longitude;
 	}
 	
-	public float setLongitude() {
+	public float setLongitude(float longitude) {
 		return this.longitude;
 	}
 	
