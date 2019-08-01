@@ -68,9 +68,12 @@ public class AdminController {
 		pathService.updatePath(id, path);
 		return "redirect:/admin/";
 	}
-//	
-//	TODO: Create route to ingest new Path
-//	
+	
+	@RequestMapping(value="/deletePath/{id}", method=RequestMethod.DELETE)
+	public String deletePath(@PathVariable("id") Long id) {
+		pathService.deletePath(id);
+		return "redirect:/admin/";
+	}
 	
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {

@@ -45,4 +45,8 @@ public class PathService {
 		toUpdatePath.setTimeDuration(path.getTimeDuration());
 		return pathRepo.save(toUpdatePath);
 	}
+	
+	public void deletePath(Long id) {
+		pathRepo.delete(pathRepo.findById(id).get());
+	}
 }
