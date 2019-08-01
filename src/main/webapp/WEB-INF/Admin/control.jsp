@@ -28,7 +28,7 @@
 	            <td><c:out value="${path.theme}"/></td>
 	            <td><c:out value="${path.numOfNodes}"/></td>
 	            <td><c:out value="${path.timeDuration}"/></td>
-	            <td><a href="editPath/<c:out value="${path.getId()}"/>">Edit</a></td>
+	            <td><a href="/admin/editPath/<c:out value="${path.getId()}"/>">Edit</a></td>
 	        </tr>
 	        </c:forEach>
 	    </tbody>
@@ -49,7 +49,7 @@
 	            <td><c:out value="${node.title}"/></td>
 	            <td><c:out value="${node.latitude}"/></td>
 	            <td><c:out value="${node.longitude}"/></td>
-	            <td><a href="editNode/<c:out value="${node.getId()}"/>">Edit</a></td>
+	            <td><a href="/admin/editNode/<c:out value="${node.getId()}"/>">Edit</a></td>
 	        </tr>
 	        </c:forEach>
 	    </tbody>

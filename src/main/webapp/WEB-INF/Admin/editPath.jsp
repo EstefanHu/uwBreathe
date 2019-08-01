@@ -9,5 +9,6 @@
 </head>
 <body>
 	<p><c:out value="${path.title}"/></p>
+	<a href="/admin">Back to Control</a>
 </body>
 </html>
