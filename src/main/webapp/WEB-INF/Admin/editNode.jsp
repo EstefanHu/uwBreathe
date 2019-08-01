@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>EDIT NODE</h1>
-	<form:form method="PUT" action="updateNode" modelAttribute="updateNode">
+	<form:form method="PUT" action="/admin/updateNode/${node.getId()}" modelAttribute="updateNode">
 		<p>
 			<form:label path="title">Title:</form:label>
 			<form:input path="title" value="${node.title}"/>
