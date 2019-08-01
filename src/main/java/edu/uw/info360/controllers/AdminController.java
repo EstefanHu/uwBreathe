@@ -48,6 +48,13 @@ public class AdminController {
 		return "Admin/editPath.jsp";
 	}
 	
+	@RequestMapping("/editNode/{id}")
+	public String editNode(Model model, @PathVariable("id") Long id) {
+		Node node = nodeService.findNodeById(id);
+		model.addAttribute("node", node);
+		return "Admin/editNode.jsp";
+	}
+	
 	@RequestMapping("/createPath")
 	public String createPath(@ModelAttribute("path") Path path) {
 		return "Admin/createPath.jsp";
