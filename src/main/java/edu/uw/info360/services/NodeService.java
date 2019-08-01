@@ -32,4 +32,11 @@ public class NodeService {
 			return null;
 		}
 	}
+	
+	public void updateNode(Long id, Node node) {
+		Node toUpdateNode = nodeRepo.findById(id).get();
+		toUpdateNode.setLatitude(node.getLatitude());
+		toUpdateNode.setLongitude(node.getLongitude());
+		nodeRepo.save(toUpdateNode);
+	}
 }
