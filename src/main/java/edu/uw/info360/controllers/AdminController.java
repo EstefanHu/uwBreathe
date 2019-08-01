@@ -96,4 +96,11 @@ public class AdminController {
 		nodeService.updateNode(id, node);
 		return "redirect:/admin/";
 	}
+	
+	@RequestMapping(value="/deleteNode/{id}", method=RequestMethod.DELETE)
+	public String deleteNode(@PathVariable("id") Long id) {
+		nodeService.deleteNode(id);
+//		TODO Remove many to many relationships
+		return "redirect:/admin/";
+	}
 }

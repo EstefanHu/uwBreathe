@@ -24,6 +24,9 @@
 		</p>
 		<input type="submit" value="Update"/>
 	</form:form>
+	<form:form method="DELETE" action="/admin/deleteNode/${node.getId()}" modelAttribute="updateNode">
+		<input type="submit" value="Delete"/>
+	</form:form>
 	<a href="/admin">Back to Control</a>
 </body>
 </html>
