@@ -35,6 +35,8 @@ public class AdminController {
 	@RequestMapping("")
 	public String control(Model model) {
 		List<Path> paths = pathService.findAllPaths();
+		List<Node> nodes = nodeService.findAllNodes();
+		model.addAttribute("nodes", nodes);
 		model.addAttribute("paths", paths);
 		return "Admin/control.jsp";
 	}
