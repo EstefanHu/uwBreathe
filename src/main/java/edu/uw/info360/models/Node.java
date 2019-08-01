@@ -30,6 +30,7 @@ public class Node {
 	private String title;
 	private float latitude;
 	private float longitude;
+	private int numOfResources;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -58,6 +59,7 @@ public class Node {
 		this.title = title;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.numOfResources = 0;
 	}
 	
 	public Long getId() {
@@ -86,6 +88,14 @@ public class Node {
 	
 	public void setLongitude(float longitude) {
 		this.longitude = longitude;
+	}
+	
+	public int getNumOfResources() {
+		return this.numOfResources;
+	}
+	
+	public void setNumOfResources(int numOfResources) {
+		this.numOfResources = numOfResources;
 	}
 	
 	public Date getCreatedAt() {
