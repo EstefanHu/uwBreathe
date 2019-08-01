@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Register/title>
+<title>Register</title>
 </head>
 <body>
 	<h1>Register User View</h1>

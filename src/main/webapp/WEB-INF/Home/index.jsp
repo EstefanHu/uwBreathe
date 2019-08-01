@@ -4,6 +4,6 @@
 	<title>Home Page</title>
 </head>
 <body>
-	<h1>Hello Home Page!</h1>
+	<h1><---! insert MAP here !---></h1>
 </body>
 </html>

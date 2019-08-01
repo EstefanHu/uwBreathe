@@ -1,15 +1,18 @@
 package edu.uw.info360.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.uw.info360.models.Path;
 import edu.uw.info360.models.Node;
+import edu.uw.info360.models.Path;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.PathService;
 import edu.uw.info360.validators.PathValidator;
@@ -29,7 +32,9 @@ public class AdminController {
 		this.nodeService = nodeService;
 	}
 	@RequestMapping("")
-	public String control() {
+	public String control(Model model) {
+		List<Path> paths = pathService.findAllPaths();
+		model.addAttribute("paths", paths);
 		return "Admin/control.jsp";
 	}
 	
@@ -52,7 +57,7 @@ public class AdminController {
 //	
 	
 	@RequestMapping("/createNode")
-	public String createNode() {
+	public String createNode(@ModelAttribute("node") Node node) {
 		return "Admin/createNode.jsp";
 	}
 	

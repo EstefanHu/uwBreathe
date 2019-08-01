@@ -18,5 +18,8 @@ public class HomeController {
 //	
 //	TODO: Update profile information
 //	
-	
+	@RequestMapping("/logout")
+	public String logout() {
+		return "redirect:/login/";
+	}
 }
