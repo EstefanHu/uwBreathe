@@ -84,8 +84,8 @@ public class Node {
 		return this.longitude;
 	}
 	
-	public float setLongitude(float longitude) {
-		return this.longitude;
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
 	}
 	
 	public Date getCreatedAt() {
