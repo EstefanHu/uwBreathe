@@ -41,20 +41,6 @@ public class AdminController {
 		return "Admin/control.jsp";
 	}
 	
-	@RequestMapping("/editPath/{id}")
-	public String editPath(Model model, @PathVariable("id") Long id) {
-		Path path = pathService.findPathById(id);
-		model.addAttribute("path", path);
-		return "Admin/editPath.jsp";
-	}
-	
-	@RequestMapping("/editNode/{id}")
-	public String editNode(Model model, @PathVariable("id") Long id) {
-		Node node = nodeService.findNodeById(id);
-		model.addAttribute("node", node);
-		return "Admin/editNode.jsp";
-	}
-	
 	@RequestMapping("/createPath")
 	public String createPath(@ModelAttribute("path") Path path) {
 		return "Admin/createPath.jsp";
@@ -68,6 +54,13 @@ public class AdminController {
 		}
 		pathService.createPath(newPath);
 		return "redirect:/admin/";
+	}
+	
+	@RequestMapping("/editPath/{id}")
+	public String editPath(Model model, @PathVariable("id") Long id) {
+		Path path = pathService.findPathById(id);
+		model.addAttribute("path", path);
+		return "Admin/editPath.jsp";
 	}
 //	
 //	TODO: Create route to ingest new Path
@@ -85,6 +78,12 @@ public class AdminController {
 		return "redirect:/admin/";
 	}
 	
+	@RequestMapping("/editNode/{id}")
+	public String editNode(Model model, @PathVariable("id") Long id, @ModelAttribute("updateNode") Node updateNode) {
+		Node node = nodeService.findNodeById(id);
+		model.addAttribute("node", node);
+		return "Admin/editNode.jsp";
+	}
 //	
 //	TODO: Create route to ingest new Node
 //	
