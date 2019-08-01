@@ -17,6 +17,7 @@
 	            <th>Theme</th>
 	            <th>Number of Nodes</th>
 	            <th>Time Duration</th>
+	            <th>Edit</th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -27,6 +28,7 @@
 	            <td><c:out value="${path.theme}"/></td>
 	            <td><c:out value="${path.numOfNodes}"/></td>
 	            <td><c:out value="${path.timeDuration}"/></td>
+	            <td><a href="editPath/<c:out value="${path.getId()}"/>">Edit</a></td>
 	        </tr>
 	        </c:forEach>
 	    </tbody>
