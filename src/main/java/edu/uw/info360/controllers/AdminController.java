@@ -72,6 +72,7 @@ public class AdminController {
 	@RequestMapping(value="/deletePath/{id}", method=RequestMethod.DELETE)
 	public String deletePath(@PathVariable("id") Long id) {
 		pathService.deletePath(id);
+//		TODO Remove Many to many relationships
 		return "redirect:/admin/";
 	}
 	
