@@ -54,6 +54,6 @@
 	        </c:forEach>
 	    </tbody>
 	</table>
-	<a href="createPath">New Path</a>
-	<a href="createNode">New Node</a>
+	<a href="/admin/createPath">New Path</a>
+	<a href="/admin/createNode">New Node</a>
 </body>   
