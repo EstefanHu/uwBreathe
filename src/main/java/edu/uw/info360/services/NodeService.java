@@ -1,6 +1,7 @@
 package edu.uw.info360.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,14 @@ public class NodeService {
 	
 	public List<Node> findAllNodes() {
 		return nodeRepo.findAll();
+	}
+	
+	public Node getNodeById(Long id) {
+		Optional<Node> node = nodeRepo.findById(id);
+		if(node.isPresent()) {
+			return node.get();
+		} else {
+			return null;
+		}
 	}
 }
