@@ -24,7 +24,7 @@ public class NodeService {
 		return nodeRepo.findAll();
 	}
 	
-	public Node getNodeById(Long id) {
+	public Node findNodeById(Long id) {
 		Optional<Node> node = nodeRepo.findById(id);
 		if(node.isPresent()) {
 			return node.get();
