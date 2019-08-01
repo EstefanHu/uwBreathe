@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -83,6 +84,12 @@ public class AdminController {
 		Node node = nodeService.findNodeById(id);
 		model.addAttribute("node", node);
 		return "Admin/editNode.jsp";
+	}
+	
+	@RequestMapping(value="/updateNode/{id}", method=RequestMethod.PUT)
+	public String updateNode(@PathVariable("id") Long id, @ModelAttribute("updateNode") Node node) {
+		nodeService.updateNode(id, node);
+		return "redirect:/admin/";
 	}
 //	
 //	TODO: Create route to ingest new Node
