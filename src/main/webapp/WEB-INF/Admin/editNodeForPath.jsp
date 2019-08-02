@@ -55,10 +55,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<h1>Test</h1>
-	<c:forEach items="${PathItems}" var="item">
-		<p><c:out value="${item.title}"/></p>
-	</c:forEach>
 	<a href="/admin/">Back to Control</a>
 </body>
 </html>

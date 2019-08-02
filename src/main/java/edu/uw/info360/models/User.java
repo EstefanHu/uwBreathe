@@ -111,14 +111,4 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-	public void addPath(Path path) {
-		paths.add(path);
-		path.getUsers().add(this);
-	}
-
-	public void removePath(Path path) {
-		paths.remove(path);
-		path.getUsers().remove(this);
-	}
 }

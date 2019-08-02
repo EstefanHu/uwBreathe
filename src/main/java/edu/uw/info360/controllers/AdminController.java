@@ -94,11 +94,6 @@ public class AdminController {
 		session.setAttribute("path", id);
 		List<Node> nodes = nodeService.findAllNodes();
 		List<PathsNodes> pns = pnService.findByPathsId(id);
-		
-//		TEST CODE
-		List<Node> pNodes = pathService.findPathById(id).getNodes();
-		model.addAttribute("PathItems", pNodes);
-		
 		model.addAttribute("pathsNodes", pns);
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("id", id);
@@ -110,13 +105,10 @@ public class AdminController {
 		Long pathId = (Long) session.getAttribute("path");
 		Node node = nodeService.findNodeById(id);
 		Path path = pathService.findPathById(pathId);
-		
-		path.getNodes().add(node);
-		
-//		PathsNodes pn = new PathsNodes(node.getTitle());
-//		pn.setNode(node);
-//		pn.setPath(path);
-//		pnService.createPN(pn);
+		PathsNodes pn = new PathsNodes(node.getTitle());
+		pn.setNode(node);
+		pn.setPath(path);
+		pnService.createPN(pn);
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	
@@ -124,7 +116,6 @@ public class AdminController {
 	public String removePathsNodes(@PathVariable("id") Long id, HttpSession session) {
 		Long pathId = (Long) session.getAttribute("path");
 		pnService.deletePathsNodes(id);
-//		TODO Remove Nodes from Paths
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	

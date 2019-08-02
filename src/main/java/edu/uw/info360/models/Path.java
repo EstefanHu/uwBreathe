@@ -33,7 +33,6 @@ public class Path {
 	private String description;
 	@Size(min = 2, max = 140)
 	private String theme;
-	private int numOfNodes;
 	@Min(0)
 	private int timeDuration;
 	@Column(updatable = false)
@@ -65,7 +64,6 @@ public class Path {
 		this.timeDuration = timeDuration;
 		this.theme = theme;
 		this.description = description;
-		this.numOfNodes = 0;
 		this.nodes = new ArrayList<>();
 		this.users = new ArrayList<>();
 	}
@@ -96,14 +94,6 @@ public class Path {
 	
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	
-	public int getNumOfNodes() {
-		return numOfNodes;
-	}
-	
-	public void setNumOfNodes(int numOfNodes) {
-		this.numOfNodes = numOfNodes;
 	}
 	
 	public int getTimeDuration() {
@@ -138,17 +128,5 @@ public class Path {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
-	}
-	
-	public void addNode(Node node) {
-		nodes.add(node);
-		node.getPaths().add(this);
-		this.numOfNodes++;
-	}
-	
-	public void removeNode(Node node) {
-		nodes.remove(node);
-		node.getPaths().remove(this);
-		this.numOfNodes--;
 	}
 }
