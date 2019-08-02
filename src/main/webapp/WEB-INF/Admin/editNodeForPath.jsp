@@ -25,7 +25,7 @@
 				<td><c:out value="${node.title}"/></td>
 				<td>
 					<form:form method="POST" action="/admin/addToPath/${node.getId()}" modelAttribute="node">
-						<input type="submit" value="Add To Path">
+						<input type="submit" value="Add To Path"/>
 					</form:form>
 				</td>
 			</tr>
@@ -46,7 +46,11 @@
 				<tr>
 					<td><c:out value="${PathsNodes.getId()}"/></td>
 					<td><c:out value="${PathsNodes.title}"/></td>
-					<td><a href="/admin/removePathsNodes/<c:out value="${PathsNodes.getId()}"/>">Remove</a></td>
+					<td>
+						<form:form method="POST" action="/admin/removePathsNodes/<c:out value="${PathsNodes.getId()}"/>" modelAttribute="PathsNodes">
+							<input type="submit" value="Remove from Path"/>
+						</form:form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
