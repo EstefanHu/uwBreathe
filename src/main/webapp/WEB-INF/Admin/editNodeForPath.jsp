@@ -13,7 +13,6 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Node Id</th>
 				<th>Node Title</th>
 				<th>Action</th>
 			</tr>
@@ -21,7 +20,6 @@
 		<tbody>
 			<c:forEach items="${nodes}" var="node">
 			<tr>
-				<td><c:out value="${node.getId()}"/></td>
 				<td><c:out value="${node.title}"/></td>
 				<td>
 					<form:form method="POST" action="/admin/addToPath/${node.getId()}" modelAttribute="node">
@@ -36,7 +34,6 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Position</th>
 				<th>Node Title</th>
 				<th>Actions</th>
 			</tr>
@@ -44,7 +41,6 @@
 		<tbody>
 			<c:forEach items="${pathsNodes}" var="PathsNodes">
 				<tr>
-					<td><c:out value="${PathsNodes.getId()}"/></td>
 					<td><c:out value="${PathsNodes.title}"/></td>
 					<td>
 						<form:form method="DELETE" action="/admin/removePathsNodes/${PathsNodes.getId()}" modelAttribute="PathsNodes">
