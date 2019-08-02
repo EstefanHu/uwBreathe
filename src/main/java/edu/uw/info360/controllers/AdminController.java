@@ -116,7 +116,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/removePathsNodes/{id}", method=RequestMethod.DELETE)
-	public String deletePathsNodes(@PathVariable("id") Long id, HttpSession session) {
+	public String removePathsNodes(@PathVariable("id") Long id, HttpSession session) {
 		Long pathId = (Long) session.getAttribute("path");
 		pnService.deletePathsNodes(id);
 //		TODO Remove Nodes from Paths
