@@ -105,7 +105,7 @@ public class AdminController {
 		Long pathId = (Long) session.getAttribute("path");
 		Node node = nodeService.findNodeById(id);
 		Path path = pathService.findPathById(pathId);
-		PathsNodes pn = new PathsNodes(node.getTitle(), pathId);
+		PathsNodes pn = new PathsNodes(node.getTitle());
 		pn.setNode(node);
 		pn.setPath(path);
 		pnService.createPN(pn);

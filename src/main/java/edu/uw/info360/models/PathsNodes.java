@@ -21,7 +21,6 @@ public class PathsNodes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long pathsNodesId;
 	private String title;
-	private Long pid;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -38,9 +37,8 @@ public class PathsNodes {
     
     public PathsNodes() {}
     
-    public PathsNodes(String title, Long pid) {
+    public PathsNodes(String title) {
     	this.title = title;
-    	this.pid = pid;
     	this.createdAt = new Date();
     }
 
@@ -54,14 +52,6 @@ public class PathsNodes {
 	
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	
-	public Long getPid() {
-		return pid;
-	}
-	
-	public void setPid(Long pid) {
-		this.pid = pid;
 	}
 	
 	public Date getCreatedAt() {

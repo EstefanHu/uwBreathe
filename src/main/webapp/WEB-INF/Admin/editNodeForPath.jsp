@@ -42,7 +42,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${PathsNodes}" var="PathsNodes">
+			<c:forEach items="${pathsNodes}" var="PathsNodes">
 				<tr>
 					<td><c:out value="${PathsNodes.getId()}"/></td>
 					<td><c:out value="${PathsNodes.title}"/></td>
