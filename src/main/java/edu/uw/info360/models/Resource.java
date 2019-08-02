@@ -53,8 +53,12 @@ public class Resource {
 	
 	public Resource() {}
 
-	public Resource(String title) {
+	public Resource(String title, String description, String url, String email, String phoneNumber) {
 		this.title = title;
+		this.description = description;
+		this.url = url;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public Long getId() {

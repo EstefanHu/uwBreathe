@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Create Resource</h1>
-	<form:form method="POST" action="ingestResource" modelAttribute="Resource">
+	<form:form method="POST" action="ingestNewResource" modelAttribute="resource">
 		<p>
 			<form:label path="title">Title:</form:label>
 			<form:input path="title"/>
@@ -24,13 +24,13 @@
 		</p>
 		<p>
 			<form:label path="email">Email Address:</form:label>
-			<form:input path="Email"/>
+			<form:input path="email"/>
 		</p>
 		<p>
 			<form:label path="phoneNumber">Phone Number:</form:label>
 			<form:input path="phoneNumber"/>
 		</p>
-		<input type="submit" value="Update"/>
+		<input type="submit" value="Submit"/>
 	</form:form>
 	<a href="/admin">Back to Control</a>
 </body>

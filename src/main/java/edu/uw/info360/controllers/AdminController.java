@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Node;
 import edu.uw.info360.models.Path;
+import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.PathService;
+import edu.uw.info360.services.ResourceService;
 import edu.uw.info360.validators.PathValidator;
 
 @Controller
@@ -23,19 +25,24 @@ import edu.uw.info360.validators.PathValidator;
 public class AdminController {
 	private final PathService pathService;
 	private final NodeService nodeService;
+	private final ResourceService resourceService;
 	
 	private final PathValidator pathValidator;
 	
 	public AdminController(PathService pathService, PathValidator pathValidator, 
-														NodeService nodeService) {
+														NodeService nodeService,
+														ResourceService resourceService) {
 		this.pathService = pathService;
 		this.pathValidator = pathValidator;
 		this.nodeService = nodeService;
+		this.resourceService = resourceService;
 	}
 	@RequestMapping("")
 	public String control(Model model) {
 		List<Path> paths = pathService.findAllPaths();
 		List<Node> nodes = nodeService.findAllNodes();
+		List<Resource> resources = resourceService.findAllResources();
+		model.addAttribute("resources", resources);
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("paths", paths);
 		return "Admin/control.jsp";
@@ -104,6 +111,38 @@ public class AdminController {
 	@RequestMapping(value="/deleteNode/{id}", method=RequestMethod.DELETE)
 	public String deleteNode(@PathVariable("id") Long id) {
 		nodeService.deleteNode(id);
+//		TODO Remove many to many relationships
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping("/createResource")
+	public String createResource(@ModelAttribute("resource") Resource resource) {
+		return "Admin/createResource.jsp";
+	}
+	
+	@RequestMapping(value="/ingestNewResource", method=RequestMethod.POST)
+	public String ingestNewResource(@Valid @ModelAttribute("resource") Resource newResource, BindingResult result) {
+//		TODO Create Resource Validation
+		resourceService.createResource(newResource);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping("/editResource/{id}")
+	public String editResource(Model model, @PathVariable("id") Long id, @ModelAttribute("updateResource") Resource updateResource) {
+		Resource resource = resourceService.findResourceById(id);
+		model.addAttribute("resource", resource);
+		return "Admin/editResource.jsp";
+	}
+	
+	@RequestMapping(value="/updateResource/{id}", method=RequestMethod.PUT)
+	public String updateResource(@PathVariable("id") Long id, @ModelAttribute("updateResource") Resource resource) {
+		resourceService.updateResource(id, resource);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/deleteResource/{id}", method=RequestMethod.DELETE)
+	public String deleteResource(@PathVariable("id") Long id) {
+		resourceService.deleteResource(id);
 //		TODO Remove many to many relationships
 		return "redirect:/admin/";
 	}
