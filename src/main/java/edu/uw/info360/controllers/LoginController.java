@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.uw.info360.models.User;
 import edu.uw.info360.services.UserService;
@@ -29,9 +30,15 @@ public class LoginController {
 		return "Login/login.jsp";
 	}
 	
-//	
-//	TODO: Create route to login user
-//
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password) {
+		boolean isAuthenticated = userService.authenticateUser(email, password);
+		if(isAuthenticated) {
+			return "redirect:/home";
+		} else {
+			return "Login/login.jsp";
+		}
+	}
 	
 	@RequestMapping("/loginAssistant")
 	public String loginAssistant() {
