@@ -90,7 +90,6 @@ public class AdminController {
 	@RequestMapping(value="/deletePath/{id}", method=RequestMethod.DELETE)
 	public String deletePath(@PathVariable("id") Long id) {
 		pathService.deletePath(id);
-//		TODO Remove Many to many relationships
 		return "redirect:/admin/";
 	}
 	
@@ -159,7 +158,6 @@ public class AdminController {
 	@RequestMapping(value="/deleteNode/{id}", method=RequestMethod.DELETE)
 	public String deleteNode(@PathVariable("id") Long id) {
 		nodeService.deleteNode(id);
-//		TODO Remove many to many relationships
 		return "redirect:/admin/";
 	}
 	
@@ -228,7 +226,6 @@ public class AdminController {
 	@RequestMapping(value="/deleteResource/{id}", method=RequestMethod.DELETE)
 	public String deleteResource(@PathVariable("id") Long id) {
 		resourceService.deleteResource(id);
-//		TODO Remove many to many relationships
 		return "redirect:/admin/";
 	}
 }
