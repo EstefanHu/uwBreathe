@@ -2,6 +2,7 @@ package edu.uw.info360.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Node;
 import edu.uw.info360.models.Path;
+import edu.uw.info360.models.PathsNodes;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.PathService;
+import edu.uw.info360.services.PathsNodesService;
 import edu.uw.info360.services.ResourceService;
 import edu.uw.info360.validators.PathValidator;
 
@@ -26,16 +29,19 @@ public class AdminController {
 	private final PathService pathService;
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
+	private final PathsNodesService pnService;
 	
 	private final PathValidator pathValidator;
 	
 	public AdminController(PathService pathService, PathValidator pathValidator, 
 														NodeService nodeService,
-														ResourceService resourceService) {
+														ResourceService resourceService,
+														PathsNodesService pnService) {
 		this.pathService = pathService;
 		this.pathValidator = pathValidator;
 		this.nodeService = nodeService;
 		this.resourceService = resourceService;
+		this.pnService = pnService;
 	}
 	@RequestMapping("")
 	public String control(Model model) {
@@ -81,6 +87,29 @@ public class AdminController {
 		pathService.deletePath(id);
 //		TODO Remove Many to many relationships
 		return "redirect:/admin/";
+	}
+	
+	@RequestMapping("/editNodeForPath/{id}")
+	public String editNodeForPath(Model model, @PathVariable("id") Long id, HttpSession session) {
+		session.setAttribute("path", id);
+		List<Node> nodes = nodeService.findAllNodes();
+		List<PathsNodes> pns = pnService.findByPathsId(id);
+		model.addAttribute("pathsNodes", pns);
+		model.addAttribute("nodes", nodes);
+		model.addAttribute("id", id);
+		return "Admin/editNodeForPath.jsp";
+	}
+	
+	@RequestMapping(value="/addToPath/{id}", method=RequestMethod.POST)
+	public String addToPath(@PathVariable("id") Long id, HttpSession session) {
+		Long pathId = (Long) session.getAttribute("path");
+		Node node = nodeService.findNodeById(id);
+		Path path = pathService.findPathById(pathId);
+		PathsNodes pn = new PathsNodes(node.getTitle(), pathId);
+		pn.setNode(node);
+		pn.setPath(path);
+		pnService.createPN(pn);
+		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	
 	@RequestMapping("/createNode")

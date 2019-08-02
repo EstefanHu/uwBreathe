@@ -26,7 +26,7 @@
 	            <td><c:out value="${path.title}"/></td>
 	            <td><c:out value="${path.description}"/></td>
 	            <td><c:out value="${path.theme}"/></td>
-	            <td><c:out value="${path.numOfNodes}"/></td>
+	            <td><c:out value="${path.numOfNodes}"/> <a href="/admin/editNodeForPath/<c:out value="${path.getId()}"/>">edit</a></td>
 	            <td><c:out value="${path.timeDuration}"/></td>
 	            <td><a href="/admin/editPath/<c:out value="${path.getId()}"/>">Edit</a></td>
 	        </tr>
@@ -50,7 +50,7 @@
 	            <td><c:out value="${node.title}"/></td>
 	            <td><c:out value="${node.latitude}"/></td>
 	            <td><c:out value="${node.longitude}"/></td>
-	            <td><c:out value="${node.numOfResources}"/></td>
+	            <td><c:out value="${node.numOfResources}"/> <a href="/admin/editResourceForNode/<c:out value="${node.getId()}"/>">edit</a></td>
 	            <td><a href="/admin/editNode/<c:out value="${node.getId()}"/>">Edit</a></td>
 	        </tr>
 	        </c:forEach>

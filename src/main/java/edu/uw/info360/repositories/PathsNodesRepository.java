@@ -10,4 +10,5 @@ import edu.uw.info360.models.PathsNodes;
 @Repository
 public interface PathsNodesRepository extends CrudRepository<PathsNodes, Long> {
 	List<PathsNodes> findAll();
+	List<PathsNodes> findByPid(Long pathId);
 }
