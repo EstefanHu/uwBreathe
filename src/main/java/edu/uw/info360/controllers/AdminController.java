@@ -112,6 +112,13 @@ public class AdminController {
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	
+	@RequestMapping("/updatePathsNodes/{id}")
+	public String updatePathsNodes(@PathVariable("id") Long id, HttpSession session) {
+		pnService.updatePathsNodes(id);
+		Long pathId = (Long) session.getAttribute("path");
+		return "redirect:/admin/editNodeForPath/" + pathId;
+	}
+	
 	@RequestMapping(value="/removePathsNodes/{id}", method=RequestMethod.DELETE)
 	public String removePathsNodes(@PathVariable("id") Long id, HttpSession session) {
 		Long pathId = (Long) session.getAttribute("path");

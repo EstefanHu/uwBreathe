@@ -1,5 +1,6 @@
 package edu.uw.info360.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,13 @@ public class PathsNodesService {
 	
 	public List<PathsNodes> findAllPathsNodes() {
 		return pnRepo.findAll();
+	}
+	
+	public PathsNodes updatePathsNodes(Long id) {
+		PathsNodes pn = pnRepo.findById(id).get();
+		pn.update(new Date());
+		pnRepo.save(pn);
+		return pn;
 	}
 	
 	public List<PathsNodes> findByPathsId(Long pathId) {

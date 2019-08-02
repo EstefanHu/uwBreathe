@@ -38,7 +38,7 @@
 			<tr>
 				<th>Position</th>
 				<th>Node Title</th>
-				<th>Action</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -50,6 +50,7 @@
 						<form:form method="DELETE" action="/admin/removePathsNodes/${PathsNodes.getId()}" modelAttribute="PathsNodes">
 							<input type="submit" value="Remove from Path"/>
 						</form:form>
+						<a href="/admin/updatePathsNodes/${PathsNodes.getId()}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>
