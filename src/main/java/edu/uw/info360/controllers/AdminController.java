@@ -105,10 +105,21 @@ public class AdminController {
 		Long pathId = (Long) session.getAttribute("path");
 		Node node = nodeService.findNodeById(id);
 		Path path = pathService.findPathById(pathId);
+		
+//		path.addNode(node);
+		
 		PathsNodes pn = new PathsNodes(node.getTitle());
 		pn.setNode(node);
 		pn.setPath(path);
 		pnService.createPN(pn);
+		return "redirect:/admin/editNodeForPath/" + pathId;
+	}
+	
+	@RequestMapping(value="/removePathsNodes/{id}", method=RequestMethod.DELETE)
+	public String deletePathsNodes(@PathVariable("id") Long id, HttpSession session) {
+		Long pathId = (Long) session.getAttribute("path");
+		pnService.deletePathsNodes(id);
+//		TODO Remove Nodes from Paths
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	

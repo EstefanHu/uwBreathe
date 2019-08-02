@@ -29,4 +29,8 @@ public class PathsNodesService {
 	public List<PathsNodes> findByPathsId(Long pathId) {
 		return pnRepo.findByPath(pathRepo.findById(pathId).get());
 	}
+	
+	public void deletePathsNodes(Long id) {
+		pnRepo.delete(pnRepo.findById(id).get());
+	}
 }

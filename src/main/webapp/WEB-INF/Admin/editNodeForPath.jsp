@@ -47,7 +47,7 @@
 					<td><c:out value="${PathsNodes.getId()}"/></td>
 					<td><c:out value="${PathsNodes.title}"/></td>
 					<td>
-						<form:form method="POST" action="/admin/removePathsNodes/<c:out value="${PathsNodes.getId()}"/>" modelAttribute="PathsNodes">
+						<form:form method="DELETE" action="/admin/removePathsNodes/${PathsNodes.getId()}" modelAttribute="PathsNodes">
 							<input type="submit" value="Remove from Path"/>
 						</form:form>
 					</td>
