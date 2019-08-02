@@ -132,7 +132,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/ingestNewNode", method=RequestMethod.POST)
-	public String ingestNewPath(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
+	public String ingestNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
 //		TODO: Create Node Validation
 		nodeService.createNode(newNode);
 		return "redirect:/admin/";
