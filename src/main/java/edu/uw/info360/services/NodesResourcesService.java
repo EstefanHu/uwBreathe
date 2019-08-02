@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import edu.uw.info360.models.NodesResources;
-import edu.uw.info360.models.PathsNodes;
 import edu.uw.info360.repositories.NodeRepository;
 import edu.uw.info360.repositories.NodesResourcesRepository;
 
