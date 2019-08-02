@@ -12,5 +12,5 @@ import edu.uw.info360.models.PathsNodes;
 public interface PathsNodesRepository extends CrudRepository<PathsNodes, Long> {
 	List<PathsNodes> findAll();
 	
-	List<PathsNodes> findByPath(Path path);
+	List<PathsNodes> findByPathOrderByUpdatedAtAsc(Path path);
 }

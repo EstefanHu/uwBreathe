@@ -40,6 +40,7 @@ public class PathsNodes {
     public PathsNodes(String title) {
     	this.title = title;
     	this.createdAt = new Date();
+    	this.updatedAt = new Date();
     }
 
 	public Long getId() {
