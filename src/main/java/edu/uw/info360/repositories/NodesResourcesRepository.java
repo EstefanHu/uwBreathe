@@ -12,5 +12,5 @@ import edu.uw.info360.models.NodesResources;
 public interface NodesResourcesRepository extends CrudRepository<NodesResources, Long> {
 	List<NodesResources> findAll();
 	
-	List<NodesResources> findByNodeBuUpdatedAtAsc(Node node);
+	List<NodesResources> findByNodeOrderByUpdatedAtAsc(Node node);
 }

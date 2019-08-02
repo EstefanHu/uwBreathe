@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Node;
+import edu.uw.info360.models.NodesResources;
 import edu.uw.info360.models.Path;
 import edu.uw.info360.models.PathsNodes;
 import edu.uw.info360.models.Resource;
@@ -30,18 +31,21 @@ public class AdminController {
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
 	private final PathsNodesService pnService;
+	private final NodesResourcesService rnService;
 	
 	private final PathValidator pathValidator;
 	
 	public AdminController(PathService pathService, PathValidator pathValidator, 
 														NodeService nodeService,
 														ResourceService resourceService,
-														PathsNodesService pnService) {
+														PathsNodesService pnService,
+														NodesResourcesService rnService) {
 		this.pathService = pathService;
 		this.pathValidator = pathValidator;
 		this.nodeService = nodeService;
 		this.resourceService = resourceService;
 		this.pnService = pnService;
+		this.nrService = nrService;
 	}
 	@RequestMapping("")
 	public String control(Model model) {
@@ -156,6 +160,17 @@ public class AdminController {
 		nodeService.deleteNode(id);
 //		TODO Remove many to many relationships
 		return "redirect:/admin/";
+	}
+	
+	@RequestMapping("editResourceForNode/{id}")
+	public String editResourceForNode(Model model, @PathVariable("id") Long id, HttpSession session) {
+		session.setAttribute("node", id);
+		List<Resource> resources = resourceService.findAllResources();
+		List<NodesResources> nrs = nrService.findByNodesId(id);
+		model.addAttribute("nodesResources", nrs);
+		model.addAttribute("resources", resources);
+		model.addAttribute("id", id);
+		return "Admin/editNodeForPath.jsp";
 	}
 	
 	@RequestMapping("/createResource")
