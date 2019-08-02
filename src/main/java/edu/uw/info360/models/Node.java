@@ -43,7 +43,7 @@ public class Node {
         joinColumns = @JoinColumn(name = "node_id"), 
         inverseJoinColumns = @JoinColumn(name = "path_id")
     )
-    private List<Path> paths = new ArrayList<>();
+    private List<Path> paths;
 	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -51,7 +51,7 @@ public class Node {
         joinColumns = @JoinColumn(name = "node_id"), 
         inverseJoinColumns = @JoinColumn(name = "resource_id")
     )
-    private List<Resource> resources = new ArrayList<>();
+    private List<Resource> resources;
     
 	public Node() {}
 	
@@ -60,6 +60,8 @@ public class Node {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.numOfResources = 0;
+		this.paths = new ArrayList<>();
+		this.resources = new ArrayList<>();
 	}
 	
 	public Long getId() {

@@ -49,7 +49,7 @@ public class Resource {
         joinColumns = @JoinColumn(name = "resource_id"), 
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
-    private List<Node> nodes = new ArrayList<>();
+    private List<Node> nodes;
 	
 	public Resource() {}
 
@@ -59,6 +59,7 @@ public class Resource {
 		this.url = url;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.nodes = new ArrayList<>();
 	}
 
 	public Long getId() {

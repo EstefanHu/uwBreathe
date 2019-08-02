@@ -48,7 +48,7 @@ public class Path {
         joinColumns = @JoinColumn(name = "path_id"), 
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
-	private List<Node> nodes = new ArrayList<>();
+	private List<Node> nodes;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
@@ -56,7 +56,7 @@ public class Path {
 		joinColumns = @JoinColumn(name = "path_id"),
 		inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
-	private List<User> users = new ArrayList<>();
+	private List<User> users;
 	
 	public Path() {}
 	
@@ -66,6 +66,8 @@ public class Path {
 		this.theme = theme;
 		this.description = description;
 		this.numOfNodes = 0;
+		this.nodes = new ArrayList<>();
+		this.users = new ArrayList<>();
 	}
 
 	public Long getId() {

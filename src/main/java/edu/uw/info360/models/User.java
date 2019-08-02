@@ -50,7 +50,7 @@ public class User {
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "path_id")
 	)
-	private List<Path> paths = new ArrayList<>();
+	private List<Path> paths;
 	
 	public User() {}
 	
@@ -59,6 +59,7 @@ public class User {
 		this.lastName = lName;
 		this.email = email;
 		this.password = password;
+		this.paths = new ArrayList<>();
 	}
 
 	public Long getId() {

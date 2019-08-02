@@ -94,6 +94,11 @@ public class AdminController {
 		session.setAttribute("path", id);
 		List<Node> nodes = nodeService.findAllNodes();
 		List<PathsNodes> pns = pnService.findByPathsId(id);
+		
+//		TEST CODE
+		List<Node> pNodes = pathService.findPathById(id).getNodes();
+		model.addAttribute("PathItems", pNodes);
+		
 		model.addAttribute("pathsNodes", pns);
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("id", id);
@@ -106,12 +111,12 @@ public class AdminController {
 		Node node = nodeService.findNodeById(id);
 		Path path = pathService.findPathById(pathId);
 		
-//		path.addNode(node);
+		path.getNodes().add(node);
 		
-		PathsNodes pn = new PathsNodes(node.getTitle());
-		pn.setNode(node);
-		pn.setPath(path);
-		pnService.createPN(pn);
+//		PathsNodes pn = new PathsNodes(node.getTitle());
+//		pn.setNode(node);
+//		pn.setPath(path);
+//		pnService.createPN(pn);
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
 	
