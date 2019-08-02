@@ -19,6 +19,7 @@ import edu.uw.info360.models.Path;
 import edu.uw.info360.models.PathsNodes;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
+import edu.uw.info360.services.NodesResourcesService;
 import edu.uw.info360.services.PathService;
 import edu.uw.info360.services.PathsNodesService;
 import edu.uw.info360.services.ResourceService;
@@ -31,7 +32,7 @@ public class AdminController {
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
 	private final PathsNodesService pnService;
-	private final NodesResourcesService rnService;
+	private final NodesResourcesService nrService;
 	
 	private final PathValidator pathValidator;
 	
@@ -39,7 +40,7 @@ public class AdminController {
 														NodeService nodeService,
 														ResourceService resourceService,
 														PathsNodesService pnService,
-														NodesResourcesService rnService) {
+														NodesResourcesService nrService) {
 		this.pathService = pathService;
 		this.pathValidator = pathValidator;
 		this.nodeService = nodeService;
