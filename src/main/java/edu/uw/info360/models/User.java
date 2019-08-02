@@ -98,6 +98,10 @@ public class User {
 		this.password = password;
 	}
 	
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
