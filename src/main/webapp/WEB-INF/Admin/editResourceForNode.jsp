@@ -39,14 +39,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${nodesResources}" var="NodesResources">
+			<c:forEach items="${nodesResources}" var="nodesResources">
 				<tr>
 					<td><c:out value="${nodesResources.title}"/></td>
 					<td>
-						<form:form method="DELETE" action="/admin/removeNodesResources/${NodesResources.getId()}" modelAttribute="NodesResources">
+						<form:form method="DELETE" action="/admin/removeNodesResources/${nodesResources.getId()}" modelAttribute="NodesResources">
 							<input type="submit" value="Remove from Node"/>
 						</form:form>
-						<a href="/admin/updateNodesResources/${NodesResources.getId()}">Update</a>
+						<a href="/admin/updateNodesResources/${nodesResources.getId()}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>
