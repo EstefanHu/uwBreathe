@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Node;
 import edu.uw.info360.models.NodesResources;
+import edu.uw.info360.models.Practice;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.NodesResourcesService;
@@ -41,10 +42,12 @@ public class AdminController {
 	}
 	@RequestMapping("")
 	public String control(Model model) {
+		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		List<Resource> resources = resourceService.findAllResources();
 		model.addAttribute("resources", resources);
 		model.addAttribute("nodes", nodes);
+		model.addAttribute("practice", practices);
 		return "Admin/control.jsp";
 	}
 //	Nodes Logic
