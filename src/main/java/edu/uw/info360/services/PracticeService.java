@@ -32,4 +32,14 @@ public class PracticeService {
 			return null;
 		}
 	}
+	
+	public Practice updatePractice(Long id, Practice practice) {
+		Practice toUpdatePractice = practiceRepo.findById(id).get();
+		toUpdatePractice.setTitle(practice.getTitle());
+		return practiceRepo.save(toUpdatePractice);
+	}
+	
+	public void deletePractice(Long id) {
+		practiceRepo.delete(practiceRepo.findById(id).get());
+	}
 }

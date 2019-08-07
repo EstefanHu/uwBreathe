@@ -70,6 +70,18 @@ public class AdminController {
 		return "Admin/editPractice.jsp";
 	}
 	
+	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
+	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice) {
+		practiceService.updatePractice(id, practice);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
+	public String deletePractice(@PathVariable("id") Long id) {
+		practiceService.deletePractice(id);
+		return "redirect:/admin/";
+	}
+	
 //	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
