@@ -18,19 +18,23 @@ import edu.uw.info360.models.NodesResources;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.NodesResourcesService;
+import edu.uw.info360.services.PracticeService;
 import edu.uw.info360.services.ResourceService;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
+	private final PracticeService practiceService;
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
 	private final NodesResourcesService nrService;
 	
 	
-	public AdminController( NodeService nodeService,
+	public AdminController( PracticeService practiceService,
+							NodeService nodeService,
 							ResourceService resourceService,
 							NodesResourcesService nrService) {
+		this.practiceService = practiceService;
 		this.nodeService = nodeService;
 		this.resourceService = resourceService;
 		this.nrService = nrService;
