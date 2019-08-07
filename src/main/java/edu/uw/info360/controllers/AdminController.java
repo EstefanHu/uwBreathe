@@ -50,6 +50,12 @@ public class AdminController {
 		model.addAttribute("practice", practices);
 		return "Admin/control.jsp";
 	}
+	
+	@RequestMapping("/createPractice")
+	public String createPractice(@ModelAttribute("practice") Practice practice) {
+		return "Admin/createPractice.jsp";
+	}
+	
 //	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
