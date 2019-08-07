@@ -63,6 +63,13 @@ public class AdminController {
 		return "redirect:/admin/";
 	}
 	
+	@RequestMapping(value="/editPractice/{id}")
+	public String editPractice(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice updatePractice) {
+		Practice practice = practiceService.findPracticeById(id);
+		model.addAttribute("practice", practice);
+		return "Admin/editPractice.jsp";
+	}
+	
 //	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {

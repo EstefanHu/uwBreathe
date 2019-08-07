@@ -1,6 +1,7 @@
 package edu.uw.info360.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,14 @@ public class PracticeService {
 	
 	public Practice addPractice(Practice practice) {
 		return practiceRepo.save(practice);
+	}
+	
+	public Practice findPracticeById(Long id) {
+		Optional<Practice> practice = practiceRepo.findById(id);
+		if(practice.isPresent()) {
+			return practice.get();
+		} else {
+			return null;
+		}
 	}
 }
