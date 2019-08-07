@@ -17,7 +17,7 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <c:forEach items="${practices}" var="path">
+	        <c:forEach items="${practice}" var="practice">
 	        <tr>
 	            <td><c:out value="${practice.title}"/></td>
 	            <td><a href="/admin/editPractice/<c:out value="${practice.getId()}"/>">Edit</a></td>
