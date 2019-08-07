@@ -58,7 +58,7 @@ public class AdminController {
 		model.addAttribute("paths", paths);
 		return "Admin/control.jsp";
 	}
-	
+//	Paths Logic
 	@RequestMapping("/createPath")
 	public String createPath(@ModelAttribute("path") Path path) {
 		return "Admin/createPath.jsp";
@@ -92,7 +92,7 @@ public class AdminController {
 		pathService.deletePath(id);
 		return "redirect:/admin/";
 	}
-	
+//	PathsNodes Logic
 	@RequestMapping("/editNodeForPath/{id}")
 	public String editNodeForPath(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("path", id);
@@ -129,7 +129,7 @@ public class AdminController {
 		pnService.deletePathsNodes(id);
 		return "redirect:/admin/editNodeForPath/" + pathId;
 	}
-	
+//	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
 		return "Admin/createNode.jsp";
@@ -160,7 +160,7 @@ public class AdminController {
 		nodeService.deleteNode(id);
 		return "redirect:/admin/";
 	}
-	
+//	NodesResources Logic
 	@RequestMapping("editResourceForNode/{id}")
 	public String editResourceForNode(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("node", id);
@@ -197,7 +197,7 @@ public class AdminController {
 		nrService.deleteNodesResources(id);
 		return "redirect:/admin/editResourceForNode/" + nodeId;
 	}
-		
+//	Resource Logic
 	@RequestMapping("/createResource")
 	public String createResource(@ModelAttribute("resource") Resource resource) {
 		return "Admin/createResource.jsp";
