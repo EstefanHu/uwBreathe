@@ -35,7 +35,15 @@ public class Node {
 	private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-		
+	
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "Practices_Nodes", 
+        joinColumns = @JoinColumn(name = "node_id"), 
+        inverseJoinColumns = @JoinColumn(name = "resource_id")
+    )
+    private List<Practice> practices;
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "Nodes_Resources", 
@@ -50,6 +58,7 @@ public class Node {
 		this.title = title;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.practices = new ArrayList<>();
 		this.resources = new ArrayList<>();
 	}
 	
