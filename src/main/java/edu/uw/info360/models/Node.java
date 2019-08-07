@@ -40,7 +40,7 @@ public class Node {
     @JoinTable(
         name = "Practices_Nodes", 
         joinColumns = @JoinColumn(name = "node_id"), 
-        inverseJoinColumns = @JoinColumn(name = "resource_id")
+        inverseJoinColumns = @JoinColumn(name = "practice_id")
     )
     private List<Practice> practices;
     

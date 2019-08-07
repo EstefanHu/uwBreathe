@@ -36,7 +36,7 @@ public class PracticesNodesService {
 	}
 	
 	public List<PracticesNodes> findByPracticesId(Long practiceId) {
-		return pnRepo.findByPracticeOrderByUpdateAtAsc(practiceRepo.findById(practiceId).get());
+		return pnRepo.findByPracticeOrderByUpdatedAtAsc(practiceRepo.findById(practiceId).get());
 	}
 	
 	public void deletePracticesNodes(Long id) {

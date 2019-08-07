@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "Practices")
+@Table(name="Practices")
 public class Practice {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +37,8 @@ public class Practice {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "Practices_Nodes", 
-        joinColumns = @JoinColumn(name = "node_id"), 
-        inverseJoinColumns = @JoinColumn(name = "resource_id")
+        joinColumns = @JoinColumn(name = "practice_id"), 
+        inverseJoinColumns = @JoinColumn(name = "node_id")
     )
     public List<Node> nodes;
 	
@@ -49,7 +49,7 @@ public class Practice {
 		this.nodes = new ArrayList<>();
 	}
 
-	public Long getPracticeId() {
+	public Long getId() {
 		return practiceId;
 	}
 

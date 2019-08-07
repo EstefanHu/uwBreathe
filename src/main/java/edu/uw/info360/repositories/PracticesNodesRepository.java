@@ -12,5 +12,5 @@ import edu.uw.info360.models.PracticesNodes;
 public interface PracticesNodesRepository extends CrudRepository<PracticesNodes, Long>{
 	List<PracticesNodes> findAll();
 	
-	List<PracticesNodes> findByPracticeOrderByUpdateAtAsc(Practice practice);
+	List<PracticesNodes> findByPracticeOrderByUpdatedAtAsc(Practice practice);
 }

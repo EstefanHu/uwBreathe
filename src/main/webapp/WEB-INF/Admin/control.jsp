@@ -8,7 +8,7 @@
 <title>Control</title>
 </head>
 <body>
-	<h1>All Paths</h1>
+	<h1>All Practices</h1>
 	<table>
 	    <thead>
 	        <tr>
@@ -17,9 +17,9 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <c:forEach items="${practice}" var="practice">
+	        <c:forEach items="${practices}" var="practice">
 	        <tr>
-	            <td><c:out value="${practice.title}"/></td>
+	            <td><c:out value="${practice.getTitle()}"/></td>
 	            <td><a href="/admin/editPractice/<c:out value="${practice.getId()}"/>">Edit</a></td>
 	            <td><a href="/admin/editNodeForPractice/<c:out value="${practice.getId()}"/>">Manage</a></td>
 	        </tr>
@@ -73,7 +73,7 @@
 	        </c:forEach>
 	    </tbody>
 	</table>
-	<a href="/admin/createPractice">New Path</a>
+	<a href="/admin/createPractice">New Practice</a>
 	<a href="/admin/createNode">New Node</a>
 	<a href="/admin/createResource">New Resource</a>
 </body>   
