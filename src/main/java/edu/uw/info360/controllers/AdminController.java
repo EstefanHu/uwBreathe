@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.uw.info360.models.Node;
 import edu.uw.info360.models.NodesResources;
 import edu.uw.info360.models.Practice;
+import edu.uw.info360.models.PracticesNodes;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.NodesResourcesService;
 import edu.uw.info360.services.PracticeService;
+import edu.uw.info360.services.PracticesNodesService;
 import edu.uw.info360.services.ResourceService;
 
 @Controller
@@ -29,16 +31,19 @@ public class AdminController {
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
 	private final NodesResourcesService nrService;
+	private final PracticesNodesService pnService;
 	
 	
 	public AdminController( PracticeService practiceService,
 							NodeService nodeService,
 							ResourceService resourceService,
-							NodesResourcesService nrService) {
+							NodesResourcesService nrService,
+							PracticesNodesService pnService) {
 		this.practiceService = practiceService;
 		this.nodeService = nodeService;
 		this.resourceService = resourceService;
 		this.nrService = nrService;
+		this.pnService = pnService;
 	}
 //	Practice Logic
 	@RequestMapping("")
@@ -80,6 +85,42 @@ public class AdminController {
 	public String deletePractice(@PathVariable("id") Long id) {
 		practiceService.deletePractice(id);
 		return "redirect:/admin/";
+	}
+//	PracticesNodes Logic
+	@RequestMapping("editNodeForPractice/{id}")
+	public String editNodeForPractice(Model model, @PathVariable("id") Long id, HttpSession session) {
+		session.setAttribute("practice", id);
+		List<Node> nodes = nodeService.findAllNodes();
+		List<PracticesNodes> pns = pnService.findByPracticesId(id);
+		model.addAttribute("practicesNodes", pns);
+		model.addAttribute("nodes", nodes);
+		model.addAttribute("id", id);
+		return "Admin/editNodeForPractice.jsp";
+	}
+	
+	@RequestMapping(value="/addToPractice/{id}", method=RequestMethod.POST)
+	public String addToPractice(@PathVariable("id") Long id, HttpSession session) {
+		Long practiceId = (Long) session.getAttribute("practice");
+		Node node = nodeService.findNodeById(id);
+		Practice practice = practiceService.findPracticeById(practiceId);
+		PracticesNodes pn = new PracticesNodes(node.getTitle());
+		pn.setPractice(practice);
+		pn.setNode(node);
+		pnService.createPN(pn);
+		return "redirect:/admin/editNodeForPractice/" + practiceId;
+	}
+	
+	@RequestMapping("/updatePracticeNodes/{id}")
+	public String updatePracticesNodes(@PathVariable("id") Long id, HttpSession session) {
+		pnService.updatePracticesNodes(id);
+		Long practiceId = (Long) session.getAttribute("practice");
+		return "redirect:/admiin/editNodeForPractice/" + practiceId;
+	}
+	
+	@RequestMapping(value="/removePracticesNodes/{id}", method=RequestMethod.DELETE)
+	public String removePracticesNodes(@PathVariable("id") Long id, HttpSession session) {
+		Long practiceId = (Long) session.getAttribute("practice");
+		return "redirect:/admin/editNodeForPractice/" + practiceId;
 	}
 	
 //	Nodes Logic
