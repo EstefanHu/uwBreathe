@@ -40,6 +40,7 @@ public class AdminController {
 		this.resourceService = resourceService;
 		this.nrService = nrService;
 	}
+//	Practice Logic
 	@RequestMapping("")
 	public String control(Model model) {
 		List<Practice> practices = practiceService.findAllPractices();
@@ -54,6 +55,12 @@ public class AdminController {
 	@RequestMapping("/createPractice")
 	public String createPractice(@ModelAttribute("practice") Practice practice) {
 		return "Admin/createPractice.jsp";
+	}
+	
+	@RequestMapping("/ingestNewPractice")
+	public String ingestNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
+		practiceService.addPractice(newPractice);
+		return "redirect:/admin/";
 	}
 	
 //	Nodes Logic

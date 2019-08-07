@@ -18,4 +18,8 @@ public class PracticeService {
 	public List<Practice> findAllPractices() {
 		return practiceRepo.findAll();
 	}
+	
+	public Practice addPractice(Practice practice) {
+		return practiceRepo.save(practice);
+	}
 }
