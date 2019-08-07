@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Nodes for Path</title>
+<title>Edit Node for Practice</title>
 </head>
 <body>
 	<h1>All Nodes</h1>
@@ -22,31 +22,31 @@
 			<tr>
 				<td><c:out value="${node.title}"/></td>
 				<td>
-					<form:form method="POST" action="/admin/addToPath/${node.getId()}" modelAttribute="node">
-						<input type="submit" value="Add To Path"/>
+					<form:form method="POST" action="/admin/addToPractice/${node.getId()}" modelAttribute="node">
+						<input type="submit" value="Add To Practice"/>
 					</form:form>
 				</td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<h1>In Path</h1>
+	<h1>In Practice</h1>
 	<table>
 		<thead>
 			<tr>
-				<th>Node Title</th>
+				<th>Resource Title</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${pathsNodes}" var="PathsNodes">
+			<c:forEach items="${practicesNodes}" var="practicesNode">
 				<tr>
-					<td><c:out value="${PathsNodes.title}"/></td>
+					<td><c:out value="${practicesNode.title}"/></td>
 					<td>
-						<form:form method="DELETE" action="/admin/removePathsNodes/${PathsNodes.getId()}" modelAttribute="PathsNodes">
-							<input type="submit" value="Remove from Path"/>
+						<form:form method="DELETE" action="/admin/removePracticesNodes/${practicesNode.getId()}" modelAttribute="PracticesNodes">
+							<input type="submit" value="Remove from Practice"/>
 						</form:form>
-						<a href="/admin/updatePathsNodes/${PathsNodes.getId()}">Update</a>
+						<a href="/admin/updatePracticesNodes/${practicesNode.getId()}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>

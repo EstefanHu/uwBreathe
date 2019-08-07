@@ -8,27 +8,20 @@
 <title>Control</title>
 </head>
 <body>
-	<h1>All Paths</h1>
+	<h1>All Practices</h1>
 	<table>
 	    <thead>
 	        <tr>
 	            <th>Title</th>
-	            <th>Description</th>
-	            <th>Theme</th>
-	            <th>Time Duration</th>
-	            <th>Edit</th>
 	            <th>Node Manager</th>
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <c:forEach items="${paths}" var="path">
+	        <c:forEach items="${practices}" var="practice">
 	        <tr>
-	            <td><c:out value="${path.title}"/></td>
-	            <td><c:out value="${path.description}"/></td>
-	            <td><c:out value="${path.theme}"/></td>
-	            <td><c:out value="${path.timeDuration}"/></td>
-	            <td><a href="/admin/editPath/<c:out value="${path.getId()}"/>">Edit</a></td>
-	            <td><a href="/admin/editNodeForPath/<c:out value="${path.getId()}"/>">Manage</a></td>
+	            <td><c:out value="${practice.getTitle()}"/></td>
+	            <td><a href="/admin/editPractice/<c:out value="${practice.getId()}"/>">Edit</a></td>
+	            <td><a href="/admin/editNodeForPractice/<c:out value="${practice.getId()}"/>">Manage</a></td>
 	        </tr>
 	        </c:forEach>
 	    </tbody>
@@ -80,7 +73,7 @@
 	        </c:forEach>
 	    </tbody>
 	</table>
-	<a href="/admin/createPath">New Path</a>
+	<a href="/admin/createPractice">New Practice</a>
 	<a href="/admin/createNode">New Node</a>
 	<a href="/admin/createResource">New Resource</a>
 </body>   

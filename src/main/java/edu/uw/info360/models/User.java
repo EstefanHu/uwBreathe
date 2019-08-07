@@ -1,18 +1,12 @@
 package edu.uw.info360.models;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -43,14 +37,6 @@ public class User {
 	private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-		name = "User_Paths",
-		joinColumns = @JoinColumn(name = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "path_id")
-	)
-	private List<Path> paths;
 	
 	public User() {}
 	
@@ -59,7 +45,6 @@ public class User {
 		this.lastName = lName;
 		this.email = email;
 		this.password = password;
-		this.paths = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -110,10 +95,6 @@ public class User {
 		return updatedAt;
 	}
 
-	public List<Path> getPaths() {
-		return paths;
-	}
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
