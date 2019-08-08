@@ -28,6 +28,7 @@ public class Node {
 	private Long nodeId;
 	@Size(min = 2, max = 140)
 	private String title;
+	private String theme;
 	private float latitude;
 	private float longitude;
 	@Column(updatable = false)
@@ -72,6 +73,14 @@ public class Node {
 	
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getTheme() {
+		return theme;
+	}
+	
+	public void setTheme(String theme) {
+		this.theme = theme;
 	}
 	
 	public float getLatitude() {
