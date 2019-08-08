@@ -24,6 +24,8 @@ public class Content {
 	private Long contentId;
 	@Size(min = 2, max = 140)
 	private String title;
+	@Size(min = 2)
+	private String description;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
