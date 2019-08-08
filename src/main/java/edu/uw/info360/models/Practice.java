@@ -30,6 +30,7 @@ public class Practice {
 	private Long practiceId;
 	@Size(min = 2, max = 140)
 	private String title;
+	private String navigationCommands;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -64,6 +65,14 @@ public class Practice {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getNavigationCommands() {
+		return navigationCommands;
+	}
+	
+	public void setNavigationCommands(String navigationCommands) {
+		this.navigationCommands = navigationCommands;
 	}
 	
 	public Date getCreatedAt() {

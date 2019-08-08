@@ -26,6 +26,7 @@ public class Content {
 	private String title;
 	@Size(min = 2)
 	private String description;
+	private String instruction;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -53,7 +54,23 @@ public class Content {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String desc) {
+		this.description = desc;
+	}
+	
+	public String getInstruction() {
+		return instruction;
+	}
+	
+	public void setInstruction(String inst) {
+		this.instruction = inst;
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
