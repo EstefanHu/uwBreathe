@@ -24,6 +24,10 @@ public class NodeService {
 		return nodeRepo.findAll();
 	}
 	
+	public List<Node> findByTheme(String theme) {
+		return nodeRepo.findByTheme(theme);
+	}
+	
 	public Node findNodeById(Long id) {
 		Optional<Node> node = nodeRepo.findById(id);
 		if(node.isPresent()) {

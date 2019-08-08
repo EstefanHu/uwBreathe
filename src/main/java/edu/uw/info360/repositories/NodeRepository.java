@@ -10,4 +10,6 @@ import edu.uw.info360.models.Node;;
 @Repository
 public interface NodeRepository extends CrudRepository<Node, Long> {
 	List<Node> findAll();
+	
+	List<Node> findByTheme(String theme);
 }

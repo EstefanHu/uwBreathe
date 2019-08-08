@@ -1,21 +1,32 @@
 package edu.uw.info360.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.uw.info360.models.Node;
+import edu.uw.info360.services.NodeService;
+
 @Controller
 public class HomeController {
-
+	private final NodeService nodeService;
+	
+	public HomeController(NodeService nodeService) {
+		this.nodeService = nodeService;
+	}
 	
 	@RequestMapping("/")
 	public String home() {
 		return "Home/index.jsp";
 	}
 	
-	@RequestMapping("/theme/{id}")
-	public String theme(@PathVariable("id") Long id) {
-		
+	@RequestMapping("/theme/{theme}")
+	public String theme(@PathVariable("theme") String theme, Model model) {
+		List<Node> themedNodes = nodeService.findByTheme(theme);
+		model.addAttribute("theme", themedNodes);
 		return "Home/index.jsp";
 	}
 	
