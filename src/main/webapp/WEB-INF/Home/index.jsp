@@ -18,18 +18,18 @@
 	<div id="mapid"></div>
 	<div class="sidebar center">
 	<c:choose>
-		<c:when test="{themedNodes}">
+		<c:when test="${themedNodes.size() != null}">
 			<h1>Testing</h1>
 		</c:when>
 		<c:otherwise>
 			<h1 class="center">Themes</h1>
-				<a class="theme" id="stillness" href="/stillness">Stillness</a>
-				<a class="theme" id="generative" href="/generative">Generative</a>
-				<a class="theme" id="creative" href="/creative">Creative</a>
-				<a class="theme" id="activist" href="/activist">Activist</a>
-				<a class="theme" id="relational" href="/relational">Relational</a>
-				<a class="theme" id="movement" href="/movement">Movement</a>	
-				<a class="theme" id="ritual" href="/ritual">Ritual</a>					
+				<a class="theme" id="stillness" href="/Stillness">Stillness</a>
+				<a class="theme" id="generative" href="/Generative">Generative</a>
+				<a class="theme" id="creative" href="/Creative">Creative</a>
+				<a class="theme" id="activist" href="/Activist">Activist</a>
+				<a class="theme" id="relational" href="/Relational">Relational</a>
+				<a class="theme" id="movement" href="/Movement">Movement</a>	
+				<a class="theme" id="ritual" href="/Ritual">Ritual</a>					
 			</div>
 		</c:otherwise>
 	</c:choose>

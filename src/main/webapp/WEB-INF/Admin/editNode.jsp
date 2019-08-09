@@ -15,6 +15,10 @@
 			<form:input path="title" value="${node.title}"/>
 		</p>
 		<p>
+			<form:label path="theme">Theme:</form:label>
+			<form:input path="theme" value="${node.theme}"/>
+		</p>
+		<p>
 			<form:label path="latitude">Latitude:</form:label>
 			<form:input path="latitude" value="${node.latitude}"/>
 		</p>

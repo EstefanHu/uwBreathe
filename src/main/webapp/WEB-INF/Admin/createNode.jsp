@@ -16,6 +16,10 @@
 			<form:input path="title"/>
 		</p>
 		<p>
+			<form:label path="theme">Theme:</form:label>
+			<form:input path="theme"/>
+		</p>
+		<p>
 			<form:label path="latitude">Latitude:</form:label>
 			<form:input path="latitude"/>
 		</p>
