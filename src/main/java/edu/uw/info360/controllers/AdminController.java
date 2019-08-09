@@ -157,15 +157,15 @@ public class AdminController {
 		return "redirect:/admin/";
 	}
 //	NodesResources Logic
-	@RequestMapping("editResourceForNode/{id}")
-	public String editResourceForNode(Model model, @PathVariable("id") Long id, HttpSession session) {
+	@RequestMapping("manageNodeRelationships/{id}")
+	public String manageNodeRelationships(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("node", id);
 		List<Resource> resources = resourceService.findAllResources();
 		List<NodesResources> nrs = nrService.findByNodesId(id);
 		model.addAttribute("nodesResources", nrs);
 		model.addAttribute("resources", resources);
 		model.addAttribute("id", id);
-		return "Admin/editResourceForNode.jsp";
+		return "Admin/manageNodeRelationships.jsp";
 	}
 	
 	@RequestMapping(value="/addToNode/{id}", method=RequestMethod.POST)
@@ -177,21 +177,21 @@ public class AdminController {
 		nr.setResource(resource);
 		nr.setNode(node);
 		nrService.createNR(nr);
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 	
 	@RequestMapping("/updateNodesResources/{id}")
 	public String updatNodesResources(@PathVariable("id") Long id, HttpSession session) {
 		nrService.updateNodesResources(id);
 		Long nodeId = (Long) session.getAttribute("node");
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 	
 	@RequestMapping(value="/removeNodesResources/{id}", method=RequestMethod.DELETE)
 	public String removeNodesResources(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		nrService.deleteNodesResources(id);
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 //	Resource Logic
 	@RequestMapping("/createResource")
