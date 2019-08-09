@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +16,24 @@
 <body>
 <div class="container">
 	<div id="mapid"></div>
-	<div class="sidebar">
-		<h1 class="center">Side Bar</h1>
-	</div>
+	<div class="sidebar center">
+	<c:choose>
+		<c:when test="{themedNodes}">
+			<h1>Testing</h1>
+		</c:when>
+		<c:otherwise>
+			<h1 class="center">Themes</h1>
+				<a class="theme" id="stillness" href="/stillness">Stillness</a>
+				<a class="theme" id="generative" href="/generative">Generative</a>
+				<a class="theme" id="creative" href="/creative">Creative</a>
+				<a class="theme" id="activist" href="/activist">Activist</a>
+				<a class="theme" id="relational" href="/relational">Relational</a>
+				<a class="theme" id="movement" href="/movement">Movement</a>	
+				<a class="theme" id="ritual" href="/ritual">Ritual</a>					
+			</div>
+		</c:otherwise>
+	</c:choose>
 </div>
 </body>
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
 </html>

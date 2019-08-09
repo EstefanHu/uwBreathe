@@ -17,10 +17,22 @@
 	z-index: 1;
 	position: absolute;
 	top: 2vh;
-	left: 2vh;
-	height: 96vh;
-	width: 400px;
-	border: 1px solid grey;
+	left: 3vh;
+	width: 350px;
+	border: 1px solid lightgrey;
 	border-radius: 5px;
+	box-shadow: 1px 1px 6px grey;
 	background-color: white;
+	opacity: .96;
+	padding: 15px 0;
+}
+.theme {
+	width: 90%;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 0;
+	background-color: lightgrey;
+}
+.theme:hover {
+	background-color: #c44dff;
 }
