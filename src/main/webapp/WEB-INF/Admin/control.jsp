@@ -8,24 +8,6 @@
 <title>Control</title>
 </head>
 <body>
-	<h1>All Practices</h1>
-	<table>
-	    <thead>
-	        <tr>
-	            <th>Title</th>
-	            <th>Node Manager</th>
-	        </tr>
-	    </thead>
-	    <tbody>
-	        <c:forEach items="${practices}" var="practice">
-	        <tr>
-	            <td><c:out value="${practice.getTitle()}"/></td>
-	            <td><a href="/admin/editPractice/<c:out value="${practice.getId()}"/>">Edit</a></td>
-	            <td><a href="/admin/editNodeForPractice/<c:out value="${practice.getId()}"/>">Manage</a></td>
-	        </tr>
-	        </c:forEach>
-	    </tbody>
-	</table>
 	<h1>All Nodes</h1>
 	<table>
 	    <thead>
@@ -44,7 +26,24 @@
 	            <td><c:out value="${node.latitude}"/></td>
 	            <td><c:out value="${node.longitude}"/></td>
 	            <td><a href="/admin/editNode/<c:out value="${node.getId()}"/>">Edit</a></td>
-        	    <td><a href="/admin/editResourceForNode/<c:out value="${node.getId()}"/>">Manage</a></td>
+        	    <td><a href="/admin/manageNodeRelationships/<c:out value="${node.getId()}"/>">Manage</a></td>
+	        </tr>
+	        </c:forEach>
+	    </tbody>
+	</table>
+	<h1>All Practices</h1>
+	<table>
+	    <thead>
+	        <tr>
+	            <th>Title</th>
+	            <th>Node Manager</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <c:forEach items="${practices}" var="practice">
+	        <tr>
+	            <td><c:out value="${practice.getTitle()}"/></td>
+	            <td><a href="/admin/editPractice/<c:out value="${practice.getId()}"/>">Edit</a></td>
 	        </tr>
 	        </c:forEach>
 	    </tbody>
