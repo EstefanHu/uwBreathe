@@ -111,6 +111,10 @@ public class Node {
 		return resources;
 	}
 	
+	public List<Practice> getPractices() {
+		return practices;
+	}
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
