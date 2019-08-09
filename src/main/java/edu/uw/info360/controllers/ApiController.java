@@ -28,6 +28,11 @@ public class ApiController {
 	}
 	
 //	TODO Location - call node and related practices and resources
+	@GetMapping("/location/{id}")
+	public Node location(@PathVariable("id") Long id) {
+		Node node = nodeService.findNodeById(id);
+		return node;
+	}
 	
 //	TODO Profile - call User and User History and paths stored
 	
