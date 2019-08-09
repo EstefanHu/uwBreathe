@@ -75,6 +75,14 @@ public class Practice {
 		this.navigationCommands = navigationCommands;
 	}
 	
+	public List<Node> getNodes() {
+		return nodes;
+	}
+	
+	public List<Content> getContent() {
+		return contents;
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
