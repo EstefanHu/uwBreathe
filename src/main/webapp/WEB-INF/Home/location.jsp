@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Location View</title>
 </head>
 <body>
-
+	<h1>Location</h1>
 </body>
 </html>
