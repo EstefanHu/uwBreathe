@@ -56,36 +56,6 @@ public class AdminController {
 		model.addAttribute("practices", practices);
 		return "Admin/control.jsp";
 	}
-//	Practice Logic
-	@RequestMapping("/createPractice")
-	public String createPractice(@ModelAttribute("practice") Practice practice) {
-		return "Admin/createPractice.jsp";
-	}
-	
-	@RequestMapping("/ingestNewPractice")
-	public String ingestNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
-		practiceService.addPractice(newPractice);
-		return "redirect:/admin/";
-	}
-	
-	@RequestMapping(value="/editPractice/{id}")
-	public String editPractice(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice updatePractice) {
-		Practice practice = practiceService.findPracticeById(id);
-		model.addAttribute("practice", practice);
-		return "Admin/editPractice.jsp";
-	}
-	
-	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
-	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice) {
-		practiceService.updatePractice(id, practice);
-		return "redirect:/admin/";
-	}
-	
-	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
-	public String deletePractice(@PathVariable("id") Long id) {
-		practiceService.deletePractice(id);
-		return "redirect:/admin/";
-	}
 //	PracticesNodes Logic
 	@RequestMapping("editNodeForPractice/{id}")
 	public String editNodeForPractice(Model model, @PathVariable("id") Long id, HttpSession session) {
@@ -156,12 +126,14 @@ public class AdminController {
 		nodeService.deleteNode(id);
 		return "redirect:/admin/";
 	}
-//	NodesResources Logic
+//	Manage Node Relationship Logic
 	@RequestMapping("manageNodeRelationships/{id}")
 	public String manageNodeRelationships(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("node", id);
+		List<Practice> practices = practiceService.findAllPractices();
 		List<Resource> resources = resourceService.findAllResources();
 		List<NodesResources> nrs = nrService.findByNodesId(id);
+		model.addAttribute("practices", practices);
 		model.addAttribute("nodesResources", nrs);
 		model.addAttribute("resources", resources);
 		model.addAttribute("id", id);
@@ -192,6 +164,36 @@ public class AdminController {
 		Long nodeId = (Long) session.getAttribute("node");
 		nrService.deleteNodesResources(id);
 		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+	}
+//	Practice Logic
+	@RequestMapping("/createPractice")
+	public String createPractice(@ModelAttribute("practice") Practice practice) {
+		return "Admin/createPractice.jsp";
+	}
+	
+	@RequestMapping("/ingestNewPractice")
+	public String ingestNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
+		practiceService.addPractice(newPractice);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/editPractice/{id}")
+	public String editPractice(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice updatePractice) {
+		Practice practice = practiceService.findPracticeById(id);
+		model.addAttribute("practice", practice);
+		return "Admin/editPractice.jsp";
+	}
+	
+	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
+	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice) {
+		practiceService.updatePractice(id, practice);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
+	public String deletePractice(@PathVariable("id") Long id) {
+		practiceService.deletePractice(id);
+		return "redirect:/admin/";
 	}
 //	Resource Logic
 	@RequestMapping("/createResource")

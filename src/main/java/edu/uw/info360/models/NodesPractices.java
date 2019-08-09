@@ -15,11 +15,11 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="Practices_Nodes")
-public class PracticesNodes {
+@Table(name="Nodes_Practices")
+public class NodesPractices {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long practicesNodesId;
+	private Long nodesPracticesId;
 	private String title;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -35,16 +35,15 @@ public class PracticesNodes {
     @JoinColumn(name="node_id")
     private Node node;
     
-    public PracticesNodes() {}
+    public NodesPractices() {}
     
-    public PracticesNodes(String title) {
+    public NodesPractices(String title) {
     	this.title = title;
     	this.createdAt = new Date();
     	this.updatedAt = new Date();
     }
-
-	public Long getId() {
-		return practicesNodesId;
+    public Long getId() {
+		return nodesPracticesId;
 	}
 	
 	public String getTitle() {
