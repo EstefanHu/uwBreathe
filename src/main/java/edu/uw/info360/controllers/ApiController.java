@@ -14,4 +14,17 @@ public class ApiController {
 	public ApiController(ResourceService resourceService) {
 		this.resourceService = resourceService;
 	}
+	
+//	TODO Home "Themes" no database call
+	
+//	TODO Theme - call nodes by specific Theme
+	
+//	TODO Location - call node and related practices and resources
+	
+//	TODO Profile - call User and User History and paths stored
+	
+//	TODO Suggestions - waiting on UXI
+	
+//	TODO Search Location functionality
+	
 }
