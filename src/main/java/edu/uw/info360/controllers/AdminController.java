@@ -127,6 +127,7 @@ public class AdminController {
 //	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
+//		TODO: Capitalize first characters
 		return "Admin/createNode.jsp";
 	}
 	
