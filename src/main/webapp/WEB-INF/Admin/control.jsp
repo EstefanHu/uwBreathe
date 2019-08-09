@@ -72,7 +72,7 @@
 	        </c:forEach>
 	    </tbody>
 	</table>
-	<a href="/admin/createPractice">New Practice</a>
 	<a href="/admin/createNode">New Node</a>
+	<a href="/admin/createPractice">New Practice</a>
 	<a href="/admin/createResource">New Resource</a>
 </body>   

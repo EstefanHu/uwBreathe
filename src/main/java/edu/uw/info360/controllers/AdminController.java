@@ -131,8 +131,8 @@ public class AdminController {
 		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 //	Managing Resources Logic
-	@RequestMapping(value="/addToNode/{id}", method=RequestMethod.POST)
-	public String addToNode(@PathVariable("id") Long id, HttpSession session) {
+	@RequestMapping(value="/addResourceToNode/{id}", method=RequestMethod.POST)
+	public String addResourceToNode(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		Resource resource = resourceService.findResourceById(id);
 		Node node = nodeService.findNodeById(nodeId);

@@ -22,7 +22,7 @@
 			<tr>
 				<td><c:out value="${resource.title}"/></td>
 				<td>
-					<form:form method="POST" action="/admin/addToNode/${resource.getId()}" modelAttribute="resource">
+					<form:form method="POST" action="/admin/addResourceToNode/${resource.getId()}" modelAttribute="resource">
 						<input type="submit" value="Add To Node"/>
 					</form:form>
 				</td>
