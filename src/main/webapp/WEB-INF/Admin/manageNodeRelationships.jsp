@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Resource for Node</title>
+<title>Manage Nodes Relationships</title>
 </head>
 <body>
 	<h1>All Resources</h1>
@@ -47,6 +47,49 @@
 							<input type="submit" value="Remove from Node"/>
 						</form:form>
 						<a href="/admin/updateNodesResources/${nodesResources.getId()}">Update</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<h1>All Practices</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Practice Title</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${practices}" var="practice">
+			<tr>
+				<td><c:out value="${practice.title}"/></td>
+				<td>
+					<form:form method="POST" action="/admin/addPracticeToNode/${practice.getId()}" modelAttribute="practice">
+						<input type="submit" value="Add To Node"/>
+					</form:form>
+				</td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<h1>In Node</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Practice Title</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${nodesPractices}" var="nodesPractice">
+				<tr>
+					<td><c:out value="${nodesPractice.title}"/></td>
+					<td>
+						<form:form method="DELETE" action="/admin/removeNodesPractices/${nodesPractice.getId()}" modelAttribute="PracticesNode">
+							<input type="submit" value="Remove from Node"/>
+						</form:form>
+						<a href="/admin/updateNodesPractices/${nodesPractice.getId()}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -30,10 +30,11 @@ public class NodesPracticesService {
 	public NodesPractices updateNodesPractices(Long id) {
 		NodesPractices np = npRepo.findById(id).get();
 		np.update(new Date());
+		npRepo.save(np);
 		return np;
 	}
 	
-	public List<NodesPractices> findByNodeId(Long nodeId) {
+	public List<NodesPractices> findByNodesId(Long nodeId) {
 		return npRepo.findByNodeOrderByUpdatedAtAsc(nodeRepo.findById(nodeId).get());
 	}
 	
