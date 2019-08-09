@@ -2,8 +2,11 @@
 	padding: 0px;
 	margin: 0px;	
 }
-.center {
+.centerText {
 	text-align: center;
+}
+.center {
+	margin: 0 auto;
 }
 .container {
 	height: 100vh;
@@ -26,13 +29,18 @@
 	opacity: .96;
 	padding: 15px 0;
 }
-.theme {
+.sidebar > a {
+	text-decoration: none;
+	color: black;
+}
+.sidebarItem {
 	width: 90%;
 	margin-top: 10px;
 	border-radius: 5px;
 	border: 0;
 	background-color: lightgrey;
+	padding: 10px 0;
 }
-.theme:hover {
+.sidebarItem:hover {
 	background-color: #c44dff;
 }
