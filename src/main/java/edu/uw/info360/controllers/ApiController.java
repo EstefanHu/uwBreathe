@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,6 @@ public class ApiController {
 		return nodes;
 	}
 	
-//	TODO Location - call node and related practices and resources
 	@GetMapping("/location/{id}")
 	public Node location(@PathVariable("id") Long id) {
 		Node node = nodeService.findNodeById(id);
@@ -39,5 +39,11 @@ public class ApiController {
 //	TODO Suggestions - waiting on UXI
 	
 //	TODO Search Location functionality
+	@PostMapping(path="/search", consumes = "application/json", produces="application/json") {
+		public List<Node> search(@RequestBody String searchLocation) {
+			List<Node> foundNodes = nodeService.findByTitle(searchLocation);
+			return foundNodes;
+		}
+	}
 	
 }

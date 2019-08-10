@@ -24,6 +24,10 @@ public class NodeService {
 		return nodeRepo.findAll();
 	}
 	
+	public List<Node> findByTitle(String title) {
+		return nodeRepo.findByTitle(title);
+	}
+	
 	public List<Node> findByTheme(String theme) {
 		return nodeRepo.findByTheme(theme);
 	}
