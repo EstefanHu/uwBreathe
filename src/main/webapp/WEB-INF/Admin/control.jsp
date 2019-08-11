@@ -21,7 +21,7 @@
 	<h1 class="centerText adminTitle">Admin Control</h1>
 	<div class="firstBlock">
 		<h2 class="centerText">Node Manager</h2>
-		<table class="nodeTable centerText center">
+		<table class="centerText center">
 			<thead>
 				<tr>
 					<th>Title</th>
