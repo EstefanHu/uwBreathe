@@ -30,7 +30,7 @@ public class Practice {
 	private Long practiceId;
 	@Size(min = 2, max = 140)
 	private String title;
-	private String navigationCommands;
+	private String description;
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -44,9 +44,6 @@ public class Practice {
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
     public List<Node> nodes;
-    
-    @OneToMany(mappedBy="practice", cascade=CascadeType.ALL)
-    public List<Content> contents;
 	
 	public Practice() {}
 	
@@ -67,20 +64,16 @@ public class Practice {
 		this.title = title;
 	}
 	
-	public String getNavigationCommands() {
-		return navigationCommands;
+	public String getDescription() {
+		return description;
 	}
 	
-	public void setNavigationCommands(String navigationCommands) {
-		this.navigationCommands = navigationCommands;
+	public void setDescription(String desc) {
+		this.description = desc;
 	}
 	
 	public List<Node> getNodes() {
 		return nodes;
-	}
-	
-	public List<Content> getContent() {
-		return contents;
 	}
 	
 	public Date getCreatedAt() {
