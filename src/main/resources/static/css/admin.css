@@ -1,23 +1,70 @@
 .adminGrid {
     display: grid;
-    grid-template-columns: "auto 800px auto";
-    grid-template-rows: "65px 100px auto auto";
+    grid-template-columns: auto 800px auto;
+    grid-template-rows: 45px 30px auto auto;
+    grid-gap: 10px;
     grid-template-areas:
     "adminNav adminNav adminNav"
     ". title ."
-    ". node ."
-    ". practice .";
+    ". firstBlock ."
+    ". secondBlock .";
 }
+/* NAV CSS */
 .adminNav {
     grid-area: adminNav;
-    background-color: red;
+    padding-top: 13px;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: auto 60px 60px auto;
+    grid-template-areas: ". navHome navControl .";
 }
+.navHome {
+    grid-area: navHome;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.navControl {
+    grid-area: navControl;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+/* BODY CSS for CONTROL*/
 .adminTitle {
     grid-area: title;
 }
-.nodeTable {
-    grid-area: node;
+.firstBlock {
+    grid-area: firstBlock;
+    margin: 20px 0;
 }
-.practiceTable {
-    grid-area: practice;
+.secondBlock {
+    grid-area: secondBlock;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+    padding: 2px 4px;
+}
+footer {
+    margin-top: 20px;
+}
+/* BODY CSS for createNODE */
+.creationForm > p {
+    width: 200px;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.creationForm > p > input {
+    width: 100%;
+    height: 25px;
+    font-size: 1em;
+    padding: 0 5px;
+}
+.creationForm > input {
+    margin-top: 10px;
+    width: 107%;
+    font-size: 1em;
 }

@@ -4,18 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Create Resource</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<title>Create Resource</title>
 </head>
+
 <body>
-	<h1>Create Resource</h1>
-	<form:form method="POST" action="ingestNewPractice" modelAttribute="practice">
+<div class="container">
+<div class="adminGrid">
+	<div class="adminNav">
+		<a href="/" class="navHome">Home</a>
+		<a href="/admin" class="navControl">Admin</a>
+	</div>
+
+	<h1 class="adminTitle centerText">Create a New Practice</h1>
+	<div class="firstBlock center">
 		<p>
-			<form:label path="title">Title:</form:label>
-			<form:input path="title"/>
+			<form:errors path="practice.*" />
 		</p>
-		<input type="submit" value="Submit"/>
-	</form:form>
-	<a href="/admin">Back to Control</a>
+		<form:form method="POST" action="createNewPractice" modelAttribute="practice" class="creationForm">
+			<p>
+				<form:label path="title">Title:</form:label>
+				<form:input path="title" />
+			</p>
+			<input type="submit" value="Submit" />
+		</form:form>
+	</div>
+	<a href="/admin" class="secondBlock centerText">Back to Control</a>
+</div>
+</div>
 </body>
 </html>

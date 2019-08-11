@@ -4,30 +4,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Create Node</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<title>Create Node</title>
 </head>
+
 <body>
-	<h1>Hello Create Node View!</h1>
-	<p><form:errors path="node.*"/></p>
-	<form:form method="POST" action="ingestNewNode" modelAttribute="node">
-		<p>
-			<form:label path="title">Title:</form:label>
-			<form:input path="title"/>
-		</p>
-		<p>
-			<form:label path="theme">Theme:</form:label>
-			<form:input path="theme"/>
-		</p>
-		<p>
-			<form:label path="latitude">Latitude:</form:label>
-			<form:input path="latitude"/>
-		</p>
-		<p>
-			<form:label path="longitude">Longitude:</form:label>
-			<form:input path="longitude"/>
-		</p>
-		<input type="submit" value="Submit"/>
-	</form:form>
+<div class="container">
+	<div class="adminGrid">
+		<div class="adminNav">
+			<a href="/" class="navHome">Home</a>
+			<a href="/admin" class="navControl">Admin</a>
+		</div>
+		
+		<h1 class="adminTitle centerText">Create a New Node</h1>
+		<div class="firstBlock center">
+			<p>
+				<form:errors path="node.*" />
+			</p>
+			<form:form method="POST" action="createNewNode" modelAttribute="node" class="creationForm">
+				<p>
+					<form:label path="title">Title:</form:label>
+					<form:input path="title" />
+				</p>
+				<p>
+					<form:label path="theme">Theme:</form:label>
+					<form:input path="theme" />
+				</p>
+				<p>
+					<form:label path="latitude">Latitude:</form:label>
+					<form:input path="latitude" />
+				</p>
+				<p>
+					<form:label path="longitude">Longitude:</form:label>
+					<form:input path="longitude" />
+				</p>
+				<input type="submit" value="Submit" />
+			</form:form>
+		</div>
+			<a href="/admin" class="secondBlock centerText">Back to Control</a>
+	</div>
+</div>
 </body>
 </html>

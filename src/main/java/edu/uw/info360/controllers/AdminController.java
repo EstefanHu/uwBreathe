@@ -63,8 +63,8 @@ public class AdminController {
 		return "Admin/createNode.jsp";
 	}
 	
-	@RequestMapping(value="/ingestNewNode", method=RequestMethod.POST)
-	public String ingestNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
+	@RequestMapping(value="/createNewNode", method=RequestMethod.POST)
+	public String createNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
 //		TODO: Create Node Validation
 		nodeService.createNode(newNode);
 		return "redirect:/admin/";
@@ -162,8 +162,8 @@ public class AdminController {
 		return "Admin/createPractice.jsp";
 	}
 	
-	@RequestMapping("/ingestNewPractice")
-	public String ingestNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
+	@RequestMapping("/createNewPractice")
+	public String createNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
 		practiceService.addPractice(newPractice);
 		return "redirect:/admin/";
 	}

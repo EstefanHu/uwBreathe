@@ -5,23 +5,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="css/text" href="/css/admin.css" />
-	<link rel="stylesheet" type="css/text" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<title>Control</title>
 </head>
+
 <body>
 <div class="container">
-	<div class="adminGrid">
-		<div class="adminNav">
-			<p class="centerText">Testing</p>
-		</div>
-		<h1 class="centerText adminTitle">Admin Control</h1>
+<div class="adminGrid">
+	<div class="adminNav">
+		<a href="/" class="navHome">Home</a>
+		<a href="/admin" class="navControl">Admin</a>
+	</div>
 
-		<table class="nodeTable">
-			<thead><tr><th><h1>Node Controller</h1></th></tr></thead>
+	<h1 class="centerText adminTitle">Admin Control</h1>
+	<div class="firstBlock">
+		<h2 class="centerText">Node Manager</h2>
+		<table class="nodeTable centerText center">
 			<thead>
 				<tr>
 					<th>Title</th>
+					<th>Theme</th>
 					<th>Latitude</th>
 					<th>Longitude</th>
 					<th>Edit</th>
@@ -35,6 +39,9 @@
 							<c:out value="${node.title}" />
 						</td>
 						<td>
+							<c:out value="${node.theme}" />
+						</td>
+						<td>
 							<c:out value="${node.latitude}" />
 						</td>
 						<td>
@@ -46,13 +53,16 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
 
-		<table class="practiceTable">
-			<thead><tr><th><h1>Practice Controller</h1></th></tr></thead>
+	<div class="secondBlock">
+		<h2 class="centerText">Practice Manager</h2>
+		<table class="practiceTable centerText center">
 			<thead>
 				<tr>
 					<th>Title</th>
-					<th>Node Manager</th>
+					<th>Duration</th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -61,13 +71,21 @@
 						<td>
 							<c:out value="${practice.getTitle()}" />
 						</td>
-						<td><a href="/admin/editPractice/<c:out value=" ${practice.getId()}" />">Edit</a></td>
+						<td>
+						</td>
+						<td>
+							<a href="/admin/editPractice/<c:out value=" ${practice.getId()}" />">Edit</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<a href="/admin/createNode">New Node</a>
-	<a href="/admin/createPractice">New Practice</a>
+</div>
+<footer class="centerText">
+	<p>
+		<a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a>
+	</p>
+</footer>
 </div>
 </body>   
