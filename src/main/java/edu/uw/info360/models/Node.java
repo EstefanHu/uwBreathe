@@ -99,14 +99,6 @@ public class Node {
 		this.longitude = longitude;
 	}
 	
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-	
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-	
 	public List<Resource> getResources() {
 		return resources;
 	}
@@ -115,9 +107,21 @@ public class Node {
 		return practices;
 	}
 	
+	public void addPractice(Practice practice) {
+		this.practices.add(practice);
+	}
+	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
+	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
 	}
 	
 	@PreUpdate

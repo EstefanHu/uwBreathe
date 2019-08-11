@@ -24,7 +24,7 @@ public class NodeService {
 		return nodeRepo.findAll();
 	}
 	
-	public List<Node> findByTitle(String title) {
+	public Node findByTitle(String title) {
 		return nodeRepo.findByTitle(title);
 	}
 	

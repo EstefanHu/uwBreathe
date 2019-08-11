@@ -41,7 +41,7 @@ public class Practice {
         joinColumns = @JoinColumn(name = "practice_id"), 
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
-    public List<Node> nodes;
+    private List<Node> nodes;
 	
 	public Practice() {}
 	
@@ -68,10 +68,6 @@ public class Practice {
 	
 	public void setDescription(String desc) {
 		this.description = desc;
-	}
-	
-	public List<Node> getNodes() {
-		return nodes;
 	}
 	
 	public Date getCreatedAt() {

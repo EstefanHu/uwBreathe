@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.uw.info360.models.Node;
+import edu.uw.info360.models.Practice;
 import edu.uw.info360.models.User;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.UserService;
@@ -45,9 +46,15 @@ public class ApiController {
 	}
 	
 	@PostMapping(path="/search", consumes="text/plain", produces="application/json")
-	public List<Node> search(@RequestBody String searchLocation) {
-		List<Node> foundNodes = nodeService.findByTitle(searchLocation);
-		return foundNodes;
+	public Node search(@RequestBody String searchLocation) {
+		Node foundNode = nodeService.findByTitle(searchLocation);
+		return foundNode;
+	}
+	
+	@GetMapping("/test")
+	public List<Practice> test() {
+		List<Practice> practices = nodeService.findByTitle("Sakuma ViewPoint").getPractices();
+		return practices;
 	}
 	
 //	TODO suggestions

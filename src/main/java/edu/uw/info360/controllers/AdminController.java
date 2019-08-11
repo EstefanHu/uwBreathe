@@ -104,12 +104,12 @@ public class AdminController {
 		return "Admin/manageNodeRelationships.jsp";
 	}
 //	Managing Practices Logic
-	
 	@RequestMapping(value="/addPracticeToNode/{id}", method=RequestMethod.POST)
 	public String addPracticeToNode(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		Node node = nodeService.findNodeById(nodeId);
 		Practice practice = practiceService.findPracticeById(id);
+		node.addPractice(practice);
 		NodesPractices np = new NodesPractices(practice.getTitle());
 		np.setPractice(practice);
 		np.setNode(node);
