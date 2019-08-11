@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.uw.info360.models.Node;
-import edu.uw.info360.models.Practice;
 import edu.uw.info360.models.User;
 import edu.uw.info360.services.NodeService;
 import edu.uw.info360.services.UserService;
@@ -49,12 +48,6 @@ public class ApiController {
 	public Node search(@RequestBody String searchLocation) {
 		Node foundNode = nodeService.findByTitle(searchLocation);
 		return foundNode;
-	}
-	
-	@GetMapping("/test")
-	public List<Practice> test() {
-		List<Practice> practices = nodeService.findByTitle("Sakuma ViewPoint").getPractices();
-		return practices;
 	}
 	
 //	TODO suggestions
