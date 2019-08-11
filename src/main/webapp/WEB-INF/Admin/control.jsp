@@ -72,6 +72,7 @@
 							<c:out value="${practice.getTitle()}" />
 						</td>
 						<td>
+							<c:out value="${practice.getDescription()}" />
 						</td>
 						<td>
 							<a href="/admin/editPractice/<c:out value=" ${practice.getId()}" />">Edit</a>

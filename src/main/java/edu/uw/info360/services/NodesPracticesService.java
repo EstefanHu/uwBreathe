@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import edu.uw.info360.models.Node;
 import edu.uw.info360.models.NodesPractices;
+import edu.uw.info360.models.Practice;
 import edu.uw.info360.repositories.NodeRepository;
 import edu.uw.info360.repositories.NodesPracticesRepository;
 
@@ -39,6 +41,10 @@ public class NodesPracticesService {
 	}
 	
 	public void deleteNodesPractices(Long id) {
-		npRepo.delete(npRepo.findById(id).get());
+		NodesPractices np = npRepo.findById(id).get();
+		Node node = np.getNode();
+		Practice practice = np.getPractice();
+		node.removePractice(practice);
+		npRepo.delete(np);
 	}
 }

@@ -6,14 +6,18 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import edu.uw.info360.models.Practice;
+import edu.uw.info360.repositories.NodesPracticesRepository;
 import edu.uw.info360.repositories.PracticeRepository;
 
 @Service
 public class PracticeService {
 	private final PracticeRepository practiceRepo;
+	private final NodesPracticesRepository npRepo;
 	
-	public PracticeService(PracticeRepository practiceRepo) {
+	public PracticeService(PracticeRepository practiceRepo,
+							NodesPracticesRepository npRepo) {
 		this.practiceRepo = practiceRepo;
+		this.npRepo = npRepo;
 	}
 	
 	public List<Practice> findAllPractices() {
@@ -36,10 +40,13 @@ public class PracticeService {
 	public Practice updatePractice(Long id, Practice practice) {
 		Practice toUpdatePractice = practiceRepo.findById(id).get();
 		toUpdatePractice.setTitle(practice.getTitle());
+		toUpdatePractice.setDescription(practice.getDescription());
 		return practiceRepo.save(toUpdatePractice);
 	}
 	
 	public void deletePractice(Long id) {
+		Practice practice = practiceRepo.findById(id).get();
+		npRepo.deleteAll(npRepo.findByPractice(practice));
 		practiceRepo.delete(practiceRepo.findById(id).get());
 	}
 }

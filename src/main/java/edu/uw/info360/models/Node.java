@@ -111,6 +111,10 @@ public class Node {
 		this.practices.add(practice);
 	}
 	
+	public void removePractice(Practice practice) {
+		this.practices.remove(practice);
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}

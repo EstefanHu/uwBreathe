@@ -28,6 +28,10 @@
 					<form:label path="title">Title:</form:label>
 					<form:input path="title" value="${practice.title}" />
 				</p>
+				<p>
+					<form:label path="description">Description:</form:label>
+					<form:input path="description" value="${practice.description}" />
+				</p>
 				<input type="submit" value="Update" />
 			</form:form>
 		</div>

@@ -7,11 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import edu.uw.info360.models.Node;
 import edu.uw.info360.models.NodesPractices;
+import edu.uw.info360.models.Practice;
 
 @Repository
 public interface NodesPracticesRepository extends CrudRepository<NodesPractices, Long>{
 	List<NodesPractices> findAll();
+
+	List<NodesPractices> findByNode(Node node);
+	List<NodesPractices> findByPractice(Practice practice);
 	
-//	NEEDS UPDATE
 	List<NodesPractices> findByNodeOrderByUpdatedAtAsc(Node node);
 }
