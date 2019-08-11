@@ -9,49 +9,6 @@
 <title>Manage Nodes Relationships</title>
 </head>
 <body>
-	<h1>All Resources</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>Resource Title</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${resources}" var="resource">
-			<tr>
-				<td><c:out value="${resource.title}"/></td>
-				<td>
-					<form:form method="POST" action="/admin/addResourceToNode/${resource.getId()}" modelAttribute="resource">
-						<input type="submit" value="Add To Node"/>
-					</form:form>
-				</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<h1>In Node</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>Resource Title</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${nodesResources}" var="nodesResources">
-				<tr>
-					<td><c:out value="${nodesResources.title}"/></td>
-					<td>
-						<form:form method="DELETE" action="/admin/removeNodesResources/${nodesResources.getId()}" modelAttribute="NodesResources">
-							<input type="submit" value="Remove from Node"/>
-						</form:form>
-						<a href="/admin/updateNodesResources/${nodesResources.getId()}">Update</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
 	<h1>All Practices</h1>
 	<table>
 		<thead>
