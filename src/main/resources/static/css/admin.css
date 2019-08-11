@@ -68,3 +68,8 @@ footer {
     width: 107%;
     font-size: 1em;
 }
+/* DELETE CSS */
+.delete > input {
+    width: 100%;
+    margin: 5px 0;
+}
