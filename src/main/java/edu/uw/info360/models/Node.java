@@ -29,8 +29,9 @@ public class Node {
 	@Size(min = 2, max = 140)
 	private String title;
 	private String theme;
-	private float latitude;
-	private float longitude;
+	private String photo;
+	private double latitude;
+	private double longitude;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -55,7 +56,7 @@ public class Node {
     
 	public Node() {}
 	
-	public Node(String title, float latitude, float longitude) {
+	public Node(String title, double latitude, double longitude) {
 		this.title = title;
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -83,19 +84,27 @@ public class Node {
 		this.theme = theme;
 	}
 	
-	public float getLatitude() {
+	public String getPhoto() {
+		return photo;
+	}
+	
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
+	public double getLatitude() {
 		return this.latitude;
 	}
 	
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	
-	public float getLongitude() {
+	public double getLongitude() {
 		return this.longitude;
 	}
 	
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 	

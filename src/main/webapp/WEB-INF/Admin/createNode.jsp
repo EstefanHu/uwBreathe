@@ -33,6 +33,10 @@
 					<form:input path="theme" />
 				</p>
 				<p>
+					<form:label path="photo">Photo:</form:label>
+					<form:input path="photo"/>
+				</p>
+				<p>
 					<form:label path="latitude">Latitude:</form:label>
 					<form:input path="latitude" />
 				</p>

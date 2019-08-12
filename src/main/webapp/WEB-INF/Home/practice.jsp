@@ -19,10 +19,9 @@
     <h1 class="practiceTitle centerText"><c:out value="${practice.title}"/></h1>
     <div class="practiceImage"></div>
     <div class="primaryBlock">
-        <p>This is Primary</p>
+        <c:out value="${practice.description}" />
     </div>
     <div class="secondaryBlock">
-        <p>This is Secondary</p>
     </div>
 </div>
 </div>

@@ -17,8 +17,10 @@
 		<a href="/" class="navBack">Back</a>
 	</div>
 	<h1 class="locationTitle centerText"><c:out value="${node.title}"/></h1>
-	<div class="locationImage"></div>
-	<div class="primaryBlock">
+	<div class="locationImage center">
+		<img src="/imgs/<c:out value='${node.photo}'/>" class="lImage">
+	</div>
+	<div class="primaryBlock center">
 		<c:forEach items="${node.getPractices()}" var="practice">
 			<a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
 				<div class="practiceItem">

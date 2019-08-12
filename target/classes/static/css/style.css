@@ -21,7 +21,7 @@
 	position: absolute;
 	top: 2vh;
 	left: 3vh;
-	width: 350px;
+	width: 200px;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
 	box-shadow: 1px 1px 6px grey;
@@ -88,6 +88,9 @@
 }
 .locationImage {
 	grid-area: locationImage;
+}
+.lImage {
+	height: 200px;
 }
 .primaryBlock {
 	grid-area: primaryBlock;

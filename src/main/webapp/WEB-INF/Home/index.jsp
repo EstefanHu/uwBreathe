@@ -33,7 +33,7 @@
 			<h1>Themes</h1>
 				<a href="/Stillness"><div  class="sidebarItem center">Stillness</div></a>
 				<a href="/Generative"><div class="sidebarItem center">Generative</div></a>
-				<a href="/Creative"><div class="sidebarItem center">Creative</div></a>
+				<a href="/Creativity"><div class="sidebarItem center">Creative</div></a>
 				<a href="/Activist"><div class="sidebarItem center">Activist</div></a>
 				<a href="/Relational"><div class="sidebarItem center">Relational</div></a>
 				<a href="/Movement"><div class="sidebarItem center">Movement</div></a>	
@@ -47,7 +47,11 @@
 <c:if test="${themedNodes.size() != null}">
 	<c:forEach items="${themedNodes}" var="node">
 		<script>
-			var marker = L.marker(['${node.latitude}', '${node.longitude}']).addTo(mymap);
+			var marker = L.marker(['${node.latitude}', '${node.longitude}']).bindPopup(
+				'<p><c:out value="${node.title}" /></p>' + 
+				'<img src="/imgs/<c:out value="${node.photo}"/>" alt="">' +
+				'<p><c:out value="${node.theme}" /></p>'
+				).addTo(mymap);
 		</script>
 	</c:forEach>
 </c:if>

@@ -32,6 +32,10 @@
 					<form:input path="theme" value="${node.theme}" />
 				</p>
 				<p>
+					<form:label path="photo">Photo:</form:label>
+					<form:input path="photo" value="${node.photo}"/>
+				</p>
+				<p>
 					<form:label path="latitude">Latitude:</form:label>
 					<form:input path="latitude" value="${node.latitude}" />
 				</p>
