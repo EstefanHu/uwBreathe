@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.uw.info360.models.Node;
 import edu.uw.info360.models.Path;
 
 @RestController
@@ -19,5 +20,12 @@ public class ApiController {
 				new Path("Test2", "Test", "This also is a Test", 39),
 				new Path("Test3", "Test", "...yet another test", 12)
 				);
+	}
+	
+	@RequestMapping("/PathValue")
+	public String getPathValue(Path userPath){
+		List<Node> length = userPath.getNodes();
+		int numNodes = length.size();
+		return " "+ numNodes;
 	}
 }
