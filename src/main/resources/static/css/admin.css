@@ -1,3 +1,6 @@
+:root {
+  --site-primary: rgb(0, 166, 243);
+}
 .adminGrid {
     display: grid;
     grid-template-columns: auto 800px auto;
@@ -30,6 +33,37 @@
     font-weight: bold;
     text-decoration: none;
 }
+/* Table CSS */
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: .9em;
+    min-width: 300px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+.content-table thead tr {
+    background-color: var(--site-primary);
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid lightgrey;
+}
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--site-primary);
+}
 /* BODY CSS for CONTROL*/
 .adminTitle {
     grid-area: title;
@@ -40,12 +74,6 @@
 }
 .secondBlock {
     grid-area: secondBlock;
-}
-table, th, td {
-  border: 1px solid black;
-}
-th, td {
-    padding: 2px 4px;
 }
 footer {
     margin-top: 20px;
