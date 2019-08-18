@@ -5,39 +5,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/location.css"/>
 <title>Location View</title>
 </head>
 <body>
 <div class="container">
 <div class="locationGrid">
-	<div class="locationNav centerText">
-		<a href="/" class="navMap">Map</a>
-		<a href="/profile" class="navProfile">Profile</a>
-		<a href="/" class="navBack">Back</a>
+	<a href="/<c:out value='${node.theme}'/>" class="backToLocations">Locations</a>
+	<h1 class="locationTitle"><c:out value="${node.title}"/></h1>
+	<div class="locationImg">
+		<div class="imageOverlay">
+			<img src="/imgs/<c:out value='${node.photo}'/>">
+		</div>
+		<div class="locationDescription">
+			<p><c:out value="${node.description}" /></p>
+		</div>
 	</div>
-	<h1 class="locationTitle centerText"><c:out value="${node.title}"/></h1>
-	<div class="locationImage center">
-		<img src="/imgs/<c:out value='${node.photo}'/>" class="lImage">
-	</div>
-	<div class="primaryBlock center">
-		<p><c:out value="${node.description}"/></p>
+	<div class="directionButton centerText">
 		<a href="<c:out value='${node.navigationUrl}'/>">
-			<button id="getDirections">Get directions</button>	
+			<button class="getDirections">Start directions</button>	
 		</a>
 	</div>
-	<div class="secondaryBlock">
-		<p>Available Practice</p>
+	<div class="locationsPractices">
+		<hr>
+		<p class="availableP">Available Practice</p>
+		<div class="itemHolder">
 		<c:forEach items="${node.getPractices()}" var="practice">
 			<a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
-				<div class="practiceItem">
-					<p>
-						<c:out value="${practice.title}" />
-					</p>
+				<div class="practiceItem centerText">
+					<h3>B</h3>
+					<p><c:out value="${practice.title}" /></p>
 				</div>
 			</a>
 		</c:forEach>
+		</div>
 	</div>
+	<footer>
+		<a href="">Media</a>
+		<a href="">Favorits</a>
+		<a href="/">Map</a>
+		<a href="">Profile</a>
+	</footer>
 </div>
 </div>
 </body>

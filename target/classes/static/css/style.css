@@ -1,3 +1,4 @@
+/* Global CSS */
 * {
 	padding: 0px;
 	margin: 0px;	
@@ -12,127 +13,22 @@
 	height: 100vh;
 	width: 100vw;
 }
-#mapid {
-	height: 100vh;
-	z-index: 0;
+footer {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(231, 231, 231);
+    border-top: 1px solid lightgrey;
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    text-align: center;
 }
-.sidebar {
-	z-index: 1;
-	position: absolute;
-	top: 2vh;
-	left: 3vh;
-	width: 200px;
-	border: 1px solid lightgrey;
-	border-radius: 5px;
-	box-shadow: 1px 1px 6px grey;
-	background-color: white;
-	opacity: .96;
-	padding: 15px 0;
-}
-.sidebar > a {
+footer > a {
+	margin-top: 20px;
 	text-decoration: none;
 	color: black;
+	font-size: .7em;
 }
-.sidebarItem {
-	width: 90%;
-	margin-top: 10px;
-	border-radius: 5px;
-	border: 0;
-	background-color: lightgrey;
-	padding: 10px 0;
-}
-.sidebarItem:hover {
-	background-color: #c44dff;
-}
-/* LOCATION CSS */
-.locationGrid {
-	display: grid;
-	grid-template-columns: auto 500px auto;
-	grid-template-rows: 45px 30px 200px auto auto;
-	grid-gap: 5px;
-	grid-template-areas: 
-	"locationNav locationNav locationNav"
-	". locationTitle ."
-	". locationImage ."
-	". primaryBlock ."
-	". secondaryBlock .";
-}
-.locationNav {
-	grid-area: locationNav;
-	padding-top: 13px;
-	background-color: lightblue;
-	display: grid;
-	grid-template-columns: auto 60px 60px 60px auto;
-	grid-template-areas: ". navMap navProfile navBack .";
-}
-.navMap {
-	grid-area: navMap;
-	color: black;
-    font-weight: bold;
-    text-decoration: none;
-}
-.navProfile {
-	grid-area: navProfile;
-	color: black;
-    font-weight: bold;
-    text-decoration: none;
-}
-.navBack {
-	grid-area: navBack;
-	color: black;
-    font-weight: bold;
-    text-decoration: none;
-}
-.locationTitle {
-	grid-area: locationTitle;
-}
-.locationImage {
-	grid-area: locationImage;
-}
-.lImage {
-	height: 200px;
-}
-.primaryBlock {
-	grid-area: primaryBlock;
-}
-.practiceWrapper {
-	text-decoration: none;
-}
-.practiceItem {
-	border: 1px solid lightgrey;
-	border-radius: 5px;
-	margin-bottom: 5px;
-	padding: 10px;
-	display: inline-block;
-}
-.secondaryBlock {
-	grid-area: secondaryBlock;
-}
-/* PRACTICE CSS */
-.practiceGrid {
-	display: grid;
-	grid-template-columns: auto 500px auto;
-	grid-template-rows: 45px 30px 200px auto auto;
-	grid-gap: 5px;
-	grid-template-areas: 
-	"practiceNav practiceNav practiceNav"
-	". practiceTitle ."
-	". practiceImage ."
-	". primaryBlock ."
-	". secondaryBlock .";
-}
-.practiceNav {
-	grid-area: practiceNav;
-	padding-top: 13px;
-	background-color: lightblue;
-	display: grid;
-	grid-template-columns: auto 60px 60px 60px auto;
-	grid-template-areas: ". navMap navProfile navBack .";
-}
-.practiceTitle {
-	grid-area: practiceTitle;
-}
-.practiceImage {
-	grid-area: practiceImage;
-}
-/* ADMIN CSS */
