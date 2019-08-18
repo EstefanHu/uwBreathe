@@ -5,7 +5,7 @@ Class project for Informatics 360 at the University of Washington
 1. **HTML5**
 2. **CSS3**
 3. **Javascript**
-4. **Leaflet.js**- leafletjs.com - for a quick mapping library
+4. **Leaflet.js**- www.leafletjs.com - for a quick mapping library
 5. **OpenStreetMaps** - www.openstreetmap.org - geolocation api for development process  
 6. **JSTL** - for enfusing Java in front end files
 7. **JSP** - file format for enfusing Java in HTML
