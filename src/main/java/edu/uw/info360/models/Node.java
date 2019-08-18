@@ -29,6 +29,7 @@ public class Node {
 	@Size(min = 2, max = 140)
 	private String title;
 	private String theme;
+	private String description;
 	private String photo;
 	private double latitude;
 	private double longitude;
@@ -56,8 +57,10 @@ public class Node {
     
 	public Node() {}
 	
-	public Node(String title, double latitude, double longitude) {
+	public Node(String title, String theme, String description, double latitude, double longitude) {
 		this.title = title;
+		this.theme = theme;
+		this.description = description;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.practices = new ArrayList<>();
@@ -82,6 +85,14 @@ public class Node {
 	
 	public void setTheme(String theme) {
 		this.theme = theme;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	public String getPhoto() {
