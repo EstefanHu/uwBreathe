@@ -34,6 +34,7 @@ public class HomeController {
 	public String theme(@PathVariable("theme") String theme, Model model) {
 		List<Node> themedNodes = nodeService.findByTheme(theme);
 		if (themedNodes.size() == 0) return "redirect:/";
+		model.addAttribute("theme", theme);
 		model.addAttribute("themedNodes", themedNodes);
 		return "Home/index.jsp";
 	}

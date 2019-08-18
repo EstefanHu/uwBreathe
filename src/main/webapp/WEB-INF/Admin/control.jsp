@@ -21,7 +21,7 @@
 	<h1 class="centerText adminTitle">Admin Control</h1>
 	<div class="firstBlock">
 		<h2 class="centerText">Node Manager</h2>
-		<table class="centerText center">
+		<table class=" center content-table">
 			<thead>
 				<tr>
 					<th>Title</th>
@@ -29,7 +29,7 @@
 					<th>Latitude</th>
 					<th>Longitude</th>
 					<th>Edit</th>
-					<th>Resource Manager</th>
+					<th>Manager</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -57,11 +57,11 @@
 
 	<div class="secondBlock">
 		<h2 class="centerText">Practice Manager</h2>
-		<table class="practiceTable centerText center">
+		<table class="content-table center">
 			<thead>
 				<tr>
 					<th>Title</th>
-					<th>Duration</th>
+					<th>Description</th>
 					<th>Edit</th>
 				</tr>
 			</thead>

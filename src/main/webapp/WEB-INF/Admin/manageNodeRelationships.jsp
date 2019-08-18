@@ -20,7 +20,7 @@
 		<h1 class="adminTitle centerText">Manage Nodes Relationships</h1>
 		<div class="firstBlock">
 			<h2 class="centerText">All Practices</h2>
-			<table class="centerText center">
+			<table class="content-table center">
 				<thead>
 					<tr>
 						<th>Practice Title</th>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="secondBlock centerText center">
 			<h2 class="centerText">Practices in Node</h2>
-			<table class="centerText center">
+			<table class="content-table center">
 				<thead>
 					<tr>
 						<th>Practice Title</th>

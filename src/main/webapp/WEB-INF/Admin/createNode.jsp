@@ -33,6 +33,14 @@
 					<form:input path="theme" />
 				</p>
 				<p>
+					<form:label path="description">Description:</form:label>
+					<form:input path="description" />
+				</p>
+				<p>
+					<form:label path="navigationUrl">Navigation Url</form:label>
+					<form:input path="navigationUrl" />
+				</p>
+				<p>
 					<form:label path="photo">Photo:</form:label>
 					<form:input path="photo"/>
 				</p>

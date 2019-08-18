@@ -1,0 +1,34 @@
+#mapid {
+	height: 100vh;
+    z-index: 0;
+}
+.themeBar {
+	z-index: 1;
+	position: absolute;
+    top:550px;
+	width: 100%;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	box-shadow: 1px 1px 6px grey;
+	background-color: white;
+	padding: 5px 0;
+}
+.downarrow {
+    height: 15px;
+    width: 30px;
+    display: block;
+    margin: 5px auto;
+}
+.greetings {
+    margin: 5px 20px;
+}
+.themebarGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    margin: 15px 15px 60px 15px;
+}
+img {
+    width: 100%;
+}
+
