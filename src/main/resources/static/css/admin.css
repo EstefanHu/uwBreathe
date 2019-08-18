@@ -12,6 +12,13 @@
     ". firstBlock ."
     ". secondBlock .";
 }
+a {
+    text-decoration: none;
+    color: blue;
+}
+a:hover {
+    color: rgb(0, 0, 83);
+}
 /* NAV CSS */
 .adminNav {
     grid-area: adminNav;

@@ -30,6 +30,7 @@ public class Node {
 	private String title;
 	private String theme;
 	private String description;
+	private String navigationUrl;
 	private String photo;
 	private double latitude;
 	private double longitude;
@@ -57,10 +58,11 @@ public class Node {
     
 	public Node() {}
 	
-	public Node(String title, String theme, String description, double latitude, double longitude) {
+	public Node(String title, String theme, String description, String navigationUrl, double latitude, double longitude) {
 		this.title = title;
 		this.theme = theme;
 		this.description = description;
+		this.navigationUrl = navigationUrl;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.practices = new ArrayList<>();
@@ -93,6 +95,14 @@ public class Node {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getNavigationUrl() {
+		return navigationUrl;
+	}
+	
+	public void setNavigationUrl(String navUrl) {
+		this.navigationUrl = navUrl;
 	}
 	
 	public String getPhoto() {

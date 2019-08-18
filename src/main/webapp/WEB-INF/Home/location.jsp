@@ -21,15 +21,23 @@
 		<img src="/imgs/<c:out value='${node.photo}'/>" class="lImage">
 	</div>
 	<div class="primaryBlock center">
+		<p><c:out value="${node.description}"/></p>
+		<a href="<c:out value='${node.navigationUrl}'/>">
+			<button id="getDirections">Get directions</button>	
+		</a>
+	</div>
+	<div class="secondaryBlock">
+		<p>Available Practice</p>
 		<c:forEach items="${node.getPractices()}" var="practice">
 			<a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
 				<div class="practiceItem">
-					<p><c:out value="${practice.title}" /></p>
+					<p>
+						<c:out value="${practice.title}" />
+					</p>
 				</div>
 			</a>
 		</c:forEach>
 	</div>
-	<div class="secondaryBlock"></div>
 </div>
 </div>
 </body>

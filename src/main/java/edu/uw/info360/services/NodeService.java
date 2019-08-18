@@ -48,6 +48,9 @@ public class NodeService {
 	public Node updateNode(Long id, Node node) {
 		Node toUpdateNode = nodeRepo.findById(id).get();
 		toUpdateNode.setTitle(node.getTitle());
+		toUpdateNode.setTheme(node.getTheme());
+		toUpdateNode.setDescription(node.getDescription());
+		toUpdateNode.setNavigationUrl(node.getNavigationUrl());
 		toUpdateNode.setPhoto(node.getPhoto());
 		toUpdateNode.setLatitude(node.getLatitude());
 		toUpdateNode.setLongitude(node.getLongitude());
