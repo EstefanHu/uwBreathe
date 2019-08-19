@@ -15,11 +15,11 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "Paths_Nodes")
-public class PathsNodes {
+@Table(name="Nodes_Practices")
+public class NodesPractices {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long pathsNodesId;
+	private Long nodesPracticesId;
 	private String title;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -28,23 +28,22 @@ public class PathsNodes {
     private Date updatedAt;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="path_id")
-    private Path path;
+    @JoinColumn(name="practice_id")
+    private Practice practice;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="node_id")
     private Node node;
     
-    public PathsNodes() {}
+    public NodesPractices() {}
     
-    public PathsNodes(String title) {
+    public NodesPractices(String title) {
     	this.title = title;
     	this.createdAt = new Date();
     	this.updatedAt = new Date();
     }
-
-	public Long getId() {
-		return pathsNodesId;
+    public Long getId() {
+		return nodesPracticesId;
 	}
 	
 	public String getTitle() {
@@ -62,26 +61,24 @@ public class PathsNodes {
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
+	
 	public void update(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-	public Path getPath() {
-		return path;
-	}
-
-	public void setPath(Path path) {
-		this.path = path;
-	}
-
+	
 	public Node getNode() {
 		return node;
 	}
 
 	public void setNode(Node node) {
 		this.node = node;
+	} 
+	
+	public Practice getPractice() {
+		return practice;
 	}
-    
-    
+	
+	public void setPractice(Practice practice) {
+		this.practice = practice;
+	}
 }

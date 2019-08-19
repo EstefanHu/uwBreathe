@@ -14,129 +14,57 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.info360.models.Node;
+import edu.uw.info360.models.NodesPractices;
 import edu.uw.info360.models.NodesResources;
-import edu.uw.info360.models.Path;
-import edu.uw.info360.models.PathsNodes;
+import edu.uw.info360.models.Practice;
 import edu.uw.info360.models.Resource;
 import edu.uw.info360.services.NodeService;
+import edu.uw.info360.services.NodesPracticesService;
 import edu.uw.info360.services.NodesResourcesService;
-import edu.uw.info360.services.PathService;
-import edu.uw.info360.services.PathsNodesService;
+import edu.uw.info360.services.PracticeService;
 import edu.uw.info360.services.ResourceService;
-import edu.uw.info360.validators.PathValidator;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
-	private final PathService pathService;
+	private final PracticeService practiceService;
 	private final NodeService nodeService;
 	private final ResourceService resourceService;
-	private final PathsNodesService pnService;
 	private final NodesResourcesService nrService;
+	private final NodesPracticesService npService;
 	
-	private final PathValidator pathValidator;
 	
-	public AdminController(PathService pathService, PathValidator pathValidator, 
-														NodeService nodeService,
-														ResourceService resourceService,
-														PathsNodesService pnService,
-														NodesResourcesService nrService) {
-		this.pathService = pathService;
-		this.pathValidator = pathValidator;
+	public AdminController( PracticeService practiceService,
+							NodeService nodeService,
+							ResourceService resourceService,
+							NodesResourcesService nrService,
+							NodesPracticesService npService) {
+		this.practiceService = practiceService;
 		this.nodeService = nodeService;
 		this.resourceService = resourceService;
-		this.pnService = pnService;
 		this.nrService = nrService;
+		this.npService = npService;
 	}
+
 	@RequestMapping("")
 	public String control(Model model) {
-		List<Path> paths = pathService.findAllPaths();
+		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		List<Resource> resources = resourceService.findAllResources();
 		model.addAttribute("resources", resources);
 		model.addAttribute("nodes", nodes);
-		model.addAttribute("paths", paths);
+		model.addAttribute("practices", practices);
 		return "Admin/control.jsp";
 	}
-	
-	@RequestMapping("/createPath")
-	public String createPath(@ModelAttribute("path") Path path) {
-		return "Admin/createPath.jsp";
-	}
-	
-	@RequestMapping(value="/ingestNewPath", method=RequestMethod.POST)
-	public String ingestNewPath(@Valid @ModelAttribute("path") Path newPath, BindingResult result) {
-		pathValidator.validate(newPath, result);
-		if(result.hasErrors()) {
-			return "Admin/createPath.jsp";
-		}
-		pathService.createPath(newPath);
-		return "redirect:/admin/";
-	}
-	
-	@RequestMapping("/editPath/{id}")
-	public String editPath(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePath") Path updatePath) {
-		Path path = pathService.findPathById(id);
-		model.addAttribute("path", path);
-		return "Admin/editPath.jsp";
-	}
-	
-	@RequestMapping(value="/updatePath/{id}", method=RequestMethod.PUT)
-	public String updatePath(@PathVariable("id") Long id, @ModelAttribute("updatePath") Path path) {
-		pathService.updatePath(id, path);
-		return "redirect:/admin/";
-	}
-	
-	@RequestMapping(value="/deletePath/{id}", method=RequestMethod.DELETE)
-	public String deletePath(@PathVariable("id") Long id) {
-		pathService.deletePath(id);
-		return "redirect:/admin/";
-	}
-	
-	@RequestMapping("/editNodeForPath/{id}")
-	public String editNodeForPath(Model model, @PathVariable("id") Long id, HttpSession session) {
-		session.setAttribute("path", id);
-		List<Node> nodes = nodeService.findAllNodes();
-		List<PathsNodes> pns = pnService.findByPathsId(id);
-		model.addAttribute("pathsNodes", pns);
-		model.addAttribute("nodes", nodes);
-		model.addAttribute("id", id);
-		return "Admin/editNodeForPath.jsp";
-	}
-	
-	@RequestMapping(value="/addToPath/{id}", method=RequestMethod.POST)
-	public String addToPath(@PathVariable("id") Long id, HttpSession session) {
-		Long pathId = (Long) session.getAttribute("path");
-		Node node = nodeService.findNodeById(id);
-		Path path = pathService.findPathById(pathId);
-		PathsNodes pn = new PathsNodes(node.getTitle());
-		pn.setNode(node);
-		pn.setPath(path);
-		pnService.createPN(pn);
-		return "redirect:/admin/editNodeForPath/" + pathId;
-	}
-	
-	@RequestMapping("/updatePathsNodes/{id}")
-	public String updatePathsNodes(@PathVariable("id") Long id, HttpSession session) {
-		pnService.updatePathsNodes(id);
-		Long pathId = (Long) session.getAttribute("path");
-		return "redirect:/admin/editNodeForPath/" + pathId;
-	}
-	
-	@RequestMapping(value="/removePathsNodes/{id}", method=RequestMethod.DELETE)
-	public String removePathsNodes(@PathVariable("id") Long id, HttpSession session) {
-		Long pathId = (Long) session.getAttribute("path");
-		pnService.deletePathsNodes(id);
-		return "redirect:/admin/editNodeForPath/" + pathId;
-	}
-	
+//	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
+//		TODO: Capitalize first characters
 		return "Admin/createNode.jsp";
 	}
 	
-	@RequestMapping(value="/ingestNewNode", method=RequestMethod.POST)
-	public String ingestNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
+	@RequestMapping(value="/createNewNode", method=RequestMethod.POST)
+	public String createNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
 //		TODO: Create Node Validation
 		nodeService.createNode(newNode);
 		return "redirect:/admin/";
@@ -160,20 +88,51 @@ public class AdminController {
 		nodeService.deleteNode(id);
 		return "redirect:/admin/";
 	}
-	
-	@RequestMapping("editResourceForNode/{id}")
-	public String editResourceForNode(Model model, @PathVariable("id") Long id, HttpSession session) {
+//	Manage Node Relationship Logic
+	@RequestMapping("manageNodeRelationships/{id}")
+	public String manageNodeRelationships(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("node", id);
+		List<Practice> practices = practiceService.findAllPractices();
 		List<Resource> resources = resourceService.findAllResources();
+		List<NodesPractices> nps = npService.findByNodesId(id);
 		List<NodesResources> nrs = nrService.findByNodesId(id);
+		model.addAttribute("nodesPractices", nps);
+		model.addAttribute("practices", practices);
 		model.addAttribute("nodesResources", nrs);
 		model.addAttribute("resources", resources);
 		model.addAttribute("id", id);
-		return "Admin/editResourceForNode.jsp";
+		return "Admin/manageNodeRelationships.jsp";
+	}
+//	Managing Practices Logic
+	@RequestMapping(value="/addPracticeToNode/{id}", method=RequestMethod.POST)
+	public String addPracticeToNode(@PathVariable("id") Long id, HttpSession session) {
+		Long nodeId = (Long) session.getAttribute("node");
+		Node node = nodeService.findNodeById(nodeId);
+		Practice practice = practiceService.findPracticeById(id);
+		node.addPractice(practice);
+		NodesPractices np = new NodesPractices(practice.getTitle());
+		np.setPractice(practice);
+		np.setNode(node);
+		npService.createNP(np);
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 	
-	@RequestMapping(value="/addToNode/{id}", method=RequestMethod.POST)
-	public String addToNode(@PathVariable("id") Long id, HttpSession session) {
+	@RequestMapping("/updateNodesPractices/{id}")
+	public String updateNodesPractices(@PathVariable("id") Long id, HttpSession session) {
+		npService.updateNodesPractices(id);
+		Long nodeId = (Long) session.getAttribute("node");
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+	}
+	
+	@RequestMapping(value="/removeNodesPractices/{id}", method=RequestMethod.DELETE)
+	public String removeNodesPractices(@PathVariable("id") Long id, HttpSession session) {
+		Long nodeId = (Long) session.getAttribute("node");
+		npService.deleteNodesPractices(id);
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+	}
+//	Managing Resources Logic
+	@RequestMapping(value="/addResourceToNode/{id}", method=RequestMethod.POST)
+	public String addResourceToNode(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		Resource resource = resourceService.findResourceById(id);
 		Node node = nodeService.findNodeById(nodeId);
@@ -181,23 +140,53 @@ public class AdminController {
 		nr.setResource(resource);
 		nr.setNode(node);
 		nrService.createNR(nr);
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 	
 	@RequestMapping("/updateNodesResources/{id}")
 	public String updatNodesResources(@PathVariable("id") Long id, HttpSession session) {
 		nrService.updateNodesResources(id);
 		Long nodeId = (Long) session.getAttribute("node");
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 	
 	@RequestMapping(value="/removeNodesResources/{id}", method=RequestMethod.DELETE)
 	public String removeNodesResources(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		nrService.deleteNodesResources(id);
-		return "redirect:/admin/editResourceForNode/" + nodeId;
+		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
-		
+//	Practice Logic
+	@RequestMapping("/createPractice")
+	public String createPractice(@ModelAttribute("practice") Practice practice) {
+		return "Admin/createPractice.jsp";
+	}
+	
+	@RequestMapping("/createNewPractice")
+	public String createNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
+		practiceService.addPractice(newPractice);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/editPractice/{id}")
+	public String editPractice(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice updatePractice) {
+		Practice practice = practiceService.findPracticeById(id);
+		model.addAttribute("practice", practice);
+		return "Admin/editPractice.jsp";
+	}
+	
+	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
+	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice) {
+		practiceService.updatePractice(id, practice);
+		return "redirect:/admin/";
+	}
+	
+	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
+	public String deletePractice(@PathVariable("id") Long id) {
+		practiceService.deletePractice(id);
+		return "redirect:/admin/";
+	}
+//	Resource Logic
 	@RequestMapping("/createResource")
 	public String createResource(@ModelAttribute("resource") Resource resource) {
 		return "Admin/createResource.jsp";

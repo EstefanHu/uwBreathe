@@ -28,8 +28,10 @@ public class Node {
 	private Long nodeId;
 	@Size(min = 2, max = 140)
 	private String title;
-	private float latitude;
-	private float longitude;
+	private String theme;
+	private String photo;
+	private double latitude;
+	private double longitude;
 	@Column(updatable = false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -38,12 +40,12 @@ public class Node {
 	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "Paths_Nodes", 
+        name = "Practices_Nodes", 
         joinColumns = @JoinColumn(name = "node_id"), 
-        inverseJoinColumns = @JoinColumn(name = "path_id")
+        inverseJoinColumns = @JoinColumn(name = "practice_id")
     )
-    private List<Path> paths;
-	
+    private List<Practice> practices;
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "Nodes_Resources", 
@@ -54,11 +56,11 @@ public class Node {
     
 	public Node() {}
 	
-	public Node(String title, float latitude, float longitude) {
+	public Node(String title, double latitude, double longitude) {
 		this.title = title;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.paths = new ArrayList<>();
+		this.practices = new ArrayList<>();
 		this.resources = new ArrayList<>();
 	}
 	
@@ -74,41 +76,65 @@ public class Node {
 		this.title = title;
 	}
 	
-	public float getLatitude() {
+	public String getTheme() {
+		return theme;
+	}
+	
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+	
+	public String getPhoto() {
+		return photo;
+	}
+	
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
+	public double getLatitude() {
 		return this.latitude;
 	}
 	
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	
-	public float getLongitude() {
+	public double getLongitude() {
 		return this.longitude;
 	}
 	
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
-	}
-	
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-	
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-	
-	public List<Path> getPaths() {
-		return paths;
 	}
 	
 	public List<Resource> getResources() {
 		return resources;
 	}
 	
+	public List<Practice> getPractices() {
+		return practices;
+	}
+	
+	public void addPractice(Practice practice) {
+		this.practices.add(practice);
+	}
+	
+	public void removePractice(Practice practice) {
+		this.practices.remove(practice);
+	}
+	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
+	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
 	}
 	
 	@PreUpdate

@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.uw.info360.models.Path;
+import edu.uw.info360.models.Practice;
 
 @Repository
-public interface PathRepository extends CrudRepository<Path, Long> {
-	List<Path> findAll();
-	
-	Path findByTitle(String title);
+public interface PracticeRepository extends CrudRepository<Practice, Long>{
+	List<Practice> findAll();
 }
