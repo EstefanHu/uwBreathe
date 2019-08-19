@@ -85,6 +85,6 @@
 		<p class="footer centerText"><a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a></p>
 	</div>
 </div>
-<img src="imgs/site/splash.png" class="splash"/>
+<img src="/imgs/site/splash.png" class="splash"/>
 </div>
 </body>   
