@@ -5,7 +5,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/node.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<title>Create Node</title>
 </head>

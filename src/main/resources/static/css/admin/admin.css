@@ -1,0 +1,47 @@
+:root {
+  --site-primary: rgb(109, 127, 186);
+  --site-primary-bold: rgb(79, 97, 158);
+  --site-secondary: rgb(195, 202, 226);
+  --site-background: rgb(234, 237, 245);
+}
+.adminContainer {
+    background-color: var(--site-primary);
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+a:hover {
+    color: rgb(0, 0, 83);
+}
+/* NAV CSS */
+.adminNav {
+    height: 30px;
+    width: 100%;
+    padding-top: 15px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 60px 60px auto;
+    grid-template-areas: ". navHome navControl .";
+}
+.navHome {
+    grid-area: navHome;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.navControl {
+    grid-area: navControl;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.splash {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}

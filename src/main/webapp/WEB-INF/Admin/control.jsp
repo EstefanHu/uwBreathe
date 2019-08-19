@@ -5,22 +5,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/control.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<title>Control</title>
 </head>
 
 <body>
-<div class="container">
-<div class="adminGrid">
-	<div class="adminNav">
-		<a href="/" class="navHome">Home</a>
-		<a href="/admin" class="navControl">Admin</a>
-	</div>
-
-	<h1 class="centerText adminTitle">Admin Control</h1>
-	<div class="firstBlock">
-		<h2 class="centerText">Node Manager</h2>
+<div class="adminContainer">
+<div class="adminNav">
+	<a href="/" class="navHome">Home</a>
+	<a href="/admin" class="navControl">Admin</a>
+</div>
+<div class="controlGrid">
+	<h1 class="centerText controlTitle">Admin Control</h1>
+	<div class="locationBlock">
+		<h2 class="centerText">Location Manager</h2>
 		<table class=" center content-table">
 			<thead>
 				<tr>
@@ -55,7 +56,7 @@
 		</table>
 	</div>
 
-	<div class="secondBlock">
+	<div class="practiceBlock">
 		<h2 class="centerText">Practice Manager</h2>
 		<table class="content-table center">
 			<thead>
@@ -81,12 +82,9 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<p class="footer centerText"><a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a></p>
 	</div>
 </div>
-<footer class="centerText">
-	<p>
-		<a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a>
-	</p>
-</footer>
+<img src="imgs/site/splash.png" class="splash"/>
 </div>
 </body>   
