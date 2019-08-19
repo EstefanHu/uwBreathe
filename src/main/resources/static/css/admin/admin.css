@@ -6,7 +6,7 @@
 }
 .adminContainer {
     background-color: var(--site-primary);
-    height: 100vh;
+    height: 100%;
 }
 
 a {
@@ -40,7 +40,7 @@ a:hover {
 }
 .splash {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 0;
