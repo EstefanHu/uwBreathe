@@ -4,11 +4,11 @@
   --site-secondary: rgb(195, 202, 226);
   --site-background: rgb(234, 237, 245);
 }
-.adminContainer {
+html,body { 
+    height:100vh; 
+    width: 100%;
     background-color: var(--site-primary);
-    height: 100%;
 }
-
 a {
     text-decoration: none;
     color: blue;
@@ -23,20 +23,30 @@ a:hover {
     padding-top: 15px;
     background-color: white;
     display: grid;
-    grid-template-columns: auto 60px 60px auto;
-    grid-template-areas: ". navHome navControl .";
+    grid-template-columns: auto 250px auto;
+    grid-template-areas:
+    "firstNav primaryNav lastNav"
 }
-.navHome {
-    grid-area: navHome;
+.navItem {
     color: black;
     font-weight: bold;
     text-decoration: none;
+    display: inline;
+    margin-right: 15px;
+
 }
-.navControl {
-    grid-area: navControl;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
+.firstNavItem {
+    grid-area: firstNav;
+    margin: 0 0 0 15px;
+}
+.primaryNav {
+    grid-area: primaryNav;
+}
+.lastNavItem {
+    grid-area: lastNav;
+    position: absolute;
+    top: 15px;
+    right: 0;
 }
 .splash {
     width: 100%;

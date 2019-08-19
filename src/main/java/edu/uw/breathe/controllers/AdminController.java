@@ -56,6 +56,21 @@ public class AdminController {
 		model.addAttribute("practices", practices);
 		return "Admin/control.jsp";
 	}
+	@RequestMapping("/node/{id}")
+	public String node(Model model, @PathVariable("id") Long id) {
+		List<Practice> practices = practiceService.findAllPractices();
+		List<Node> nodes = nodeService.findAllNodes();
+		Node node = nodeService.findNodeById(id);
+		List<Resource> resources = resourceService.findAllResources();
+		List<NodesPractices> nps = npService.findByNodesId(id);
+		model.addAttribute("nodesPractices", nps);
+		model.addAttribute("resources", resources);
+		model.addAttribute("nodes", nodes);
+		model.addAttribute("node", node);
+		model.addAttribute("updateNode", node);
+		model.addAttribute("practices", practices);
+		return "Admin/node.jsp";
+	}
 //	Nodes Logic
 	@RequestMapping("/createNode")
 	public String createNode(@ModelAttribute("node") Node node) {
