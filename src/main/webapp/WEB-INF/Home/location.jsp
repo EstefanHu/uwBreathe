@@ -41,12 +41,28 @@
 		</c:forEach>
 		</div>
 	</div>
-	<footer>
-		<a href="">Media</a>
-		<a href="">Favorits</a>
-		<a href="/">Map</a>
-		<a href="">Profile</a>
-	</footer>
+	<div class="footer">
+		<a href="">
+			<div>
+				<p>Media</p>
+			</div>
+		</a>
+		<a href="">
+			<div>
+				<p>Favorites</p>
+			</div>
+		</a>
+		<a href="">
+			<div>
+				<p>Map</p>
+			</div>
+		</a>
+		<a href="">
+			<div>
+				<p>Profile</p>
+			</div>
+		</a>
+	</div>
 </div>
 </div>
 </body>
