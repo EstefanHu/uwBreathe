@@ -1,0 +1,82 @@
+.locationGrid {
+    display: grid;
+    grid-template-columns: 15px repeat(4, 1fr) 15px;
+    grid-template-rows: 30px 40px auto 50px auto 80px;
+    grid-template-areas: 
+    "backToLocations backToLocations backToLocations backToLocations backToLocations backToLocations"
+    ". locationTitle locationTitle locationTitle locationTitle ."
+    "locationImg locationImg locationImg locationImg locationImg locationImg"
+    ". . directionButton directionButton . ."
+    ". locationsPractices locationsPractices locationsPractices locationsPractices ."
+    ". . . . . ."
+}
+.backToLocations {
+    grid-area: backToLocations;
+    margin: 7px 0 0 10px;
+    text-decoration: none;
+    color: blue;
+}
+.locationTitle {
+    grid-area: locationTitle;
+}
+.locationImg {
+    grid-area: locationImg;
+}
+.imageOverlay::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent 0%, rgb(0, 191, 255) 100%);
+  margin-top: -150px;
+  height: 150px;
+  width: 100%;
+  content: '';
+}
+.locationImg img {
+    width: 100%;
+}
+.locationDescription {
+    width: 100%;
+    position: relative;
+    bottom: 25px;
+    display: inline-block;
+}
+.locationDescription > p {
+    color: white;
+    margin: 0 10px;
+}
+.directionButton {
+    grid-area: directionButton;
+    margin: 5px 0;
+}
+.getDirections {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: .8em;
+}
+.locationsPractices {
+    grid-area: locationsPractices;
+}
+.availableP {
+    margin: 20px 0 20px 0;
+}
+.practiceWrapper {
+    text-decoration: none;
+    color: black;
+}
+.itemHolder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+.practiceItem {
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+    padding: 35px;
+}
+
+h3 {
+    margin-bottom: 25px;
+}

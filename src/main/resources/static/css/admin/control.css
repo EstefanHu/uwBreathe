@@ -1,0 +1,28 @@
+.controlGrid {
+    display: grid;
+    grid-template-columns: auto 800px auto;
+    grid-template-rows: 30px auto auto;
+    grid-gap: 10px;
+    grid-template-areas:
+    ". title ."
+    ". locationBlock ."
+    ". practiceBlock .";
+}
+.controlTitle {
+    grid-area: title;
+    z-index: 1;
+}
+.locationBlock {
+    grid-area: locationBlock;
+    margin: 20px 0;
+    z-index: 1;
+}
+.practiceBlock {
+    grid-area: practiceBlock;
+    z-index: 1;
+
+}
+.footer {
+    margin-top: 20px;
+    z-index: 1;
+}

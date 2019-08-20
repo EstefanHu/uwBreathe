@@ -32,6 +32,14 @@
 					<form:input path="theme" value="${node.theme}" />
 				</p>
 				<p>
+					<form:label path="description">Description</form:label>
+					<form:input path="description" value="${node.description}" />
+				</p>
+				<p>
+					<form:label path="navigationUrl">Navigation Url</form:label>
+					<form:input path="navigationUrl" value="${node.navigationUrl}" />
+				</p>
+				<p>
 					<form:label path="photo">Photo:</form:label>
 					<form:input path="photo" value="${node.photo}"/>
 				</p>

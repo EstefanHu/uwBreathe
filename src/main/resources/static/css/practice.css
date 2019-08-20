@@ -1,0 +1,26 @@
+.practiceGrid {
+	display: grid;
+	grid-template-columns: auto 500px auto;
+	grid-template-rows: 45px 30px 200px auto auto;
+	grid-gap: 5px;
+	grid-template-areas: 
+	"practiceNav practiceNav practiceNav"
+	". practiceTitle ."
+	". practiceImage ."
+	". primaryBlock ."
+	". secondaryBlock .";
+}
+.practiceNav {
+	grid-area: practiceNav;
+	padding-top: 13px;
+	background-color: lightblue;
+	display: grid;
+	grid-template-columns: auto 60px 60px 60px auto;
+	grid-template-areas: ". navMap navProfile navBack .";
+}
+.practiceTitle {
+	grid-area: practiceTitle;
+}
+.practiceImage {
+	grid-area: practiceImage;
+}

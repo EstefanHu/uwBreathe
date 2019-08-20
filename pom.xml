@@ -8,12 +8,12 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>edu.uw.info360</groupId>
-	<artifactId>info360project</artifactId>
+	<groupId>edu.uw.breathe</groupId>
+	<artifactId>uwbreathe</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>info360project</name>
-	<description>Informatics 360 Project </description>
+	<name>uwbreathe</name>
+	<description>Informatics 360 Project</description>
 
 	<properties>
 		<java.version>12</java.version>

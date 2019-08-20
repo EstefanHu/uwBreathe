@@ -5,7 +5,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/css/admin/node.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<title>Create Node</title>
 </head>
@@ -31,6 +32,14 @@
 				<p>
 					<form:label path="theme">Theme:</form:label>
 					<form:input path="theme" />
+				</p>
+				<p>
+					<form:label path="description">Description:</form:label>
+					<form:input path="description" />
+				</p>
+				<p>
+					<form:label path="navigationUrl">Navigation Url</form:label>
+					<form:input path="navigationUrl" />
 				</p>
 				<p>
 					<form:label path="photo">Photo:</form:label>
