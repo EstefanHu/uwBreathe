@@ -74,7 +74,8 @@
                         <p>longitude: <c:out value="${node.longitude}" /></p>
                     </div>
                     <div class="editLocation">
-                        <button class="editLocationButton" id="updateLocationButton">Edit Location</button>
+                        <button class="deleteLocationButton" id="deleteLocationButton">Delete</button>
+                        <button class="editLocationButton" id="updateLocationButton">Edit</button>
                     </div>
                 </div>
                 <div class="managePractices manageFeedStyle">
@@ -117,7 +118,7 @@
                                             <c:out value="${nodesPractice.title}" />
                                         </td>
                                         <td>
-                                            <a href="/admin/removeNodesPractices/${nodesPractice.getId()}" >Remove</a>
+                                            <a href="/admin/removeNodesPractices/${nodesPractice.getId()}" >Remove</a><br>
                                             <a href="/admin/updateNodesPractices/${nodesPractice.getId()}">Update</a>
                                         </td>
                                     </tr>
@@ -216,6 +217,17 @@
                 </form:form>
             </div>
         </div>
+        <div id="deleteLocationModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 class="centerText">Delete Location</h1>
+                <p>Are you sure you want to delete this location?</p>
+                <form:form method="DELETE" action="/admin/deleteNode/${node.getId()}" class="form">
+                    <input type="submit" value="Yes Delete this location" />
+                </form:form>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="/js/node.js"></script>
 

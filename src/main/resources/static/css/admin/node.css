@@ -90,6 +90,7 @@
 .editLocation {
     grid-area: editButton;
 }
+.deleteLocationButton,
 .editLocationButton {
     background-color: var(--site-primary);
     color: white;
@@ -101,6 +102,10 @@
     bottom: 10px;
     right: 20px;
 }
+.editLocationButton {
+    right: 105px;
+}
+.deleteLocationButton:focus,
 .editLocationButton:focus {
     background-color: var(--site-primary-bold);
     outline: none;
