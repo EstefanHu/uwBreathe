@@ -31,4 +31,14 @@
 img {
     width: 100%;
 }
-
+@media screen and (min-width: 600px) {
+    .themeBar {
+        top: 2vh;
+        left: 1vh;
+        width: 300px;
+        padding: 15px 0 0 0;
+    }
+    .downarrow {
+        display: none;
+    }
+}
