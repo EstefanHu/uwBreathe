@@ -95,9 +95,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/updateNode/{id}", method=RequestMethod.PUT)
-	public String updateNode(@PathVariable("id") Long id, @ModelAttribute("updateNode") Node node) {
+	public String updateNode(@PathVariable("id") Long id, @ModelAttribute("updateNode") Node node, HttpSession session) {
+		Long nodeId = (Long)session.getAttribute("nodeId");
 		nodeService.updateNode(id, node);
-		return "redirect:/admin/";
+		return "redirect:/admin/node/"+ nodeId;
 	}
 	
 	@RequestMapping(value="/deleteNode/{id}", method=RequestMethod.DELETE)
