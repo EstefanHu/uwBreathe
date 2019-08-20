@@ -57,7 +57,8 @@ public class AdminController {
 		return "Admin/control.jsp";
 	}
 	@RequestMapping("/node/{id}")
-	public String node(Model model, @PathVariable("id") Long id) {
+	public String node(Model model, @PathVariable("id") Long id,@ModelAttribute("createNode") Node createNode, HttpSession session) {
+		session.setAttribute("nodeId", id);
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		Node node = nodeService.findNodeById(id);
@@ -79,10 +80,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/createNewNode", method=RequestMethod.POST)
-	public String createNewNode(@Valid @ModelAttribute("node") Node newNode, BindingResult result) {
+	public String createNewNode(@Valid @ModelAttribute("newNode") Node newNode, BindingResult result, HttpSession session) {
 //		TODO: Create Node Validation
+		Long nodeId = (Long) session.getAttribute("nodeId");
 		nodeService.createNode(newNode);
-		return "redirect:/admin/";
+		return "redirect:/admin/node/" + nodeId;
 	}
 	
 	@RequestMapping("/editNode/{id}")

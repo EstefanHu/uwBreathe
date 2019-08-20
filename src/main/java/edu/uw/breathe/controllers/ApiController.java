@@ -9,18 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-<<<<<<< HEAD:src/main/java/edu/uw/info360/controllers/ApiController.java
-import edu.uw.info360.models.Node;
 
-import edu.uw.info360.models.User;
-import edu.uw.info360.services.NodeService;
-import edu.uw.info360.services.UserService;
-=======
 import edu.uw.breathe.models.Node;
 import edu.uw.breathe.models.User;
 import edu.uw.breathe.services.NodeService;
 import edu.uw.breathe.services.UserService;
->>>>>>> 1ffffd6504c0d3686939651c7852b56a39580d64:src/main/java/edu/uw/breathe/controllers/ApiController.java
 
 @RestController
 @RequestMapping("/api")

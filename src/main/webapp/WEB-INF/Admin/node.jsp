@@ -143,7 +143,7 @@
                 <p>
                     <form:errors path="node.*" />
                 </p>
-                <form:form method="POST" action="createNewNode" modelAttribute="node" class="form">
+                <form:form method="POST" action="/admin/createNewNode" modelAttribute="createNode" class="form">
                     <p>
                         <form:label path="title">Title:</form:label>
                         <form:input path="title" />
