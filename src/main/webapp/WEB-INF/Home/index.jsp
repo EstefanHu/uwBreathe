@@ -18,7 +18,7 @@
 <body>
 <div class="container">
 	<div id="mapid"></div>
-	<div class="navInfo">
+	<div class="mainContent">
 		<div class="themeBar">
 			<img src="imgs/site/downarrow.png" class="downarrow centerText">
 			<c:choose>

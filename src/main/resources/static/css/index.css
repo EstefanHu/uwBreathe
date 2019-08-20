@@ -32,11 +32,22 @@ img {
     width: 100%;
 }
 @media screen and (min-width: 600px) {
-    .themeBar {
+    .greetings {
+        font-size: 1.5em;
+    }
+    .mainContent {
+        position: absolute;
         top: 2vh;
         left: 2vh;
+        height: 80%;
         width: 300px;
-        padding: 15px 0 0 0;
+    }
+    .themeBar {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 300px;
+        padding: 15px 0;
     }
     .themebarGrid {
         margin: 15px;

@@ -37,9 +37,9 @@
 @media screen and (min-width: 600px) {
 	.footer {
 		grid-template-columns: 1fr;
-		position: absolute;
-		left: 2vh;
-		top: 620px;
+		position: relative;
+		left: 0;
+		top: 5px;
 		width: 300px;
 		background-color: transparent;
 		border: none;
