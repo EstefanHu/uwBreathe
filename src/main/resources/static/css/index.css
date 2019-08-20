@@ -34,9 +34,12 @@ img {
 @media screen and (min-width: 600px) {
     .themeBar {
         top: 2vh;
-        left: 1vh;
+        left: 2vh;
         width: 300px;
         padding: 15px 0 0 0;
+    }
+    .themebarGrid {
+        margin: 15px;
     }
     .downarrow {
         display: none;

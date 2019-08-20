@@ -13,7 +13,7 @@
 	height: 100vh;
 	width: 100vw;
 }
-footer {
+.footer {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
     background-color: rgb(231, 231, 231);
@@ -26,9 +26,31 @@ footer {
     height: 55px;
     text-align: center;
 }
-footer > a {
-	margin-top: 20px;
+.footer div {
+	padding-top: 20px;
+}
+.footer a {
 	text-decoration: none;
 	color: black;
 	font-size: .7em;
+}
+@media screen and (min-width: 600px) {
+	.footer {
+		grid-template-columns: 1fr;
+		position: absolute;
+		left: 2vh;
+		top: 620px;
+		width: 300px;
+		background-color: transparent;
+		border: none;
+	}
+	.footer div {
+		background-color: white;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		height: 40px;
+		width: 100%;
+		margin-bottom: 5px;
+		box-shadow: 1px 1px 6px grey;
+	}
 }
