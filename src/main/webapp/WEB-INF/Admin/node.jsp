@@ -45,26 +45,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${nodes}" var="node">
                         <tr>
-                            <td>Paccar Hall</td>
+                            <td><c:out value="${node.title}"/></td>
                             <td><a href="">Edit</a></td>
                         </tr>
-                        <tr>
-                            <td>The Hub</td>
-                            <td><a href="">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td>Rainer Vista</td>
-                            <td><a href="">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td>Grieg Garden</td>
-                            <td><a href="">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td>IMA</td>
-                            <td><a href="">Edit</a></td>
-                        </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
                 <button class="createNew" id="createLocationButton">Create Location</button>
@@ -74,21 +60,18 @@
                     <h1 class="centerText">Statistics about Locations</h1>
                 </div>
                 <div class="location manageFeedStyle">
-                    <h1 class="locationTitle">Paccar Hall</h1>
-                    <h3 class="locationTheme">Move Your Body</h3>
-                    <img src="/imgs/paccar.png" class="locationImage">
-                    <p class="locationDescription">This location is about as good as it gets, really just a fantastic
-                        location to sit and look at the window nothing other than the window only the window the window
-                        is the world</p>
+                    <h1 class="locationTitle"><c:out value="${node.title}" /></h1>
+                    <h3 class="locationTheme"><c:out value="${node.theme}" /></h3>
+                    <img src="/imgs/<c:out value='${node.photo}' />" class="locationImage">
+                    <p class="locationDescription"><c:out value="${node.description}" /></p>
                     <div class="locationUrl">
-                        <p>Url: <a
-                                href="https://www.google.com/maps/place/PACCAR+Hall/@47.6591406,-122.310787,17z/data=!3m1!4b1!4m5!3m4!1s0x5490148c7ff84a3f:0x8a58dcfd31224abd!8m2!3d47.6591406!4d-122.3085982">
-                                www.google.com/maps/place/PACCAR+Hall/@47.6591406,-122.310787,17z/data=!3m1!4b1!4m5!3m4!1s0x5490148c7ff84a3f:0x8a58dcfd31224abd!8m2!3d47.6591406!4d-122.3085982</a>
+                        <p>Url: <a href="<c:out value='${node.navigationUrl}' />">
+                                <c:out value="${node.navigationUrl}" /></a>
                         </p>
                     </div>
                     <div class="latlon">
-                        <p>Latitude: 47.098743</p>
-                        <p>longitude: -122.243562</p>
+                        <p>Latitude: <c:out value="${node.latitude}" /></p>
+                        <p>longitude: <c:out value="${node.longitude}" /></p>
                     </div>
                     <div class="editLocation">
                         <button class="editLocationButton" id="updateLocationButton">Edit Location</button>
@@ -134,10 +117,7 @@
                                             <c:out value="${nodesPractice.title}" />
                                         </td>
                                         <td>
-                                            <form:form method="DELETE" action="/admin/removeNodesPractices/${nodesPractice.getId()}"
-                                                modelAttribute="PracticesNode">
-                                                <input type="submit" value="Remove from Node" />
-                                            </form:form>
+                                            <a href="/admin/removeNodesPractices/${nodesPractice.getId()}" >Remove</a>
                                             <a href="/admin/updateNodesPractices/${nodesPractice.getId()}">Update</a>
                                         </td>
                                     </tr>
@@ -147,7 +127,7 @@
                     </div>
                     <div class="toPractices centerText">
                         <form action="" method="GET">
-                            <input type="submit" value="Edit Practices" class="toPracticesButton">
+                            <input type="submit" value="To Practices" class="toPracticesButton">
                         </form>
                     </div>
                 </div>
@@ -163,7 +143,7 @@
                 <p>
                     <form:errors path="node.*" />
                 </p>
-                <form:form method="POST" action="createNewNode" modelAttribute="node" class="creationForm">
+                <form:form method="POST" action="createNewNode" modelAttribute="node" class="form">
                     <p>
                         <form:label path="title">Title:</form:label>
                         <form:input path="title" />
@@ -203,7 +183,7 @@
                 <p>
                     <form:errors path="updateNode.*" />
                 </p>
-                <form:form method="PUT" action="/admin/updateNode/${node.getId()}" modelAttribute="updateNode" class="creationForm">
+                <form:form method="PUT" action="/admin/updateNode/${node.getId()}" modelAttribute="updateNode" class="form">
                     <p>
                         <form:label path="title">Title:</form:label>
                         <form:input path="title" value="${node.title}" />
