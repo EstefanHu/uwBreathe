@@ -13,11 +13,26 @@
 </head>
 
 <body>
-<div class="adminContainer">
-<div class="adminNav">
-	<a href="/" class="navHome">Home</a>
-	<a href="/admin" class="navControl">Admin</a>
-</div>
+<div class="container">
+	<div class="adminNav">
+		<a href="/">
+			<p class="navItem centerText firstNavItem">Map</p>
+		</a>
+		<div class="primaryNav">
+			<a href="">
+				<p class="navItem centerText">Location</p>
+			</a>
+			<a href="">
+				<p class="navItem centerText">Practice</p>
+			</a>
+			<a href="">
+				<p class="navItem centerText">User</p>
+			</a>
+		</div>
+		<a href="">
+			<p class="navItem centerText lastNavItem">Logout</p>
+		</a>
+	</div>
 <div class="controlGrid">
 	<h1 class="centerText controlTitle">Admin Control</h1>
 	<div class="locationBlock">
@@ -82,7 +97,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<p class="footer centerText"><a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a></p>
+		<p class="adminFooter centerText"><a href="/admin/createNode">New Node</a> - <a href="/admin/createPractice">New Practice</a></p>
 	</div>
 </div>
 <img src="/imgs/site/splash.png" class="splash"/>
