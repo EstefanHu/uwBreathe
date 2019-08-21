@@ -190,24 +190,10 @@ public class AdminController {
 		return "Admin/restPractice.jsp";
 	}
 	
-	@RequestMapping("/createPractice")
-	public String createPractice(@ModelAttribute("practice") Practice practice) {
-		return "Admin/createPractice.jsp";
-	}
-	
 	@RequestMapping("/createNewPractice")
-	public String createNewPractice(@Valid @ModelAttribute("newPractice") Practice newPractice, BindingResult result,
-			HttpSession sessions) {
-		Long practiceId = (Long)sessions.getAttribute("practiceId");
+	public String createNewPractice(@Valid @ModelAttribute("newPractice") Practice newPractice, HttpSession sessions) {
 		practiceService.addPractice(newPractice);
 		return "redirect:/admin/restPractice/";
-	}
-	
-	@RequestMapping(value="/editPractice/{id}")
-	public String editPractice(Model model, @PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice updatePractice) {
-		Practice practice = practiceService.findPracticeById(id);
-		model.addAttribute("practice", practice);
-		return "Admin/editPractice.jsp";
 	}
 	
 	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
