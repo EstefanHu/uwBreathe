@@ -53,14 +53,14 @@ public class AdminController {
 	
 	@RequestMapping("/node/{id}")
 	public String node(Model model, @PathVariable("id") Long id, HttpSession session) {
-		session.setAttribute("node", id);
+		session.setAttribute("nodeId", id);
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		Node node = nodeService.findNodeById(id);
 		List<NodesPractices> nps = npService.findByNodesId(id);
 		model.addAttribute("nodesPractices", nps);
 		model.addAttribute("nodes", nodes);
-		model.addAttribute("node", node);
+		model.addAttribute("currentNode", node);
 		model.addAttribute("updateNode", node);
 		model.addAttribute("practices", practices);
 		return "Admin/node.jsp";
@@ -81,7 +81,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/updateNode/{id}", method=RequestMethod.PUT)
 	public String updateNode(@PathVariable("id") Long id, @ModelAttribute("updateNode") Node node, HttpSession session) {
-		Long nodeId = (Long)session.getAttribute("node");
+		Long nodeId = (Long)session.getAttribute("nodeId");
 		nodeService.updateNode(id, node);
 		return "redirect:/admin/node/"+ nodeId;
 	}
@@ -94,7 +94,7 @@ public class AdminController {
 //	Managing Practices Logic
 	@RequestMapping("/addPracticeToNode/{id}")
 	public String addPracticeToNode(@PathVariable("id") Long id, HttpSession session) {
-		Long nodeId = (Long) session.getAttribute("node");
+		Long nodeId = (Long) session.getAttribute("nodeId");
 		Node node = nodeService.findNodeById(nodeId);
 		Practice practice = practiceService.findPracticeById(id);
 		node.addPractice(practice);
@@ -108,13 +108,13 @@ public class AdminController {
 	@RequestMapping("/updateNodesPractices/{id}")
 	public String updateNodesPractices(@PathVariable("id") Long id, HttpSession session) {
 		npService.updateNodesPractices(id);
-		Long nodeId = (Long) session.getAttribute("node");
+		Long nodeId = (Long) session.getAttribute("nodeId");
 		return "redirect:/admin/node/" + nodeId;
 	}
 	
 	@RequestMapping("/removeNodesPractices/{id}")
 	public String removeNodesPractices(@PathVariable("id") Long id, HttpSession session) {
-		Long nodeId = (Long) session.getAttribute("node");
+		Long nodeId = (Long) session.getAttribute("nodeId");
 		npService.deleteNodesPractices(id);
 		return "redirect:/admin/node/" + nodeId;
 	}

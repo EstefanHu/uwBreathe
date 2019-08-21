@@ -53,20 +53,20 @@
     </div>
     <div class="details">
         <c:choose>
-            <c:when test="${node.getId() != null}">
+            <c:when test="${currentNode != null}">
                 <div class="location manageFeedStyle">
-                    <h1 class="locationTitle"><c:out value="${node.title}" /></h1>
-                    <h3 class="locationTheme"><c:out value="${node.theme}" /></h3>
-                    <img src="/imgs/<c:out value='${node.photo}' />" class="locationImage">
-                    <p class="locationDescription"><c:out value="${node.description}" /></p>
+                    <h1 class="locationTitle"><c:out value="${currentNode.title}" /></h1>
+                    <h3 class="locationTheme"><c:out value="${currentNode.theme}" /></h3>
+                    <img src="/imgs/<c:out value='${currentNode.photo}' />" class="locationImage">
+                    <p class="locationDescription"><c:out value="${currentNode.description}" /></p>
                     <div class="locationUrl">
-                        <p>Url: <a href="<c:out value='${node.navigationUrl}' />">
-                                <c:out value="${node.navigationUrl}" /></a>
+                        <p>Url: <a href="<c:out value='${currentNode.navigationUrl}' />">
+                                <c:out value="${currentNode.navigationUrl}" /></a>
                         </p>
                     </div>
                     <div class="latlon">
-                        <p>Latitude: <c:out value="${node.latitude}" /></p>
-                        <p>longitude: <c:out value="${node.longitude}" /></p>
+                        <p>Latitude: <c:out value="${currentNode.latitude}" /></p>
+                        <p>longitude: <c:out value="${currentNode.longitude}" /></p>
                     </div>
                     <div class="editLocation">
                         <button class="deleteLocationButton" id="deleteLocationButton">Delete</button>
@@ -135,34 +135,34 @@
                             <p>
                                 <form:errors path="updateNode.*" />
                             </p>
-                            <form:form method="PUT" action="/admin/updateNode/${node.getId()}" modelAttribute="updateNode" class="form">
+                            <form:form method="PUT" action="/admin/updateNode/${currentNode.getId()}" modelAttribute="updateNode" class="form">
                                 <p>
                                     <form:label path="title">Title:</form:label>
-                                    <form:input path="title" value="${node.title}" />
+                                    <form:input path="title" value="${currentNode.title}" />
                                 </p>
                                 <p>
                                     <form:label path="theme">Theme:</form:label>
-                                    <form:input path="theme" value="${node.theme}" />
+                                    <form:input path="theme" value="${currentNode.theme}" />
                                 </p>
                                 <p>
                                     <form:label path="description">Description</form:label>
-                                    <form:input path="description" value="${node.description}" />
+                                    <form:input path="description" value="${currentNode.description}" />
                                 </p>
                                 <p>
                                     <form:label path="navigationUrl">Navigation Url</form:label>
-                                    <form:input path="navigationUrl" value="${node.navigationUrl}" />
+                                    <form:input path="navigationUrl" value="${currentNode.navigationUrl}" />
                                 </p>
                                 <p>
                                     <form:label path="photo">Photo:</form:label>
-                                    <form:input path="photo" value="${node.photo}" />
+                                    <form:input path="photo" value="${currentNode.photo}" />
                                 </p>
                                 <p>
                                     <form:label path="latitude">Latitude:</form:label>
-                                    <form:input path="latitude" value="${node.latitude}" />
+                                    <form:input path="latitude" value="${currentNode.latitude}" />
                                 </p>
                                 <p>
                                     <form:label path="longitude">Longitude:</form:label>
-                                    <form:input path="longitude" value="${node.longitude}" />
+                                    <form:input path="longitude" value="${currentNode.longitude}" />
                                 </p>
                                 <input type="submit" value="Update" />
                             </form:form>
@@ -173,7 +173,7 @@
                             <span class="close">&times;</span>
                             <h1 class="centerText">Delete Location</h1>
                             <p>Are you sure you want to delete this location?</p>
-                            <form:form method="DELETE" action="/admin/deleteNode/${node.getId()}" class="form">
+                            <form:form method="DELETE" action="/admin/deleteNode/${currentNode.getId()}" class="form">
                                 <input type="submit" value="Yes Delete this location" />
                             </form:form>
                         </div>
@@ -184,7 +184,7 @@
                 <div class="manageFeedStyle">
                     <h1 class="centerText">Create <br> Location</h1>
                     <p>
-                        <form:errors path="node.*" />
+                        <form:errors path="createNode.*" />
                     </p>
                     <form:form method="POST" action="/admin/createNewNode" modelAttribute="createNode" class="form">
                         <p>
