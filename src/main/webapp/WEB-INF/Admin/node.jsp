@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/node.css" />
+    <link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/modal.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Location Manager</title>
@@ -19,19 +20,19 @@
 <div class="locationGrid">
     <div class="adminNav">
         <a href="/"><div class="navItem">
-            <p class="centerText navItem">M</p>
+            <p>M</p>
         </div></a>
         <a href="/admin/node"><div class="navItem">
-            <p class="centerText">L</p>
+            <p>L</p>
         </div></a>
         <a href="/admin/practice"><div class="navItem">
-            <p class="centerText">P</p>
+            <p>P</p>
         </div></a>
         <a href=""><div class="navItem">
-            <p class="centerText">U</p>
+            <p>U</p>
         </div></a>
         <a href=""><div class="navItem">
-            <p class="centerText">L</p>
+            <p>L</p>
         </div></a>
     </div>
     <div class="locationTable">
@@ -39,7 +40,7 @@
             <a href="/admin/node"><div>
                 <p class="centerText tableIndex">Stats</p>
             </div></a>
-            <a href=""><div>
+            <a href="/admin/createNode"><div>
                 <p class="centerText tableIndex">+</p>
             </div></a>
         </div>
@@ -179,52 +180,52 @@
                     </div>
                 </div>
             </c:when>
+            <c:when test="${createNode != null}">
+                <div class="manageFeedStyle">
+                    <h1 class="centerText">Create <br> Location</h1>
+                    <p>
+                        <form:errors path="node.*" />
+                    </p>
+                    <form:form method="POST" action="/admin/createNewNode" modelAttribute="createNode" class="form">
+                        <p>
+                            <form:label path="title">Title:</form:label>
+                            <form:input path="title" />
+                        </p>
+                        <p>
+                            <form:label path="theme">Theme:</form:label>
+                            <form:input path="theme" />
+                        </p>
+                        <p>
+                            <form:label path="description">Description:</form:label>
+                            <form:textarea path="description" />
+                        </p>
+                        <p>
+                            <form:label path="navigationUrl">Navigation Url</form:label>
+                            <form:input path="navigationUrl" />
+                        </p>
+                        <p>
+                            <form:label path="photo">Photo:</form:label>
+                            <form:input path="photo" />
+                        </p>
+                        <p>
+                            <form:label path="latitude">Latitude:</form:label>
+                            <form:input path="latitude" />
+                        </p>
+                        <p>
+                            <form:label path="longitude">Longitude:</form:label>
+                            <form:input path="longitude" />
+                        </p>
+                        <input type="submit" value="Submit" />
+                    </form:form>
+                </div>
+                                    
+            </c:when>
             <c:otherwise>
                 <p class="inspire">KEEP <br> CALM <br> AND <br> BREATHE</p>
             </c:otherwise>
         </c:choose>
     </div>
     <img src="/imgs/site/splash.png" class="splash" />
-</div>
-<div id="createLocationModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1 class="centerText">Create New Location</h1>
-        <p>
-            <form:errors path="node.*" />
-        </p>
-        <form:form method="POST" action="/admin/createNewNode" modelAttribute="createNode" class="form">
-            <p>
-                <form:label path="title">Title:</form:label>
-                <form:input path="title" />
-            </p>
-            <p>
-                <form:label path="theme">Theme:</form:label>
-                <form:input path="theme" />
-            </p>
-            <p>
-                <form:label path="description">Description:</form:label>
-                <form:input path="description" />
-            </p>
-            <p>
-                <form:label path="navigationUrl">Navigation Url</form:label>
-                <form:input path="navigationUrl" />
-            </p>
-            <p>
-                <form:label path="photo">Photo:</form:label>
-                <form:input path="photo" />
-            </p>
-            <p>
-                <form:label path="latitude">Latitude:</form:label>
-                <form:input path="latitude" />
-            </p>
-            <p>
-                <form:label path="longitude">Longitude:</form:label>
-                <form:input path="longitude" />
-            </p>
-            <input type="submit" value="Submit" />
-        </form:form>
-    </div>
 </div>
 </div>
 </body>

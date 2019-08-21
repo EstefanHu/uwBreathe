@@ -10,55 +10,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/practice.css" />
-    <link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/modal.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Practice Manager</title>
 </head>
 <body>
 <div class="container">
-<div class="adminNav">
-    <a href="/">
-        <p class="navItem centerText firstNavItem">M</p>
-    </a>
-    <div class="primaryNav">
+<div class="practiceGrid">
+    <div class="adminNav">
+        <a href="/">
+            <div class="navItem">
+                <p>M</p>
+            </div>
+        </a>
         <a href="/admin/node">
-            <p class="navItem centerText">L</p>
+            <div class="navItem">
+                <p>L</p>
+            </div>
         </a>
         <a href="/admin/practice">
-            <p class="navItem centerText">P</p>
+            <div class="navItem">
+                <p>P</p>
+            </div>
         </a>
         <a href="">
-            <p class="navItem centerText">U</p>
+            <div class="navItem">
+                <p>U</p>
+            </div>
+        </a>
+        <a href="">
+            <div class="navItem">
+                <p>L</p>
+            </div>
         </a>
     </div>
-    <a href="">
-        <p class="navItem centerText lastNavItem">L</p>
-    </a>
-</div>
-<div class="practiceGrid">
     <div class="practiceTable">
-        <table class="content-table">
-            <thead>
-                <tr>
-                    <th>Manager</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${practices}" var="practice">
-                    <tr>
-                        <td>
-                            <c:out value="${practice.title}" />
-                        </td>
-                        <td><a href="/admin/practice/<c:out value='${practice.getId()}'/>">Edit</a></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        <button class="createNew" id="createpracticeButton">Create practice</button>
+        <div class="practiceTableHead">
+            <a href="/admin/practice">
+                <div>
+                    <p class="centerText tableIndex">Stats</p>
+                </div>
+            </a>
+            <a href="">
+                <div>
+                    <p class="centerText tableIndex">+</p>
+                </div>
+            </a>
+        </div>
+        <c:forEach items="${practices}" var="practice">
+            <a href="/admin/practice/<c:out value='${practice.getId()}'/>">
+                <div class="practiceTableItem">
+                    <p>
+                        <c:out value="${practice.title}" />
+                    </p>
+                </div>
+            </a>
+        </c:forEach>
     </div>
-    <div class="practiceDetails"></div>
+    <div class="practiceDetails">
+        <c:choose>
+            <c:when test="${practice.getId() != null}">
+            </c:when>
+            <c:otherwise>
+                <p class="inspire">KEEP <br> CALM <br> AND <br> BREATHE</p>
+            </c:otherwise>
+        </c:choose>
+    </div>
+    <img src="/imgs/site/splash.png" class="splash" />
 </div>
 </div>
 </body>

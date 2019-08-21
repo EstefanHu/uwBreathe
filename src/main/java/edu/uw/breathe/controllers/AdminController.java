@@ -45,14 +45,14 @@ public class AdminController {
 	}
 // Node Logic
 	@RequestMapping("/node")
-	public String node(Model model, @ModelAttribute("createNode") Node createNode) {
+	public String node(Model model) {
 		List<Node> nodes = nodeService.findAllNodes();
 		model.addAttribute("nodes", nodes);
 		return "Admin/node.jsp";
 	}
 	
 	@RequestMapping("/node/{id}")
-	public String node(Model model, @PathVariable("id") Long id,@ModelAttribute("createNode") Node createNode, HttpSession session) {
+	public String node(Model model, @PathVariable("id") Long id, HttpSession session) {
 		session.setAttribute("nodeId", id);
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
@@ -63,6 +63,13 @@ public class AdminController {
 		model.addAttribute("node", node);
 		model.addAttribute("updateNode", node);
 		model.addAttribute("practices", practices);
+		return "Admin/node.jsp";
+	}
+	
+	@RequestMapping("/createNode")
+	public String createNode(Model model, @ModelAttribute("createNode") Node createNode) {
+		List<Node> nodes = nodeService.findAllNodes();
+		model.addAttribute("nodes", nodes);
 		return "Admin/node.jsp";
 	}
 

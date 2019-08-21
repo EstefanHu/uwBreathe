@@ -1,6 +1,6 @@
 .locationGrid {
     display: grid;
-    grid-template-columns: 55px 250px minmax(550px, 700px) auto;
+    grid-template-columns: 55px 250px minmax(500px, 700px) 10px;
     grid-template-areas:
     "nav locationsTable locationDetails .";
     height: 100vh;
@@ -11,7 +11,7 @@
     z-index: 1;
 }
 .locationTableHead {
-    background-color: var(--site-background);
+    background-color: rgb(255,255,255, .8);
     height: 35px;
     border-bottom: 1px solid lightgrey;
 }
@@ -48,23 +48,13 @@
 .locationDetails {
     grid-area: locationDetails;
     z-index: 1;
-    padding: 10px 20px 30px 10px;
-    display: grid;
-    grid-template-rows: auto auto auto 160px;
-    grid-template-areas:
-    "location"
-    "managePractices"
-    "modalHolder"
-    ".";
+    width: fit-content;
 }
 .manageFeedStyle {
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     background-color: rgb(255,255,255, .8);
     margin-bottom: 7px;
     padding: 10px 15px;
-}
-.locationStatistics {
-    grid-area: locationStatistics;
 }
 .location {
     grid-area: location;

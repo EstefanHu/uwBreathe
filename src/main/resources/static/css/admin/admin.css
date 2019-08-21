@@ -31,6 +31,8 @@ a:hover {
     color: white;
     font-weight: bold;
     text-decoration: none;
+    position: fixed;
+    left: 20px;
 }
 .inspire {
     color: var(--site-background);

@@ -1,25 +1,13 @@
-var modal = document.getElementById("createLocationModal");
-var btn = document.getElementById("createLocationButton");
-var span = document.getElementsByClassName("close")[0];
+
 var modalUpdate = document.getElementById("updateLocationModal");
 var btnUpdate = document.getElementById("updateLocationButton");
-var spanUpdate = document.getElementsByClassName("close")[1];
+var spanUpdate = document.getElementsByClassName("close")[0];
 
 var modalDelete = document.getElementById("deleteLocationModal");
 var btnDelete = document.getElementById("deleteLocationButton");
-var spanDelete = document.getElementsByClassName("close")[2];
+var spanDelete = document.getElementsByClassName("close")[1];
 
-
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-span.onclick = function() {
-    modal.style.display = "none";
-}
 window.onclick = function(e) {
-    if (e.target == modal) {
-        modal.style.display = "none";
-    } 
     if (e.target == modalUpdate) {
         modalUpdate.style.display = "none";
     } 
