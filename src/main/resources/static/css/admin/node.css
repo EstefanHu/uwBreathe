@@ -1,47 +1,65 @@
 .locationGrid {
     display: grid;
-    grid-template-columns: auto 200px minmax(450px, 550px) auto;
+    grid-template-columns: 55px 250px minmax(550px, 700px) auto;
     grid-template-areas:
-    ". locationsTable locationDetails .";
+    "nav locationsTable locationDetails .";
+    height: 100vh;
 }
 .locationTable {
     grid-area: locationsTable;
     width: 100%;
     z-index: 1;
 }
-.locationTable table {
-    margin: 30px 20px 10px 20px;
-}
-.createNew {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    display: block;
-    margin: 5px auto;
-    font-weight: bold;
-    font-size: .9em;
-    outline: none;
-}
-.createNew:hover,
-.createNew:focus {
+.locationTableHead {
     background-color: var(--site-background);
+    height: 35px;
+    border-bottom: 1px solid lightgrey;
+}
+.locationTableHead div {
+    background-color: white;
+    width: 30%;
+    height: 99%;
+    display: inline-block;
+    border: 1px solid lightgrey;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+}
+.tableIndex{
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+}
+.locationTableItem {
+    background-color: white;
+    border-bottom: 1px solid var(--site-background);
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.locationTableItem img {
+    width: 25px;
+    margin-right: 5px;
+}
+.locationTableItem p {
+    display: inline;
 }
 .locationDetails {
     grid-area: locationDetails;
     z-index: 1;
-    padding: 30px 20px 30px 10px;
+    padding: 10px 20px 30px 10px;
     display: grid;
-    grid-template-rows: auto auto auto auto 160px;
+    grid-template-rows: auto auto auto 160px;
     grid-template-areas:
-    "locationStatistics"
     "location"
     "managePractices"
-    "photoManager"
+    "modalHolder"
     ".";
 }
 .manageFeedStyle {
     border-radius: 5px;
-    background-color: var(--site-background);
+    background-color: rgb(255,255,255, .8);
     margin-bottom: 7px;
     padding: 10px 15px;
 }
@@ -136,6 +154,6 @@
     background-color: var(--site-primary);
     color: white;
 }
-.photoManager {
-    grid-area: photoManager;
+.modalHolder {
+    grid-area: modalHolder;
 }

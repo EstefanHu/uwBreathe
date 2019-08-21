@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
-    <link rel="stylesheet" type="text/css" href="/css/admin/node.css" />
+    <link rel="stylesheet" type="text/css" href="/css/admin/practice.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/modal.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -17,28 +17,49 @@
 </head>
 <body>
 <div class="container">
-    <div class="adminNav">
-        <a href="/">
-            <p class="navItem centerText firstNavItem">Map</p>
+<div class="adminNav">
+    <a href="/">
+        <p class="navItem centerText firstNavItem">M</p>
+    </a>
+    <div class="primaryNav">
+        <a href="/admin/node">
+            <p class="navItem centerText">L</p>
         </a>
-        <div class="primaryNav">
-            <a href="/admin/node">
-                <p class="navItem centerText">Location</p>
-            </a>
-            <a href="/admin/practice">
-                <p class="navItem centerText">Practice</p>
-            </a>
-            <a href="">
-                <p class="navItem centerText">User</p>
-            </a>
-        </div>
+        <a href="/admin/practice">
+            <p class="navItem centerText">P</p>
+        </a>
         <a href="">
-            <p class="navItem centerText lastNavItem">Logout</p>
+            <p class="navItem centerText">U</p>
         </a>
     </div>
-    <div class="practiceGrid">
-
+    <a href="">
+        <p class="navItem centerText lastNavItem">L</p>
+    </a>
+</div>
+<div class="practiceGrid">
+    <div class="practiceTable">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Manager</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${practices}" var="practice">
+                    <tr>
+                        <td>
+                            <c:out value="${practice.title}" />
+                        </td>
+                        <td><a href="/admin/practice/<c:out value='${practice.getId()}'/>">Edit</a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <button class="createNew" id="createpracticeButton">Create practice</button>
     </div>
+    <div class="practiceDetails"></div>
+</div>
 </div>
 </body>
 </html>

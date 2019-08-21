@@ -1,0 +1,41 @@
+.practiceGrid {
+    display: grid;
+    grid-template-columns: auto 200px minmax(450px, 550px) auto;
+    grid-template-areas:
+    ". practicesTable practiceDetails .";
+}
+.practiceTable {
+    grid-area: practicesTable;
+    width: 100%;
+    z-index: 1;
+}
+.practiceTable table {
+    margin: 30px 20px 10px 20px;
+}
+.createNew {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 5px auto;
+    font-weight: bold;
+    font-size: .9em;
+    outline: none;
+}
+.createNew:hover,
+.createNew:focus {
+    background-color: var(--site-background);
+}
+.practiceDetails {
+    grid-area: practiceDetails;
+    z-index: 1;
+    padding: 30px 20px 30px 10px;
+    display: grid;
+    grid-template-rows: auto auto auto auto 160px;
+    grid-template-areas:
+    "practiceStatistics"
+    "practice"
+    "managePractices"
+    "photoManager"
+    ".";
+}

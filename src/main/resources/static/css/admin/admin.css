@@ -1,6 +1,6 @@
 :root {
   --site-primary: rgb(109, 127, 186);
-  --site-primary-bold: rgb(79, 97, 158);
+  --site-primary-bold: rgb(61, 80, 142);
   --site-secondary: rgb(195, 202, 226);
   --site-background: rgb(234, 237, 245);
 }
@@ -18,35 +18,25 @@ a:hover {
 }
 /* NAV CSS */
 .adminNav {
-    height: 30px;
-    width: 100%;
+    grid-area: nav;
+    height: 100%;
     padding-top: 15px;
-    background-color: white;
+    background-color: var(--site-primary-bold);
     display: grid;
-    grid-template-columns: auto 250px auto;
-    grid-template-areas:
-    "firstNav primaryNav lastNav"
+    grid-template-rows: repeat(5, 55px) 100vh;
+    padding-top: 25px;
+    z-index: 1;
 }
 .navItem {
-    color: black;
+    color: white;
     font-weight: bold;
     text-decoration: none;
-    display: inline;
-    margin-right: 15px;
-
 }
-.firstNavItem {
-    grid-area: firstNav;
-    margin: 0 0 0 15px;
-}
-.primaryNav {
-    grid-area: primaryNav;
-}
-.lastNavItem {
-    grid-area: lastNav;
-    position: absolute;
-    top: 15px;
-    right: 0;
+.inspire {
+    color: var(--site-background);
+    font-size: 7em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 30px;
 }
 .splash {
     width: 100%;
