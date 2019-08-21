@@ -7,7 +7,6 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,34 +14,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.uw.breathe.models.Node;
 import edu.uw.breathe.models.NodesPractices;
-import edu.uw.breathe.models.NodesResources;
 import edu.uw.breathe.models.Practice;
-import edu.uw.breathe.models.Resource;
 import edu.uw.breathe.services.NodeService;
 import edu.uw.breathe.services.NodesPracticesService;
-import edu.uw.breathe.services.NodesResourcesService;
 import edu.uw.breathe.services.PracticeService;
-import edu.uw.breathe.services.ResourceService;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
 	private final PracticeService practiceService;
 	private final NodeService nodeService;
-	private final ResourceService resourceService;
-	private final NodesResourcesService nrService;
 	private final NodesPracticesService npService;
 	
 	
 	public AdminController( PracticeService practiceService,
 							NodeService nodeService,
-							ResourceService resourceService,
-							NodesResourcesService nrService,
 							NodesPracticesService npService) {
 		this.practiceService = practiceService;
 		this.nodeService = nodeService;
-		this.resourceService = resourceService;
-		this.nrService = nrService;
 		this.npService = npService;
 	}
 
@@ -50,8 +39,6 @@ public class AdminController {
 	public String control(Model model) {
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
-		List<Resource> resources = resourceService.findAllResources();
-		model.addAttribute("resources", resources);
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("practices", practices);
 		return "Admin/control.jsp";
@@ -70,10 +57,8 @@ public class AdminController {
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		Node node = nodeService.findNodeById(id);
-		List<Resource> resources = resourceService.findAllResources();
 		List<NodesPractices> nps = npService.findByNodesId(id);
 		model.addAttribute("nodesPractices", nps);
-		model.addAttribute("resources", resources);
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("node", node);
 		model.addAttribute("updateNode", node);
@@ -98,21 +83,6 @@ public class AdminController {
 	public String deleteNode(@PathVariable("id") Long id) {
 		nodeService.deleteNode(id);
 		return "redirect:/admin/node";
-	}
-//	Manage Node Relationship Logic
-	@RequestMapping("manageNodeRelationships/{id}")
-	public String manageNodeRelationships(Model model, @PathVariable("id") Long id, HttpSession session) {
-		session.setAttribute("node", id);
-		List<Practice> practices = practiceService.findAllPractices();
-		List<Resource> resources = resourceService.findAllResources();
-		List<NodesPractices> nps = npService.findByNodesId(id);
-		List<NodesResources> nrs = nrService.findByNodesId(id);
-		model.addAttribute("nodesPractices", nps);
-		model.addAttribute("practices", practices);
-		model.addAttribute("nodesResources", nrs);
-		model.addAttribute("resources", resources);
-		model.addAttribute("id", id);
-		return "Admin/manageNodeRelationships.jsp";
 	}
 //	Managing Practices Logic
 	@RequestMapping(value="/addPracticeToNode/{id}", method=RequestMethod.POST)
