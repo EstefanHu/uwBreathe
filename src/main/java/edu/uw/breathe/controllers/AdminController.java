@@ -53,7 +53,7 @@ public class AdminController {
 	
 	@RequestMapping("/node/{id}")
 	public String node(Model model, @PathVariable("id") Long id, HttpSession session) {
-		session.setAttribute("nodeId", id);
+		session.setAttribute("node", id);
 		List<Practice> practices = practiceService.findAllPractices();
 		List<Node> nodes = nodeService.findAllNodes();
 		Node node = nodeService.findNodeById(id);
@@ -74,14 +74,14 @@ public class AdminController {
 	}
 
 	@RequestMapping(value="/createNewNode", method=RequestMethod.POST)
-	public String createNewNode(@Valid @ModelAttribute("newNode") Node newNode, HttpSession session) {
+	public String createNewNode(@Valid @ModelAttribute("newNode") Node newNode) {
 		nodeService.createNode(newNode);
 		return "redirect:/admin/node";
 	}
 	
 	@RequestMapping(value="/updateNode/{id}", method=RequestMethod.PUT)
 	public String updateNode(@PathVariable("id") Long id, @ModelAttribute("updateNode") Node node, HttpSession session) {
-		Long nodeId = (Long)session.getAttribute("nodeId");
+		Long nodeId = (Long)session.getAttribute("node");
 		nodeService.updateNode(id, node);
 		return "redirect:/admin/node/"+ nodeId;
 	}
@@ -92,7 +92,7 @@ public class AdminController {
 		return "redirect:/admin/node";
 	}
 //	Managing Practices Logic
-	@RequestMapping(value="/addPracticeToNode/{id}", method=RequestMethod.POST)
+	@RequestMapping("/addPracticeToNode/{id}")
 	public String addPracticeToNode(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		Node node = nodeService.findNodeById(nodeId);
@@ -102,21 +102,21 @@ public class AdminController {
 		np.setPractice(practice);
 		np.setNode(node);
 		npService.createNP(np);
-		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+		return "redirect:/admin/node/" + nodeId;
 	}
 	
 	@RequestMapping("/updateNodesPractices/{id}")
 	public String updateNodesPractices(@PathVariable("id") Long id, HttpSession session) {
 		npService.updateNodesPractices(id);
 		Long nodeId = (Long) session.getAttribute("node");
-		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+		return "redirect:/admin/node/" + nodeId;
 	}
 	
-	@RequestMapping(value="/removeNodesPractices/{id}", method=RequestMethod.DELETE)
+	@RequestMapping("/removeNodesPractices/{id}")
 	public String removeNodesPractices(@PathVariable("id") Long id, HttpSession session) {
 		Long nodeId = (Long) session.getAttribute("node");
 		npService.deleteNodesPractices(id);
-		return "redirect:/admin/manageNodeRelationships/" + nodeId;
+		return "redirect:/admin/node/" + nodeId;
 	}
 //	Practice Logic
 	@RequestMapping("/practice")
