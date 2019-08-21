@@ -21,10 +21,10 @@
                 <p class="navItem centerText firstNavItem">Map</p>
             </a>
             <div class="primaryNav">
-                <a href="">
+                <a href="/admin/node">
                     <p class="navItem centerText">Location</p>
                 </a>
-                <a href="">
+                <a href="/admin/practice">
                     <p class="navItem centerText">Practice</p>
                 </a>
                 <a href="">

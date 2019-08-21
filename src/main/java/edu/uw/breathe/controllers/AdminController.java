@@ -181,6 +181,12 @@ public class AdminController {
 		return "redirect:/admin/manageNodeRelationships/" + nodeId;
 	}
 //	Practice Logic
+	@RequestMapping("/practice")
+	public String practice(Model model, @ModelAttribute("createPractice") Practice practice) {
+		List<Practice> practices = practiceService.findAllPractices();
+		model.addAttribute("practices", practices);
+		return "Admin/restPractice.jsp";
+	}
 	@RequestMapping("/practice/{id}")
 	public String practice(Model model, @PathVariable("id") Long id, @ModelAttribute("createPractice") Practice createPractice, 
 			HttpSession session) {
@@ -196,7 +202,6 @@ public class AdminController {
 		model.addAttribute("updatePractice", practice);
 		return "Admin/restPractice.jsp";
 	}
-	
 	
 	@RequestMapping("/createPractice")
 	public String createPractice(@ModelAttribute("practice") Practice practice) {
