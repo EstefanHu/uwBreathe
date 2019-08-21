@@ -16,50 +16,36 @@
 </head>
 <body>
 <div class="container">
-<div class="practiceGrid">
+<div class="adminGrid">
     <div class="adminNav">
-        <a href="/">
-            <div class="navItem">
-                <p>M</p>
-            </div>
-        </a>
-        <a href="/admin/node">
-            <div class="navItem">
-                <p>L</p>
-            </div>
-        </a>
-        <a href="/admin/practice">
-            <div class="navItem">
-                <p>P</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="navItem">
-                <p>U</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="navItem">
-                <p>L</p>
-            </div>
-        </a>
+        <a href="/"><div class="navItem">
+            <p>M</p>
+        </div></a>
+        <a href="/admin/"><div class="navItem">
+            <p>S</p>
+        </div></a>
+        <a href="/admin/node"><div class="navItem">
+            <p>L</p>
+        </div></a>
+        <a href="/admin/practice"><div class="navItem">
+            <p>P</p>
+        </div></a>
+        <a href=""><div class="navItem">
+            <p>U</p>
+        </div></a>
+        <a href=""><div class="navItem">
+            <p>L</p>
+        </div></a>
     </div>
-    <div class="practiceTable">
-        <div class="practiceTableHead">
-            <a href="/admin/practice">
-                <div>
-                    <p class="centerText tableIndex">Stats</p>
-                </div>
-            </a>
-            <a href="">
-                <div>
-                    <p class="centerText tableIndex">+</p>
-                </div>
-            </a>
+    <div class="infoTable">
+        <div class="infoTableHead">
+            <a href=""><div>
+                <p class="centerText tableIndex">+</p>
+            </div></a>
         </div>
         <c:forEach items="${practices}" var="practice">
             <a href="/admin/practice/<c:out value='${practice.getId()}'/>">
-                <div class="practiceTableItem">
+                <div class="infoTableItem">
                     <p>
                         <c:out value="${practice.title}" />
                     </p>
@@ -67,7 +53,7 @@
             </a>
         </c:forEach>
     </div>
-    <div class="practiceDetails">
+    <div class="details">
         <c:choose>
             <c:when test="${practice.getId() != null}">
             </c:when>

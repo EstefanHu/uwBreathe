@@ -1,60 +1,9 @@
-.locationGrid {
-    display: grid;
-    grid-template-columns: 55px 250px minmax(500px, 700px) 10px;
-    grid-template-areas:
-    "nav locationsTable locationDetails .";
-    height: 100vh;
-}
-.locationTable {
-    grid-area: locationsTable;
-    width: 100%;
-    z-index: 1;
-}
-.locationTableHead {
-    background-color: rgb(255,255,255, .8);
-    height: 35px;
-    border-bottom: 1px solid lightgrey;
-}
-.locationTableHead div {
-    background-color: white;
-    width: 30%;
-    height: 99%;
-    display: inline-block;
-    border: 1px solid lightgrey;
-    border-radius: 5px 5px 0 0;
-    border-bottom: none;
-}
-.tableIndex{
-    margin-top: 5px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: black;
-}
-.locationTableItem {
-    background-color: white;
-    border-bottom: 1px solid var(--site-background);
-    color: black;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 5px 10px;
-}
-.locationTableItem img {
-    width: 25px;
-    margin-right: 5px;
-}
-.locationTableItem p {
-    display: inline;
-}
-.locationDetails {
-    grid-area: locationDetails;
-    z-index: 1;
-    width: fit-content;
-}
 .manageFeedStyle {
     border-radius: 0 5px 5px 0;
     background-color: rgb(255,255,255, .8);
     margin-bottom: 7px;
     padding: 10px 15px;
+    width: fit-content;
 }
 .location {
     grid-area: location;

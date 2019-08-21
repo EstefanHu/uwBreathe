@@ -17,10 +17,13 @@
 </head>
 <body>
 <div class="container">
-<div class="locationGrid">
+<div class="adminGrid">
     <div class="adminNav">
         <a href="/"><div class="navItem">
             <p>M</p>
+        </div></a>
+        <a href="/admin/"><div class="navItem">
+            <p>S</p>
         </div></a>
         <a href="/admin/node"><div class="navItem">
             <p>L</p>
@@ -35,23 +38,20 @@
             <p>L</p>
         </div></a>
     </div>
-    <div class="locationTable">
-        <div class="locationTableHead">
-            <a href="/admin/node"><div>
-                <p class="centerText tableIndex">Stats</p>
-            </div></a>
+    <div class="infoTable">
+        <div class="infoTableHead">
             <a href="/admin/createNode"><div>
                 <p class="centerText tableIndex">+</p>
             </div></a>
         </div>
         <c:forEach items="${nodes}" var="node">
-            <a href="/admin/node/<c:out value='${node.getId()}'/>"><div class="locationTableItem">
+            <a href="/admin/node/<c:out value='${node.getId()}'/>"><div class="infoTableItem">
                 <img src="/imgs/site/<c:out value='${node.theme}'/>.png"/>
                 <p><c:out value="${node.title}" /></p>
             </div></a>
         </c:forEach>
     </div>
-    <div class="locationDetails">
+    <div class="details">
         <c:choose>
             <c:when test="${node.getId() != null}">
                 <div class="location manageFeedStyle">

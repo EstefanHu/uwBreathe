@@ -16,6 +16,14 @@ a {
 a:hover {
     color: rgb(0, 0, 83);
 }
+/* GRID LAYOUT */
+.adminGrid {
+    display: grid;
+    grid-template-columns: 55px 250px minmax(500px, 700px) 10px;
+    grid-template-areas:
+    "nav infoTable details .";
+    height: 100vh;
+}
 /* NAV CSS */
 .adminNav {
     grid-area: nav;
@@ -34,6 +42,55 @@ a:hover {
     position: fixed;
     left: 20px;
 }
+/* INFOTABLE CSS */
+.infoTable {
+    grid-area: infoTable;
+    width: 100%;
+    z-index: 1;
+}
+.infoTableHead {
+    background-color: rgb(255,255,255, .8);
+    height: 35px;
+    border-bottom: 1px solid lightgrey;
+}
+.infoTableHead div {
+    background-color: white;
+    width: 30%;
+    height: 99%;
+    display: inline-block;
+    border: 1px solid lightgrey;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    margin-left: 8px;
+}
+.tableIndex{
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+}
+.infoTableItem {
+    background-color: white;
+    border-bottom: 1px solid var(--site-background);
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.infoTableItem img {
+    width: 25px;
+    margin-right: 5px;
+}
+.infoTableItem p {
+    display: inline;
+}
+/* DETAIL CSS */
+.details {
+    grid-area: details;
+    z-index: 1;
+
+}
+/* MISC */
 .inspire {
     color: var(--site-background);
     font-size: 7em;
