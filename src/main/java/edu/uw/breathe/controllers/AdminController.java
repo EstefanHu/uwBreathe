@@ -90,7 +90,7 @@ public class AdminController {
 //		TODO: Create Node Validation
 		Long nodeId = (Long) session.getAttribute("nodeId");
 		nodeService.createNode(newNode);
-		return "redirect:/admin/node/" + nodeId;
+		return "redirect:/admin/node";
 	}
 	
 	@RequestMapping("/editNode/{id}")
@@ -110,7 +110,7 @@ public class AdminController {
 	@RequestMapping(value="/deleteNode/{id}", method=RequestMethod.DELETE)
 	public String deleteNode(@PathVariable("id") Long id) {
 		nodeService.deleteNode(id);
-		return "redirect:/admin/";
+		return "redirect:/admin/node";
 	}
 //	Manage Node Relationship Logic
 	@RequestMapping("manageNodeRelationships/{id}")
@@ -204,9 +204,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/createNewPractice")
-	public String createNewPractice(@Valid @ModelAttribute("practice") Practice newPractice, BindingResult result) {
+	public String createNewPractice(@Valid @ModelAttribute("newPractice") Practice newPractice, BindingResult result,
+			HttpSession sessions) {
+		Long practiceId = (Long)sessions.getAttribute("practiceId");
 		practiceService.addPractice(newPractice);
-		return "redirect:/admin/";
+		return "redirect:/admin/restPractice/";
 	}
 	
 	@RequestMapping(value="/editPractice/{id}")
@@ -217,15 +219,17 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
-	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice) {
+	public String updatePractice(@PathVariable("id") Long id, @ModelAttribute("updatePractice") Practice practice,
+			HttpSession sessions) {
+		Long practiceId = (Long)sessions.getAttribute("practiceId");
 		practiceService.updatePractice(id, practice);
-		return "redirect:/admin/";
+		return "redirect:/admin/restPractice/" + practiceId;
 	}
 	
 	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
 	public String deletePractice(@PathVariable("id") Long id) {
 		practiceService.deletePractice(id);
-		return "redirect:/admin/";
+		return "redirect:/admin/practice";
 	}
 //	Resource Logic
 	@RequestMapping("/createResource")
