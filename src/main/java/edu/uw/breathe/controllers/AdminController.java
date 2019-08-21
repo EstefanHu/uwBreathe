@@ -56,12 +56,14 @@ public class AdminController {
 		model.addAttribute("practices", practices);
 		return "Admin/control.jsp";
 	}
+// Node Logic
 	@RequestMapping("/node")
 	public String node(Model model, @ModelAttribute("createNode") Node createNode) {
 		List<Node> nodes = nodeService.findAllNodes();
 		model.addAttribute("nodes", nodes);
 		return "Admin/node.jsp";
 	}
+	
 	@RequestMapping("/node/{id}")
 	public String node(Model model, @PathVariable("id") Long id,@ModelAttribute("createNode") Node createNode, HttpSession session) {
 		session.setAttribute("nodeId", id);
@@ -78,26 +80,11 @@ public class AdminController {
 		model.addAttribute("practices", practices);
 		return "Admin/node.jsp";
 	}
-//	Nodes Logic
-	@RequestMapping("/createNode")
-	public String createNode(@ModelAttribute("node") Node node) {
-//		TODO: Capitalize first characters
-		return "Admin/createNode.jsp";
-	}
-	
+
 	@RequestMapping(value="/createNewNode", method=RequestMethod.POST)
-	public String createNewNode(@Valid @ModelAttribute("newNode") Node newNode, BindingResult result, HttpSession session) {
-//		TODO: Create Node Validation
-		Long nodeId = (Long) session.getAttribute("nodeId");
+	public String createNewNode(@Valid @ModelAttribute("newNode") Node newNode, HttpSession session) {
 		nodeService.createNode(newNode);
 		return "redirect:/admin/node";
-	}
-	
-	@RequestMapping("/editNode/{id}")
-	public String editNode(Model model, @PathVariable("id") Long id, @ModelAttribute("updateNode") Node updateNode) {
-		Node node = nodeService.findNodeById(id);
-		model.addAttribute("node", node);
-		return "Admin/editNode.jsp";
 	}
 	
 	@RequestMapping(value="/updateNode/{id}", method=RequestMethod.PUT)
