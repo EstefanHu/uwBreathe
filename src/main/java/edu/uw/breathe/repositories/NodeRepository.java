@@ -9,7 +9,6 @@ import edu.uw.breathe.models.Node;;
 
 @Repository
 public interface NodeRepository extends CrudRepository<Node, Long> {
-	List<Node> findAll();
 	List<Node> findAllByOrderByThemeAsc();
 	
 	Node findByTitle(String title);
