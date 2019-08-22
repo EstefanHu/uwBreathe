@@ -54,7 +54,8 @@
     <div class="details">
         <c:choose>
             <c:when test="${currentNode != null}">
-                <div class="location manageFeedStyle">
+            <div class="manageFeedStyle">
+            <div class="location ">
                     <h1 class="locationTitle"><c:out value="${currentNode.title}" /></h1>
                     <h3 class="locationTheme"><c:out value="${currentNode.theme}" /></h3>
                     <img src="/imgs/<c:out value='${currentNode.photo}' />" class="locationImage">
@@ -73,7 +74,7 @@
                         <button class="editLocationButton" id="updateLocationButton">Edit</button>
                     </div>
                 </div>
-                <div class="managePractices manageFeedStyle">
+                <div class="managePractices ">
                     <div class="practiceTable">
                         <h2 class="centerText">All Practices</h2>
                         <table class="content-table center">
@@ -179,9 +180,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </c:when>
             <c:when test="${createNode != null}">
-                <div class="manageFeedStyle">
+                <div class="">
                     <h1 class="centerText">Create <br> Location</h1>
                     <p>
                         <form:errors path="createNode.*" />
