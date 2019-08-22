@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/admin/admin.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/practice.css" />
+    <link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/modal.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Practice Manager</title>
@@ -56,6 +57,24 @@
     <div class="details">
         <c:choose>
             <c:when test="${practice.getId() != null}">
+                
+            </c:when>
+            <c:when test="${createPractice != null}">
+                <h1 class="centerText">Create <br> Practice</h1>
+                <p>
+                    <form:errors path="createPractice.*" />
+                </p>
+                <form:form method="POST" action="/admin/createNewPractice" modelAttribute="createPractice" class="form">
+                    <p>
+                        <form:label path="title">Title:</form:label>
+                        <form:input path="title" />
+                    </p>
+                    <p>
+                        <form:label path="description">Description:</form:label>
+                        <form:textarea path="description" />
+                    </p>
+                    <input type="submit" value="Submit"/>
+                </form:form>
             </c:when>
             <c:otherwise>
                 <p class="inspire">KEEP <br> CALM <br> AND <br> BREATHE</p>

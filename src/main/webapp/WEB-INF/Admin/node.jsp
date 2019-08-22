@@ -217,8 +217,7 @@
                         </p>
                         <input type="submit" value="Submit" />
                     </form:form>
-                </div>
-                                    
+                </div>                  
             </c:when>
             <c:otherwise>
                 <p class="inspire">KEEP <br> CALM <br> AND <br> BREATHE</p>

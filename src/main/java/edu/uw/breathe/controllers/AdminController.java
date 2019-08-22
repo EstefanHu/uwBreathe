@@ -123,7 +123,7 @@ public class AdminController {
 	public String practice(Model model, @ModelAttribute("createPractice") Practice practice) {
 		List<Practice> practices = practiceService.findAllPractices();
 		model.addAttribute("practices", practices);
-		return "Admin/restPractice.jsp";
+		return "Admin/practice.jsp";
 	}
 	@RequestMapping("/practice/{id}")
 	public String practice(Model model, @PathVariable("id") Long id, @ModelAttribute("createPractice") Practice createPractice, 
@@ -138,13 +138,13 @@ public class AdminController {
 		model.addAttribute("practices", practices);
 		model.addAttribute("practice", practice);
 		model.addAttribute("updatePractice", practice);
-		return "Admin/restPractice.jsp";
+		return "Admin/practice.jsp";
 	}
 	
 	@RequestMapping("/createNewPractice")
 	public String createNewPractice(@Valid @ModelAttribute("newPractice") Practice newPractice, HttpSession sessions) {
 		practiceService.addPractice(newPractice);
-		return "redirect:/admin/restPractice/";
+		return "redirect:/admin/practice/";
 	}
 	
 	@RequestMapping(value="/updatePractice/{id}", method=RequestMethod.PUT)
@@ -152,7 +152,7 @@ public class AdminController {
 			HttpSession sessions) {
 		Long practiceId = (Long)sessions.getAttribute("practiceId");
 		practiceService.updatePractice(id, practice);
-		return "redirect:/admin/restPractice/" + practiceId;
+		return "redirect:/admin/practice/" + practiceId;
 	}
 	
 	@RequestMapping(value="/deletePractice/{id}", method=RequestMethod.DELETE)
