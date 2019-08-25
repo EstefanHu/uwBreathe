@@ -21,3 +21,4 @@ Class project for Informatics 360 at the University of Washington
 1. **JDK 12** - www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html - Choose .dmg for macOS and .exe for Windows
 2. _For Mac/Linux users_ **Homebrew** - brew.sh - Package manager for easy/fast installs
 3. **Maven** - _For Mac/Linux:_ In terminal run 'brew install maven' _For Windows_ https://www.mkyong.com/maven/how-to-install-maven-in-windows/ - Package manager for Spring Boot
+4. **MySQL** - _For Mac/Linux_ In terminal run 'brew install sql' then 'brew services start mysql' This will spin up a local server instance. To stop run 'brew services stop mysql'. To set up server admin access run 'mysqladmin -u root password "root"' this will set your sql user to root and the password to root. _change at your own risk_. 
