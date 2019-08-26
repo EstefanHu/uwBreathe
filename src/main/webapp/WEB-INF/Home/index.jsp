@@ -47,13 +47,15 @@
 							<h1 class="greetings">Lets Take Some Action</h1>
 						</c:otherwise>
 					</c:choose>
-					<div class="themebarGrid">
+					<div class="themebarGrid" >
 						<c:forEach items="${themedNodes}" var="node">
-							<a href="/location/${node.getId()}">
-								<div class="themeBarItem center">
+						<a href="/location/${node.getId()}">
+							<div class="themebarItem" style="background-image: url(imgs/<c:out value='${node.photo}'/>);">
+								<p>
 									<c:out value="${node.title}" />
-								</div>
-							</a>
+								</p>
+							</div>
+						</a>
 						</c:forEach>
 					</div>
 				</c:when>
