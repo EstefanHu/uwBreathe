@@ -143,7 +143,15 @@
                                 </p>
                                 <p>
                                     <form:label path="theme">Theme:</form:label>
-                                    <form:input path="theme" value="${currentNode.theme}" />
+                                    <form:select path="theme">
+                                        <option disabled selected value>--</option>                                        
+                                        <option value="Creative">Be Creative</option>
+                                        <option value="Generative">Personal Visualization</option>
+                                        <option value="Stillness">Relax and Restore</option>
+                                        <option value="Relational">Restoring Through Others</option>
+                                        <option value="Movement">Wake up Your Body</option>
+                                        <option value="Ritual">Habitual Reflection</option>
+                                    </form:select>
                                 </p>
                                 <p>
                                     <form:label path="description">Description</form:label>
@@ -183,7 +191,7 @@
             </div>
             </c:when>
             <c:when test="${createNode != null}">
-                <div class="">
+                <div class="manageFeedStyle">
                     <h1 class="centerText">Create <br> Location</h1>
                     <p>
                         <form:errors path="createNode.*" />
@@ -195,7 +203,15 @@
                         </p>
                         <p>
                             <form:label path="theme">Theme:</form:label>
-                            <form:input path="theme" />
+                            <form:select path="theme">
+                                <option disabled selected value>--</option>
+                                <option value="Creative">Be Creative</option>
+                                <option value="Generative">Personal Visualization</option>
+                                <option value="Stillness">Relax and Restore</option>
+                                <option value="Relational">Restoring Through Others</option>
+                                <option value="Movement">Wake up Your Body</option>
+                                <option value="Ritual">Habitual Reflection</option>
+                            </form:select>
                         </p>
                         <p>
                             <form:label path="description">Description:</form:label>
