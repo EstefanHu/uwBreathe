@@ -21,6 +21,7 @@
 }
 .locationTitle {
     grid-area: locationTitle;
+    white-space: nowrap;
 }
 .locationTheme {
     grid-area: locationTheme;
