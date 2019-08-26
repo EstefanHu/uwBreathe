@@ -44,6 +44,14 @@
     font-size: 1em;
     padding: 0 5px;
 }
+.form > p > select {
+    border: 1px solid lightgrey;
+    width: 107%;
+    height: 30px;
+    font-size: 1em;
+    padding: 0 5px;
+    border-radius: 20;
+}
 .form > input {
     margin-top: 10px;
     padding: 8px 0;
