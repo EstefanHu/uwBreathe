@@ -57,14 +57,6 @@ public class HomeController {
 		return "Home/practice.jsp";
 	}
 	
-	@RequestMapping("/profile")
-	public String profile() {
-		return "Home/profile.jsp";
-	}
-	
-//	
-//	TODO: Update profile information
-//	
 	@RequestMapping("/logout")
 	public String logout() {
 		return "redirect:/login/";
