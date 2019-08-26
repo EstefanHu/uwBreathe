@@ -19,6 +19,11 @@
     display: block;
     margin: 5px auto;
 }
+.backLink {
+    color: blue;
+    text-decoration: none;
+    margin-left: 15px;
+}
 .greetings {
     margin: 5px 20px;
 }

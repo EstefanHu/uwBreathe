@@ -23,6 +23,7 @@
 			<img src="imgs/site/downarrow.png" class="downarrow centerText">
 			<c:choose>
 				<c:when test="${themedNodes.size() != null}">
+					<a href="/" class="backLink">Back</a>
 					<c:choose>
 						<c:when test="${theme.equals('Stillness')}">
 							<h1 class="greetings">Relax and Restore</h1>
