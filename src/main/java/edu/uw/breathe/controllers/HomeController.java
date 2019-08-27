@@ -39,13 +39,26 @@ public class HomeController {
 		return "Home/index.jsp";
 	}
 	
+	@RequestMapping("/locationCheck/{id}/{check}")
+	public String locationCheck(@PathVariable("id") Long id, @PathVariable("check") int check) {
+		if(check == 1) return "redirect:/locationMobile/" + id;
+		if(check == 0) return "redirect:/location/" + id;
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/location/{id}")
 	public String location(@PathVariable("id") Long id, HttpSession session, Model model) {
 		Node chosenNode = nodeService.findNodeById(id);
 		session.setAttribute("nodeId", id);
-		List<Practice> practices = chosenNode.getPractices();
+		model.addAttribute("chosenNode", chosenNode);
+		return "Home/index.jsp";
+	}
+	
+	@RequestMapping("/locationMobile/{id}")
+	public String locationMobile(@PathVariable("id") Long id, HttpSession session, Model model) {
+		Node chosenNode = nodeService.findNodeById(id);
+		session.setAttribute("nodeId", id);
 		model.addAttribute("node", chosenNode);
-		model.addAttribute("practices", practices);
 		return "Home/location.jsp";
 	}
 	
