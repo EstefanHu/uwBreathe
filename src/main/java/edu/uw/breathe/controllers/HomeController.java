@@ -59,7 +59,7 @@ public class HomeController {
 		Node chosenNode = nodeService.findNodeById(id);
 		session.setAttribute("nodeId", id);
 		model.addAttribute("node", chosenNode);
-		return "Home/location.jsp";
+		return "Home/locationMobile.jsp";
 	}
 	
 	@RequestMapping("/practice/{id}")
