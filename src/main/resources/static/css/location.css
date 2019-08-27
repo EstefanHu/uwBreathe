@@ -85,3 +85,13 @@ h3 {
         margin: 10px 100px;
     }
 }
+@media screen and (max-width: 600px) {
+    #mapid {
+        display: none;
+    }
+    .themeBar {
+        top: 0;
+        border: none;
+        box-shadow: none;
+    }
+}
