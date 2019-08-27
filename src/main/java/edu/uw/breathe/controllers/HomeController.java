@@ -36,7 +36,7 @@ public class HomeController {
 		if (themedNodes.size() == 0) return "redirect:/";
 		model.addAttribute("theme", theme);
 		model.addAttribute("themedNodes", themedNodes);
-		return "Home/index.jsp";
+		return "Home/theme.jsp";
 	}
 	
 	@RequestMapping("/locationCheck/{id}/{check}")
