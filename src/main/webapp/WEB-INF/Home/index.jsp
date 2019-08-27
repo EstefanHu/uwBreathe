@@ -49,7 +49,7 @@
 					</c:choose>
 					<div class="themebarGrid" >
 						<c:forEach items="${themedNodes}" var="node">
-						<a href="/location/${node.getId()}">
+						<a href="/locationCheck/${node.getId()}/0">
 							<div class="themebarItem" style="background-image: url(imgs/<c:out value='${node.photo}'/>);">
 								<p>
 									<c:out value="${node.title}" />
@@ -59,22 +59,60 @@
 						</c:forEach>
 					</div>
 				</c:when>
+				<c:when test="${chosenNode.getId() != null}">
+					<a href="/<c:out value='${chosenNode.theme}'/>" class="backToLocations">Locations</a>
+					<h1 class="locationTitle"><c:out value="${chosenNode.title}"/></h1>
+					<div class="locationImg">
+						<div class="imageOverlay">
+							<img src="/imgs/<c:out value='${chosenNode.photo}'/>">
+						</div>
+						<div class="locationDescription">
+							<p><c:out value="${chosenNode.description}" /></p>
+						</div>
+					</div>
+					<div class="directionButton centerText">
+						<a href="<c:out value='${chosenNode.navigationUrl}'/>">
+							<button class="getDirections">Start directions</button>	
+						</a>
+					</div>
+					<div class="locationsPractices">
+						<hr>
+						<p class="availableP">Available Practice</p>
+						<div class="itemHolder">
+						<c:forEach items="${chosenNode.getPractices()}" var="practice">
+							<a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
+								<div class="practiceItem centerText">
+									<h3>B</h3>
+									<p><c:out value="${practice.title}" /></p>
+								</div>
+							</a>
+						</c:forEach>
+						</div>
+					</div>
+				</c:when>
 				<c:otherwise>
 					<h1 class="greetings">Good morning. <br>Pick a theme to explore!</h1>
 					<div class="themebarGrid">
-						<a href="/Stillness"><img src="imgs/site/Stillness.png" /></a>
-						<a href="/Generative"><img src="imgs/site/Generative.png" /></a>
-						<a href="/Creative"><img src="imgs/site/Creative.png" /></a>
-						<a href="/Relational"><img src="imgs/site/Relational.png" /></a>
-						<a href="/Movement"><img src="imgs/site/Movement.png" /></a>
-						<a href="/Ritual"><img src="imgs/site/Ritual.png" /></a>
+						<a href="/Stillness"><img src="/imgs/site/Stillness.png" /></a>
+						<a href="/Generative"><img src="/imgs/site/Generative.png" /></a>
+						<a href="/Creative"><img src="/imgs/site/Creative.png" /></a>
+						<a href="/Relational"><img src="/imgs/site/Relational.png" /></a>
+						<a href="/Movement"><img src="/imgs/site/Movement.png" /></a>
+						<a href="/Ritual"><img src="/imgs/site/Ritual.png" /></a>
 					</div>
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="js/map.js"></script>
+<c:choose>
+<c:when test="${chosenNode.getId() != null}">
+	<script type="text/javascript" src="/js/zoomMap.js" lat="${chosenNode.latitude}" lon="${chosenNode.longitude}"></script>
+</c:when>
+<c:otherwise>
+	<script type="text/javascript" src="/js/map.js"></script>
+</c:otherwise>
+</c:choose>
 <c:if test="${themedNodes.size() != null}">
 	<c:forEach items="${themedNodes}" var="node">
 		<script>
@@ -85,6 +123,15 @@
 				).addTo(mymap);
 		</script>
 	</c:forEach>
+</c:if>
+<c:if test="${chosenNode.getId() != null}">
+	<script>
+		var marker = L.marker(['${chosenNode.latitude}', '${chosenNode.longitude}']).bindPopup(
+			'<p><c:out value="${chosenNode.title}" /></p>' + 
+			'<img src="/imgs/<c:out value="${chosenNode.photo}"/>" alt="">' +
+			'<p><c:out value="${chosenNode.theme}" /></p>'
+			).addTo(mymap);
+	</script>
 </c:if>
 </body>
 </html>
