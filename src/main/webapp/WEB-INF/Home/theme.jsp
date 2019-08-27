@@ -47,7 +47,7 @@
             </c:choose>
             <div class="themebarGrid" >
                 <c:forEach items="${themedNodes}" var="node">
-                <a href="/locationCheck/${node.getId()}/0">
+                <a href="/location/${node.getId()}">
                     <div class="themebarItem" style="background-image: url(imgs/<c:out value='${node.photo}'/>);">
                         <p>
                             <c:out value="${node.title}" />
