@@ -59,37 +59,6 @@
 						</c:forEach>
 					</div>
 				</c:when>
-				<c:when test="${chosenNode.getId() != null}">
-					<a href="/<c:out value='${chosenNode.theme}'/>" class="backToLocations">Locations</a>
-					<h1 class="locationTitle"><c:out value="${chosenNode.title}"/></h1>
-					<div class="locationImg">
-						<div class="imageOverlay">
-							<img src="/imgs/<c:out value='${chosenNode.photo}'/>">
-						</div>
-						<div class="locationDescription">
-							<p><c:out value="${chosenNode.description}" /></p>
-						</div>
-					</div>
-					<div class="directionButton centerText">
-						<a href="<c:out value='${chosenNode.navigationUrl}'/>">
-							<button class="getDirections">Start directions</button>	
-						</a>
-					</div>
-					<div class="locationsPractices">
-						<hr>
-						<p class="availableP">Available Practice</p>
-						<div class="itemHolder">
-						<c:forEach items="${chosenNode.getPractices()}" var="practice">
-							<a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
-								<div class="practiceItem centerText">
-									<h3>B</h3>
-									<p><c:out value="${practice.title}" /></p>
-								</div>
-							</a>
-						</c:forEach>
-						</div>
-					</div>
-				</c:when>
 				<c:otherwise>
 					<h1 class="greetings">Good morning. <br>Pick a theme to explore!</h1>
 					<div class="themebarGrid">
@@ -105,14 +74,7 @@
 		</div>
 	</div>
 </div>
-<c:choose>
-<c:when test="${chosenNode.getId() != null}">
-	<script type="text/javascript" src="/js/zoomMap.js" lat="${chosenNode.latitude}" lon="${chosenNode.longitude}"></script>
-</c:when>
-<c:otherwise>
-	<script type="text/javascript" src="/js/map.js"></script>
-</c:otherwise>
-</c:choose>
+<script type="text/javascript" src="/js/map.js"></script>
 <c:if test="${themedNodes.size() != null}">
 	<c:forEach items="${themedNodes}" var="node">
 		<script>
