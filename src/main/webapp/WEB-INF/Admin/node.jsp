@@ -144,7 +144,7 @@
                                 <p>
                                     <form:label path="theme">Theme:</form:label>
                                     <form:select path="theme">
-                                        <option disabled selected value>--</option>                                        
+                                        <option disabled selected value="${currentNode.theme}">--</option>                                        
                                         <option value="Creative">Be Creative</option>
                                         <option value="Generative">Personal Visualization</option>
                                         <option value="Stillness">Relax and Restore</option>
