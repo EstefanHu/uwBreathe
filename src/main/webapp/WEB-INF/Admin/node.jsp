@@ -144,7 +144,26 @@
                                 <p>
                                     <form:label path="theme">Theme:</form:label>
                                     <form:select path="theme">
-                                        <option disabled selected value="${currentNode.theme}">--</option>                                        
+                                        <c:choose>
+                                            <c:when test="${currentNode.theme.equals('Creative')}">
+                                                <option selected value="Creative">Be Creative</option>
+                                            </c:when>
+                                            <c:when test="${currentNode.theme.equals('Generative')}">
+                                                <option selected value="Generative">Personal Visualization</option>
+                                            </c:when>
+                                            <c:when test="${currentNode.theme.equals('Stillness')}">
+                                                <option selected value="Stillness">Relax and Restore</option>
+                                            </c:when>
+                                            <c:when test="${currentNode.theme.equals('Relational')}">
+                                                <option selected value="Relational">Restoring Through Others</option>
+                                            </c:when>
+                                            <c:when test="${currentNode.theme.equals('Movement')}">
+                                                <option selected value="Movement">Wake Up Your Body</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option selected value="Ritual">Habitual Reflection</option>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <option value="Creative">Be Creative</option>
                                         <option value="Generative">Personal Visualization</option>
                                         <option value="Stillness">Relax and Restore</option>
