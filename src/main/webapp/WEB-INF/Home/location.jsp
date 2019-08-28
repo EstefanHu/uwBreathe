@@ -21,29 +21,26 @@
 	<div class="mainContent">
 		<div class="themeBar">
             <a href="/<c:out value='${chosenNode.theme}'/>" class="backToLocations">Locations</a>
-            <h1 class="locationTitle"><c:out value="${chosenNode.title}"/></h1>
-            <div class="locationImg">
-                <div class="imageOverlay">
-                    <img src="/imgs/<c:out value='${chosenNode.photo}'/>">
-                </div>
-                <div class="locationDescription">
-                    <p><c:out value="${chosenNode.description}" /></p>
-                </div>
+            <h1 class="greetings"><c:out value="${chosenNode.title}"/></h1>
+            <div class="locationImg" style="background-image: linear-gradient(transparent 65%, rgba(83, 157, 255) 100%), url(/imgs/<c:out value='${chosenNode.photo}'/>)">
+                <p class="locationDescription"><c:out value="${chosenNode.description}" /></p>
             </div>
             <div class="directionButton centerText">
                 <a href="<c:out value='${chosenNode.navigationUrl}'/>">
-                    <button class="getDirections">Start directions</button>	
+                    <button class="getDirections">Start Directions</button>	
                 </a>
             </div>
             <div class="locationsPractices">
                 <hr>
-                <p class="availableP">Available Practice</p>
+                <p>Available Practices</p>
                 <div class="itemHolder">
                 <c:forEach items="${chosenNode.getPractices()}" var="practice">
                     <a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
                         <div class="practiceItem centerText">
-                            <h3>B</h3>
-                            <p><c:out value="${practice.title}" /></p>
+                            <h1 class="logoHolder">B</h1>
+                            <span>
+                                <p><c:out value="${practice.title}" /></p>
+                            </span>
                         </div>
                     </a>
                 </c:forEach>
