@@ -1,4 +1,3 @@
-
 var modalUpdate = document.getElementById("updateLocationModal");
 var btnUpdate = document.getElementById("updateLocationButton");
 var spanUpdate = document.getElementsByClassName("close")[0];

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -42,6 +43,9 @@ public class Practice {
         inverseJoinColumns = @JoinColumn(name = "node_id")
     )
     private List<Node> nodes;
+    
+    @OneToMany(mappedBy="practice", fetch=FetchType.LAZY)
+    private List<Comment> comments;
 	
 	public Practice() {}
 	
@@ -68,6 +72,18 @@ public class Practice {
 	
 	public void setDescription(String desc) {
 		this.description = desc;
+	}
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+	
+	public void addComment(Comment comment) {
+		this.comments.add(comment);
+	}
+	
+	public void removeComment(Comment comment) {
+		this.comments.remove(comment);
 	}
 	
 	public Date getCreatedAt() {
