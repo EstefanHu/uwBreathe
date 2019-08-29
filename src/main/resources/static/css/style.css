@@ -75,8 +75,8 @@ img {
     }
     .mainContent {
         position: absolute;
-        top: 1vh;
-        left: 1.5vh;
+        top: 10px;
+        left: 15px;
         height: 80%;
         width: 300px;
     }
