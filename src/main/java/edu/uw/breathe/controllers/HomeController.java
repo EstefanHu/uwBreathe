@@ -42,7 +42,7 @@ public class HomeController {
 	@RequestMapping("/location/{id}")
 	public String location(@PathVariable("id") Long id, HttpSession session, Model model) {
 		Node chosenNode = nodeService.findNodeById(id);
-		session.setAttribute("nodeId", id);
+		session.setAttribute("chosenNode", chosenNode);
 		model.addAttribute("chosenNode", chosenNode);
 		return "Home/location.jsp";
 	}
@@ -50,7 +50,8 @@ public class HomeController {
 	@RequestMapping("/practice/{id}")
 	public String practice(@PathVariable("id") Long id, HttpSession session, Model model) {
 		Practice thisPractice = practiceService.findPracticeById(id);
-		session.setAttribute("practiceId", id);
+		Node chosenNode = (Node) session.getAttribute("chosenNode");
+		model.addAttribute("chosenNode", chosenNode);
 		model.addAttribute(thisPractice);
 		return "Home/practice.jsp";
 	}

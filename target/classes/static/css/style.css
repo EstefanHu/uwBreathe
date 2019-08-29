@@ -13,6 +13,11 @@
 	height: 100vh;
 	width: 100vw;
 }
+.back {
+    margin: 7px 0 0 10px;
+    text-decoration: none;
+    color: blue;
+}
 #mapid {
 	height: 100vh;
     z-index: 0;
@@ -34,11 +39,6 @@
     display: block;
     margin: 5px auto;
 }
-.backLink {
-    color: blue;
-    text-decoration: none;
-    margin-left: 15px;
-}
 .greetings {
     margin: 5px 20px;
 }
@@ -51,11 +51,15 @@
 .themebarGrid > a {
     text-decoration: none;
 }
+.themebarGrid > a > img{
+    border-radius: 40px;
+    box-shadow: 1px 1px 6px grey;
+}
 .themebarItem {
     background-size: cover;
-    height: 145px;
+    height: 150px;
     width: 100%;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 1px 1px 6px grey;
 }
 .themebarItem p {

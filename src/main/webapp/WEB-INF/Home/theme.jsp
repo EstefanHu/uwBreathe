@@ -20,7 +20,7 @@
 	<div class="mainContent">
 		<div class="themeBar">
 			<img src="imgs/site/downarrow.png" class="downarrow centerText">
-            <a href="/" class="backLink">Themes</a>
+            <a href="/" class="back">Themes</a>
             <c:choose>
                 <c:when test="${theme.equals('Stillness')}">
                     <h1 class="greetings">Relax and Restore</h1>

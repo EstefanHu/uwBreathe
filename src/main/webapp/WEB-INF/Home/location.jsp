@@ -20,7 +20,7 @@
 	<div id="mapid"></div>
 	<div class="mainContent">
 		<div class="themeBar">
-            <a href="/<c:out value='${chosenNode.theme}'/>" class="backToLocations">Locations</a>
+            <a href="/<c:out value='${chosenNode.theme}'/>" class="back">Locations</a>
             <h1 class="greetings"><c:out value="${chosenNode.title}"/></h1>
             <div class="locationImg" style="background-image: linear-gradient(transparent 65%, rgba(83, 157, 255) 100%), url(/imgs/<c:out value='${chosenNode.photo}'/>)">
                 <p class="locationDescription"><c:out value="${chosenNode.description}" /></p>
@@ -30,13 +30,13 @@
                     <button class="getDirections">Start Directions</button>	
                 </a>
             </div>
-            <div class="locationsPractices">
+            <div class="detailHolder">
                 <hr>
-                <p>Available Practices</p>
+                <h4>Available Practices</h4>
                 <div class="itemHolder">
                 <c:forEach items="${chosenNode.getPractices()}" var="practice">
                     <a href="/practice/<c:out value='${practice.getId()}'/>" class="practiceWrapper">
-                        <div class="practiceItem centerText">
+                        <div class="heldItem centerText">
                             <h1 class="logoHolder">B</h1>
                             <span>
                                 <p><c:out value="${practice.title}" /></p>

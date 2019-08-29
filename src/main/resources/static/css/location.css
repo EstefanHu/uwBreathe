@@ -1,8 +1,3 @@
-.backToLocations {
-    margin: 7px 0 0 10px;
-    text-decoration: none;
-    color: blue;
-}
 .locationImg {
     background-size: cover;
     width: 100%;
@@ -25,11 +20,37 @@
     margin-top: 15px;
     font-size: .8em;
 }
-.locationsPractices {
+.practiceDescription {
+    margin: 5px 0 0 10px;
+}
+.detailHolder {
     padding: 15px;
 }
-.locationsPractices > p {
+.detailHolder > h4 {
     margin: 10px 0 15px 5px;
+}
+.createComment {
+    border: 1px solid rgb(83, 157, 255);
+    float: right;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    border-radius: 15px;
+    color: rgb(83, 157, 255);
+    position: relative;
+}
+.createComment:hover {
+    cursor: pointer;
+}
+.createComment:hover,
+.createComment:focus {
+    border: 1px solid rgb(83, 109, 255);
+    color: rgb(83, 109, 255);
+}
+.createComment p {
+    position: absolute;
+    top: -2px;
+    left: 3px;
 }
 .itemHolder {
     display: grid;
@@ -40,18 +61,18 @@
     text-decoration: none;
     color: black;
 }
-.practiceItem {
+.heldItem {
     box-shadow: 1px 1px 6px grey;
-    border-radius: 30px;
+    border-radius: 40px;
     padding: 20px;
     box-sizing: border-box;
-    height: 145px;
+    height: 150px;
     position: relative;
 }
 .logoHolder {
     margin-top: 15px;
 }
-.practiceItem > span {
+.heldItem > span {
     position: absolute;
     bottom: 25px;
     width: 100%;
