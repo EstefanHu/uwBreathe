@@ -23,6 +23,8 @@ public class Comment {
 	private Long commentId;
 	private String commenter;
 	private String content;
+	private String steps;
+	private int isVarified;
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -33,9 +35,11 @@ public class Comment {
     private Practice practice;
     
     public Comment() {}
-    public Comment(String commenter, String content) {
+    public Comment(String commenter, String content, String steps) {
     	this.commenter = commenter;
     	this.content = content;
+    	this.steps = steps;
+    	this.isVarified = 0;
     }
     
     public String getCommenter() {
@@ -52,6 +56,22 @@ public class Comment {
     
     public void setcontent(String content) {
     	this.content = content;
+    }
+    
+    public String getSteps() {
+    	return steps;
+    }
+    
+    public void setSteps(String steps) {
+    	this.steps = steps;
+    }
+    
+    public int getIsVarified() {
+    	return isVarified;
+    }
+    
+    public void setIsVarfied(int isV) {
+    	this.isVarified = isV;
     }
     
     public void setPractice(Practice practice) {
