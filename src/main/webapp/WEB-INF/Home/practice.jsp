@@ -32,7 +32,11 @@
             
             <h4>Notes from Students <span class="createComment" id="comment"><p>+</p></span></h4>
             <div class="itemHolder">
-
+                <c:foreach items="${practice.getComments()}" value="comment">
+                    <div class="heldItem">
+                        <p><c:out value="${commet.content}"/></p>
+                    </div>
+                </c:foreach>
             </div>
             <div class="modalHolder">
                 <div id="updateLocationModal" class="modal">

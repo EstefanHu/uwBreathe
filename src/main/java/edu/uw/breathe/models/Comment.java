@@ -54,6 +54,10 @@ public class Comment {
     	this.content = content;
     }
     
+    public void setPractice(Practice practice) {
+    	this.practice = practice;
+    }
+    
     public Date getCreatedAt( ) {
     	return createdAt;
     }
