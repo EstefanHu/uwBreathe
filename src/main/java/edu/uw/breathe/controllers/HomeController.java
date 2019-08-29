@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.uw.breathe.models.Comment;
 import edu.uw.breathe.models.Node;
 import edu.uw.breathe.models.Practice;
 import edu.uw.breathe.services.NodeService;
@@ -48,9 +50,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/practice/{id}")
-	public String practice(@PathVariable("id") Long id, HttpSession session, Model model) {
+	public String practice(@PathVariable("id") Long id, HttpSession session, Model model, @ModelAttribute("createComment") Comment createComment) {
 		Practice thisPractice = practiceService.findPracticeById(id);
 		Node chosenNode = (Node) session.getAttribute("chosenNode");
+		List<Comment> comments = thisPractice.getComments();
+		model.addAttribute("comments", comments);
 		model.addAttribute("chosenNode", chosenNode);
 		model.addAttribute(thisPractice);
 		return "Home/practice.jsp";

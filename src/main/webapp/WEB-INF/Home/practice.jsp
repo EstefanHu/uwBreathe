@@ -42,7 +42,7 @@
                         <p>
                             <form:errors path="updateNode.*" />
                         </p>
-                        <form:form method="POST" action="/createComment" modelAttribute="comment" class="form">
+                        <form:form method="POST" action="/createComment" modelAttribute="createComment" class="form">
                             <p>
                                 <form:label path="commenter">Name:</form:label>
                                 <form:input path="commenter" />

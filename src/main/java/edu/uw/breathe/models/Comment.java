@@ -21,6 +21,7 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long commentId;
+	private String commenter;
 	private String content;
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -32,9 +33,19 @@ public class Comment {
     private Practice practice;
     
     public Comment() {}
-    public Comment(String content) {
+    public Comment(String commenter, String content) {
+    	this.commenter = commenter;
     	this.content = content;
     }
+    
+    public String getCommenter() {
+    	return commenter;
+    }
+    
+    public void setCommenter(String commenter) {
+    	this.commenter = commenter;
+    }
+    
     public String getContent() {
     	return content;
     }
