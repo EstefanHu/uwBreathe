@@ -31,12 +31,13 @@
             <h4>Practice Steps</h4>
             
             <h4>Notes from Students <span class="createComment" id="comment"><p>+</p></span></h4>
-            <div class="itemHolder">
-                <c:foreach items="${practice.getComments()}" value="comment">
-                    <div class="heldItem">
-                        <p><c:out value="${commet.content}"/></p>
+            <div class="commentHolder">
+                <c:forEach items="${practice.getComments()}" var="comment">
+                    <div class="heldComment">
+                        <p>"<c:out value="${comment.content}"/>"</p>
+                        <h5>-<c:out value="${comment.commenter}"/></h5>
                     </div>
-                </c:foreach>
+                </c:forEach>
             </div>
             <div class="modalHolder">
                 <div id="updateLocationModal" class="modal">

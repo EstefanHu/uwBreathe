@@ -78,6 +78,20 @@
     width: 100%;
     left: 0;
 }
+.commentHolder {
+    width: 100%;
+    height: auto;
+}
+.heldComment {
+    margin-bottom: 30px;
+}
+.heldComment > p {
+    font-size: 1.1em;
+    color: black;
+}
+.heldComment > h5 {
+    float: right;
+}
 @media screen and (max-width: 600px) {
     #mapid {
         display: none;
