@@ -41,7 +41,7 @@ public class AdminController {
 		List<Node> nodes = nodeService.findAllNodes();
 		model.addAttribute("nodes", nodes);
 		model.addAttribute("practices", practices);
-		return "Admin/control.jsp";
+		return "Admin/statistics.jsp";
 	}
 // Node Logic
 	@RequestMapping("/node")

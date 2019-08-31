@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/admin/control.css" />
 	<link rel="stylesheet" type="text/css" href="/css/admin/table.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-	<title>Control</title>
+	<title>Statistics</title>
 </head>
 
 <body>

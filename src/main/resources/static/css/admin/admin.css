@@ -35,6 +35,9 @@ a:hover {
     padding-top: 25px;
     z-index: 3;
 }
+.adminNav div {
+    margin-top: 10px;
+}
 .navItem {
     color: white;
     font-weight: bold;
