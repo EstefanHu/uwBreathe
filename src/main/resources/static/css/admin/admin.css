@@ -99,8 +99,10 @@ a:hover {
 .inspire {
     color: var(--site-background);
     font-size: 7em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Josefin Sans', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-left: 30px;
+    margin-top: 20px;
+    opacity: 0.6;
 }
 .splash {
     width: 100%;

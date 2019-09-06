@@ -31,6 +31,7 @@
 .locationImage {
     grid-area: locationImage;
     width: 100%;
+    margin: 10px;
 }
 .locationDescription {
     grid-area: locationDescription;
@@ -74,6 +75,7 @@
     grid-template-areas:
     "practiceTable addedPracticeTable"
     "toPractices toPractices";
+    margin-top: 20px;
 }
 .practiceTable {
     grid-area: practiceTable;
